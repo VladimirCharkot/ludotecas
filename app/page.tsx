@@ -1,5 +1,3 @@
-import { redirect } from "next/navigation";
-
 export default function Home() {
-  redirect("https://linktr.ee/ludotecas");
+  return <div className="min-h-screen">Hola</div>
 }
