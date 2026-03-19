@@ -1,17 +1,43 @@
+import { createTheme, MantineProvider } from "@mantine/core"
 import "@mantine/core/styles.css"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import {
+  Barriecito,
+  Barrio,
+  Poppins,
+  Roboto,
+  Roboto_Mono,
+} from "next/font/google"
 import "./globals.css"
-import { createTheme, MantineProvider } from "@mantine/core"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const barrio = Barrio({
+  variable: "--font-barrio",
   subsets: ["latin"],
+  weight: "400",
 })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const barriecito = Barriecito({
+  variable: "--font-barriecito",
   subsets: ["latin"],
+  weight: "400",
+})
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: "400",
+})
+
+const roboto = Roboto({
+  variable: "--font-roboto",
+  subsets: ["latin"],
+  weight: "400",
+})
+
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
+  subsets: ["latin"],
+  weight: "400",
 })
 
 export const metadata: Metadata = {
@@ -37,7 +63,10 @@ export const metadata: Metadata = {
 }
 
 const theme = createTheme({
-  /** Put your mantine theme override here */
+  fontFamily: "var(--font-poppins), sans-serif",
+  headings: {
+    fontFamily: "var(--font-barrio), cursive",
+  },
 })
 
 export default function RootLayout({
@@ -46,10 +75,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${barrio.variable} ${barriecito.variable} ${poppins.variable} ${roboto.variable} ${robotoMono.variable} antialiased`}
+    >
+      <body>
         <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
     </html>
