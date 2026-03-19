@@ -9,7 +9,7 @@ interface Props {
 
 function Reparticion({ pie, titulo }: Props) {
   return (
-    <div className="flex flex-col gap-0 w-max max-w-3xs justify-end">
+    <div className={cn("flex flex-col gap-0 w-max max-w-3xs justify-end")}>
       <p className="font-poppins text-base uppercase">{pie}</p>
       <h3 className="font-poppins leading-5 text-lg font-bold uppercase">
         {titulo}

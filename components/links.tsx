@@ -51,8 +51,8 @@ const HomeLink = (link: (typeof links)[number]) => (
     className="hover:translate-x-1 transition-transform font-barriecito"
     styles={{
       label: {
-        whiteSpace: "normal", // 3. Force the inner text to wrap
-        textAlign: "left", // 4. Keep it flush left when it breaks to line 2
+        whiteSpace: "normal", // Force the inner text to wrap
+        textAlign: "left", // Keep it flush left when it breaks to line 2
       },
     }}
   >

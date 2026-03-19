@@ -6,9 +6,11 @@ import {
   Barrio,
   Poppins,
   Roboto,
-  Roboto_Mono,
-} from "next/font/google"
+  Roboto_Mono, Inter } from "next/font/google"
 import "./globals.css"
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const barrio = Barrio({
   variable: "--font-barrio",
@@ -77,7 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${barrio.variable} ${barriecito.variable} ${poppins.variable} ${roboto.variable} ${robotoMono.variable} antialiased`}
+      className={cn("antialiased", barrio.variable, barriecito.variable, poppins.variable, roboto.variable, robotoMono.variable, "font-sans", inter.variable)}
     >
       <body>
         <MantineProvider theme={theme}>{children}</MantineProvider>
