@@ -1,53 +1,93 @@
+"use client"
+
+import LinksPortada from "@/components/links"
 import {
-  AppShell,
-  AppShellFooter,
-  AppShellHeader,
-  AppShellMain,
-  Center,
-  Group,
-  Stack,
-  Text,
-  Title,
-} from "@mantine/core"
-import Image from "next/image"
+  LogoDireccion,
+  LogoMinisterio,
+  LogoProvincia,
+  LogoSecretaria,
+  LogoSubdireccion,
+} from "@/components/reparticiones"
 import Logo from "@/public/logo.png"
+import Separador from "@/public/separador.png"
+import { Box, Center, Flex, Group, Stack, Text, Title } from "@mantine/core"
+import Image from "next/image"
 
 export default function Home() {
   return (
-    <AppShell header={{ height: 100 }} footer={{ height: 60 }} padding="md">
-      <AppShellHeader
+    <Flex direction="column" mih="100vh">
+      {/* --- HEADER --- */}
+      <Box
+        component="header"
         bg="var(--fondo)"
         style={{ borderBottom: "1px solid var(--color-brand-rojo)" }}
+        p="lg"
       >
         <Center>
-          <Group>
+          <Group wrap="nowrap">
             <Image
               src={Logo}
               width={256}
               height={256}
-              className="h-24 w-24"
+              className="h-16 md:h-24 w-16 md:w-24"
               alt="Logo Ludotecas, Ajedrez y Go"
             />
             <Stack gap={2} py={16}>
-              <Text fw={700} size="1.2rem" c="dimmed">
+              <Text fw={700} fz={{ base: "0.9rem", sm: "1.2rem" }} c="dimmed">
                 PROGRAMA
               </Text>
-              <Title order={1}>Ludotecas, Ajedrez y Go</Title>
+              <Title
+                fz={{ base: "1.5rem", sm: "2.5rem" }}
+                lh={{ base: 1.0, sm: 1.5 }}
+                order={1}
+              >
+                Ludotecas, Ajedrez y Go
+              </Title>
             </Stack>
           </Group>
         </Center>
-      </AppShellHeader>
+      </Box>
 
-      <AppShellMain>
-        {/* Your content here */}
-        <Text>Contenido principal</Text>
-      </AppShellMain>
+      {/* --- MAIN CONTENT --- */}
+      {/* flex={1} is the key here. It forces this container to grow and push the footer down. */}
+      <Box component="main" flex={1} p="md" py="xl">
+        <LinksPortada />
+      </Box>
 
-      <AppShellFooter p="md" bg="var(--color-brand-azul)" c="white">
-        <Text size="sm" ta="center">
-          Ministerio de Educación de la Provincia de Córdoba
-        </Text>
-      </AppShellFooter>
-    </AppShell>
+      {/* --- FOOTER --- */}
+      <Box
+        component="footer"
+        bg="var(--color-brand-azul)"
+        c="white"
+        className="relative mt-8"
+      >
+        {/* Separator Area */}
+        <Box className="relative">
+          <Image
+            src={Separador}
+            alt="Separador"
+            className="absolute bottom-full left-0 w-full translate-y-2"
+          />
+        </Box>
+
+        {/* Logos Area */}
+        <Box p="lg">
+          <Center>
+            <Flex
+              direction={{ base: "column", sm: "row" }}
+              gap="md"
+              justify="space-between"
+              align={{ base: "start", sm: "flex-end" }}
+            >
+              <LogoSubdireccion />
+              <LogoDireccion />
+              <LogoSecretaria />
+              <LogoMinisterio />
+              <LogoProvincia />
+            </Flex>
+          </Center>
+        </Box>
+      </Box>
+    </Flex>
   )
 }

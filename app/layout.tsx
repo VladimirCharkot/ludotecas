@@ -25,7 +25,7 @@ const barriecito = Barriecito({
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "700"],
 })
 
 const roboto = Roboto({
