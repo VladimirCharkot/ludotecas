@@ -2,6 +2,7 @@
 
 import LinksPortada from "@/components/links"
 import {
+  LogoBienCba,
   LogoDireccion,
   LogoMinisterio,
   LogoProvincia,
@@ -79,6 +80,7 @@ export default function Home() {
               justify="space-between"
               align={{ base: "start", sm: "flex-end" }}
             >
+              <LogoBienCba />
               <LogoSubdireccion />
               <LogoDireccion />
               <LogoSecretaria />
