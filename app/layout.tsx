@@ -1,5 +1,6 @@
 import { createTheme, MantineProvider } from "@mantine/core"
 import "@mantine/core/styles.css"
+import { GoogleAnalytics } from "@next/third-parties/google"
 import type { Metadata } from "next"
 import {
   Barriecito,
@@ -95,6 +96,7 @@ export default function RootLayout({
       <body>
         <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
+      <GoogleAnalytics gaId="G-QHE3Q21YW7" />
     </html>
   )
 }
