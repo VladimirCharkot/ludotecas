@@ -14,11 +14,11 @@ const links = [
   },
   {
     label: "Videojuegos 50 cartas",
-    url: "https://docs.google.com/document/d/1dcU0J_cHolHb7EOvM2mabx0pfqff1Z4owqzyUPsfd7o/edit?usp=sharing",
+    url: "https://docs.google.com/document/d/1dcU0J_cHolHb7EOvM2mabx0pfqff1Z4owqzyUPsfd7o/",
   },
   {
     label: "Cómo armar una Ludoteca en tu escuela",
-    url: "https://drive.google.com/file/d/1hKACe8mogkYsCJNrbVeNJ5hD5nVmR0ak/",
+    url: "https://drive.google.com/file/d/1gnQkeK2W0SrVixmaoL1R338hAbHlAKXc/",
   },
   {
     label: "Institucional - Ludotecas, Ajedrez y Go",
