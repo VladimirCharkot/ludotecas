@@ -19,8 +19,11 @@ function Reparticion({ pie, titulo, className }: Props) {
         className
       )}
     >
-      <p className="font-poppins text-base uppercase">{pie}</p>
-      <h3 className="font-poppins leading-5 text-lg font-bold uppercase">
+      {/* 1.25/1.6875 es el ratio 20pt/27pt */}
+      <p className="font-poppins text-[1.25em] leading-[1em] uppercase">
+        {pie}
+      </p>
+      <h3 className="font-poppins text-[1.6875em] leading-[1.2em] font-bold uppercase">
         {titulo}
       </h3>
     </div>
@@ -28,26 +31,34 @@ function Reparticion({ pie, titulo, className }: Props) {
 }
 
 export const LogoMinisterio = () => (
-  <Reparticion pie="Ministerio de" titulo="Educación" />
+  <Reparticion
+    pie="Ministerio de"
+    titulo="Educación"
+    className="text-[0.9em]"
+  />
 )
 
 export const LogoSecretaria = () => (
   <Reparticion
     pie="Secretaría de"
     titulo="Fortalecimiento Institucional y Educación Superior"
-    className="max-w-[13em]"
+    className="md:max-w-[20em] text-[0.55em] md:text-[0.5em]"
   />
 )
 
 export const LogoDireccion = () => (
-  <Reparticion pie="Dirección General de" titulo="Bienestar Educativo" />
+  <Reparticion
+    pie="Dirección General de"
+    titulo="Bienestar Educativo"
+    className="text-[0.6em] md:text-[0.7em]"
+  />
 )
 
 export const LogoSubdireccion = () => (
   <Reparticion
     pie="Subdirección de"
     titulo="Participación, Derechos y Comunidad"
-    className="max-w-[15em]"
+    className="max-w-[22em] md:max-w-[15em] text-[0.6em] md:text-[0.4em]"
   />
 )
 
@@ -74,14 +85,14 @@ export const LogoBienCba = ({
     {variante === "texto-blanco" && (
       <Image
         src={PngBienCbaBlanco}
-        className={cn("w-24 mt-4 max-w-3xs", className)}
+        className={cn("w-24 max-w-3xs", className)}
         alt="BienCBA"
       />
     )}
     {variante === "texto-azul" && (
       <Image
         src={PngBienCbaAzul}
-        className={cn("w-24 mt-4 max-w-3xs", className)}
+        className={cn("w-24 max-w-3xs", className)}
         alt="BienCBA"
       />
     )}

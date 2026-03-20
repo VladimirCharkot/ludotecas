@@ -6,11 +6,13 @@ import {
   Barrio,
   Poppins,
   Roboto,
-  Roboto_Mono, Inter } from "next/font/google"
+  Roboto_Mono,
+  Inter,
+} from "next/font/google"
 import "./globals.css"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
 const barrio = Barrio({
   variable: "--font-barrio",
@@ -27,7 +29,7 @@ const barriecito = Barriecito({
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 })
 
 const roboto = Roboto({
@@ -79,7 +81,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("antialiased", barrio.variable, barriecito.variable, poppins.variable, roboto.variable, robotoMono.variable, "font-sans", inter.variable)}
+      className={cn(
+        "antialiased",
+        barrio.variable,
+        barriecito.variable,
+        poppins.variable,
+        roboto.variable,
+        robotoMono.variable,
+        "font-sans",
+        inter.variable
+      )}
     >
       <body>
         <MantineProvider theme={theme}>{children}</MantineProvider>

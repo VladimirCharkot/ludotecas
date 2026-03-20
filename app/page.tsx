@@ -34,14 +34,10 @@ export default function Home() {
               alt="Logo Ludotecas, Ajedrez y Go"
             />
             <Stack gap={2} py={16}>
-              <Text fw={700} fz={{ base: "0.9rem", sm: "1.2rem" }} c="dimmed">
+              <span className="font-semibold text-[0.9rem] md:text-[1.8rem] text-gray-600 uppercase">
                 PROGRAMA
-              </Text>
-              <Title
-                fz={{ base: "1.5rem", sm: "2.5rem" }}
-                lh={{ base: 1.0, sm: 1.5 }}
-                order={1}
-              >
+              </span>
+              <Title className="text-[1.5rem] md:text-[2.5rem] " order={1}>
                 Ludotecas, Ajedrez y Go
               </Title>
             </Stack>
@@ -80,7 +76,7 @@ export default function Home() {
           <Center>
             <Flex
               direction={{ base: "column", sm: "row" }}
-              gap="md"
+              gap={{ base: "1em", sm: "2em" }}
               justify="space-between"
               align={{ base: "start", sm: "flex-end" }}
             >
