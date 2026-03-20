@@ -45,6 +45,10 @@ export default function Home() {
                 Ludotecas, Ajedrez y Go
               </Title>
             </Stack>
+            <LogoBienCba
+              variante="texto-azul"
+              className="w-12 hidden md:block"
+            />
           </Group>
         </Center>
       </Box>
@@ -80,9 +84,14 @@ export default function Home() {
               justify="space-between"
               align={{ base: "start", sm: "flex-end" }}
             >
-              <LogoBienCba />
               <LogoSubdireccion />
-              <LogoDireccion />
+              <div className="flex flex-nowrap justify-between w-full md:w-max">
+                <LogoDireccion />{" "}
+                <LogoBienCba
+                  variante="texto-blanco"
+                  className="block md:hidden w-8"
+                />
+              </div>
               <LogoSecretaria />
               <LogoMinisterio />
               <LogoProvincia />
