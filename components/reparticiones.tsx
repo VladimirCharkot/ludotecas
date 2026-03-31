@@ -34,7 +34,7 @@ export const LogoMinisterio = () => (
   <Reparticion
     pie="Ministerio de"
     titulo="Educación"
-    className="text-[0.9em]"
+    className="text-[0.9em] md:text-[0.6em] lg:text-[0.9em]"
   />
 )
 
@@ -42,7 +42,7 @@ export const LogoSecretaria = () => (
   <Reparticion
     pie="Secretaría de"
     titulo="Fortalecimiento Institucional y Educación Superior"
-    className="md:max-w-[20em] text-[0.55em] md:text-[0.5em]"
+    className="text-[0.55em] md:text-[0.32em] md:max-w-[19em] lg:text-[0.5em] lg:max-w-[20em]"
   />
 )
 
@@ -50,7 +50,7 @@ export const LogoDireccion = () => (
   <Reparticion
     pie="Dirección General de"
     titulo="Bienestar Educativo"
-    className="text-[0.6em] md:text-[0.7em]"
+    className="text-[0.6em] md:text-[0.5em] lg:text-[0.7em]"
   />
 )
 
@@ -58,7 +58,7 @@ export const LogoSubdireccion = () => (
   <Reparticion
     pie="Subdirección de"
     titulo="Participación, Derechos y Comunidad"
-    className="max-w-[22em] md:max-w-[15em] text-[0.6em] md:text-[0.4em]"
+    className="text-[0.6em] max-w-[22em] md:max-w-[12em] md:text-[0.35em] lg:max-w-[15em] lg:text-[0.48em]"
   />
 )
 
