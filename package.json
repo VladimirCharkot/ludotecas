@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "images:webp": "node scripts/images-to-webp.mjs"
   },
   "dependencies": {
     "@mantine/core": "^8.3.18",
