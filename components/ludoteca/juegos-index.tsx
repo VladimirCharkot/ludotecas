@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { TextInput, Badge, Group, Stack, Text, Title, SimpleGrid, Card, Box } from "@mantine/core"
 import { Search, Users, Clock, Tag } from "lucide-react"
 import type { ContentItem, JuegoMeta } from "@/lib/content"
@@ -100,6 +101,18 @@ export default function JuegosIndex({ juegos }: Props) {
               style={{ textDecoration: "none" }}
               className="hover:shadow-md transition-shadow"
             >
+              {juego.meta.imagen && (
+                <Card.Section mb="md">
+                  <div style={{ position: "relative", height: 140 }}>
+                    <Image
+                      src={juego.meta.imagen}
+                      alt={juego.meta.titulo}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                  </div>
+                </Card.Section>
+              )}
               <Stack gap="xs">
                 <Title order={3} size="h5">
                   {juego.meta.titulo}

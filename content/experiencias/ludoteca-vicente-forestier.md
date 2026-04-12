@@ -1,7 +1,7 @@
 ---
 titulo: Ludoteca Vicente Forestier
 descripcion: Espacio de juego comunitario en el barrio Vicente Forestier, en las afueras de Córdoba capital.
-imagen: /images/experiencias/ludoteca-vicente-forestier.jpg
+imagen: /images/experiencias/ludoteca-vicente-forestier.webp
 tags: [familias, niños, juego-libre, barrio]
 region: Córdoba
 direccion: Calle Los Robles 420, B° Vicente Forestier, Córdoba

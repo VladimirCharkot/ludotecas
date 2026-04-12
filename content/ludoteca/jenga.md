@@ -1,7 +1,7 @@
 ---
 titulo: Jenga
 descripcion: Juego de habilidad y equilibrio con bloques de madera.
-imagen: /images/juegos/jenga.jpg
+imagen: /images/ludoteca/jenga.webp
 tags: [habilidad, equilibrio, madera]
 jugadores: "2-8"
 edadMinima: 6
