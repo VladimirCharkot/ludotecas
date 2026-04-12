@@ -1,4 +1,4 @@
-import { createTheme, MantineProvider } from "@mantine/core"
+import { Box, createTheme, Flex, MantineProvider } from "@mantine/core"
 import "@mantine/core/styles.css"
 import { GoogleAnalytics } from "@next/third-parties/google"
 import type { Metadata } from "next"
@@ -11,7 +11,10 @@ import {
   Inter,
 } from "next/font/google"
 import "./globals.css"
+import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
+import Header from "@/components/header"
+import Footer from "@/components/footer"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -94,7 +97,18 @@ export default function RootLayout({
       )}
     >
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <Toaster />
+        <MantineProvider theme={theme}>
+          <Flex direction="column" mih="100vh">
+            <Flex direction="column" flex={1}>
+              <Header />
+              <Box component="main" flex={1}>
+                {children}
+              </Box>
+              <Footer />
+            </Flex>
+          </Flex>
+        </MantineProvider>
       </body>
       <GoogleAnalytics gaId="G-QHE3Q21YW7" />
     </html>

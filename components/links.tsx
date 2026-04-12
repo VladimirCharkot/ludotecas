@@ -5,6 +5,10 @@ import Link from "next/link"
 
 const links = [
   {
+    label: "Ludoteca Digital",
+    url: "/ludoteca",
+  },
+  {
     label: "Naipes - 50 años 50 juegos",
     url: "https://drive.google.com/file/d/1tq13MKJxEa7uF4GJ2J0mRPnqiBtj95jl/view?usp=sharing",
   },
@@ -52,7 +56,7 @@ const HomeLink = (link: (typeof links)[number]) => (
     fullWidth
     justify="space-between"
     rightSection="→"
-    className="hover:translate-x-1 transition-transform font-barriecito"
+    className="hover:translate-x-1 transition-transform font-barriecito mb-4"
     styles={{
       label: {
         whiteSpace: "normal", // Force the inner text to wrap
