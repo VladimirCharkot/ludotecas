@@ -23,7 +23,7 @@ export default async function JuegoPage({
       {/* Imagen hero */}
       {meta.imagen && (
         <div className="relative w-full h-64 rounded-xl overflow-hidden mb-8">
-          <img src={meta.imagen} alt={meta.titulo} className="object-cover" />
+          <img src={meta.imagen} alt={meta.titulo} className="w-full h-full object-cover" />
         </div>
       )}
 

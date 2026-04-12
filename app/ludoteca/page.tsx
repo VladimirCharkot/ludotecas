@@ -8,7 +8,7 @@ export default function LudotecaPage() {
 
   return (
     <Stack p="xl" maw={1100} mx="auto" gap="lg">
-      <Title order={2}>Ludoteca</Title>
+      <Title order={2}>Ludoteca Digital</Title>
       <JuegosIndex juegos={juegos} />
     </Stack>
   )
