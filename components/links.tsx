@@ -12,14 +12,14 @@ const links = [
     label: "Videojuegos 50 naipes",
     url: "https://docs.google.com/document/d/1dcU0J_cHolHb7EOvM2mabx0pfqff1Z4owqzyUPsfd7o/",
   },
-  {
-    label: "Propuestas Lúdicas",
-    url: "https://drive.google.com/drive/folders/1oJf1eOwoM2PaCLHnKvvYeEqo0_s6kZN8?usp=drive_link",
-  },
-  {
-    label: "Juegos Imprimibles",
-    url: "https://drive.google.com/drive/u/0/folders/1fXlJL3HtIiSdcIMYpyWa3UxKQCE9ZMTA",
-  },
+  // {
+  //   label: "Propuestas Lúdicas",
+  //   url: "https://drive.google.com/drive/folders/1oJf1eOwoM2PaCLHnKvvYeEqo0_s6kZN8?usp=drive_link",
+  // },
+  // {
+  //   label: "Juegos Imprimibles",
+  //   url: "https://drive.google.com/drive/u/0/folders/1fXlJL3HtIiSdcIMYpyWa3UxKQCE9ZMTA",
+  // },
   {
     label: "Cómo armar una Ludoteca en tu escuela",
     url: "https://drive.google.com/file/d/1gnQkeK2W0SrVixmaoL1R338hAbHlAKXc/",
