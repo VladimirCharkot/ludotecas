@@ -23,7 +23,11 @@ export default async function JuegoPage({
       {/* Imagen hero */}
       {meta.imagen && (
         <div className="relative w-full h-64 rounded-xl overflow-hidden mb-8">
-          <img src={meta.imagen} alt={meta.titulo} className="w-full h-full object-cover" />
+          <img
+            src={meta.imagen}
+            alt={meta.titulo}
+            className="w-full h-full object-cover"
+          />
         </div>
       )}
 
@@ -31,7 +35,7 @@ export default async function JuegoPage({
       <Stack gap="sm" mb="xl">
         <Title
           order={1}
-          style={{ fontFamily: "var(--font-barrio)", fontWeight: 400 }}
+          style={{ fontFamily: "var(--font-barriecito)", fontWeight: 400 }}
         >
           {meta.titulo}
         </Title>
