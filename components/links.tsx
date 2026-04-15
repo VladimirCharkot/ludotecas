@@ -1,32 +1,40 @@
 "use client"
 
-import { Stack, Button } from "@mantine/core"
-import Link from "next/link"
+import { Stack } from "@mantine/core"
+import { ComponentProps } from "react"
+import { CajitaLink } from "./cajita"
 
-const links = [
+import MiniaturaCartas from "@/public/assets/miniatura-cartas.png"
+import MiniaturaHechizo from "@/public/assets/miniatura-hechizo.png"
+import Logo from "@/public/logo.png"
+
+const links: ComponentProps<typeof CajitaLink>[] = [
   {
-    label: "Naipes - 50 años 50 juegos",
+    titulo: "Naipes - 50 años 50 juegos",
     url: "https://drive.google.com/file/d/1tq13MKJxEa7uF4GJ2J0mRPnqiBtj95jl/view?usp=sharing",
-  },
-  {
-    label: "Videojuegos 50 naipes",
-    url: "https://docs.google.com/document/d/1dcU0J_cHolHb7EOvM2mabx0pfqff1Z4owqzyUPsfd7o/",
+    img: MiniaturaCartas,
+    alt: "Miniatura del reverso de las cartas.",
+    descripcion:
+      "En el marco del 50 aniversario del golpe cívico-militar presentamos 50 naipes para encontrarnos jugando.",
   },
   // {
-  //   label: "Propuestas Lúdicas",
-  //   url: "https://drive.google.com/drive/folders/1oJf1eOwoM2PaCLHnKvvYeEqo0_s6kZN8?usp=drive_link",
-  // },
-  // {
-  //   label: "Juegos Imprimibles",
-  //   url: "https://drive.google.com/drive/u/0/folders/1fXlJL3HtIiSdcIMYpyWa3UxKQCE9ZMTA",
+  //   titulo: "Videojuegos 50 naipes",
+  //   link: "https://docs.google.com/document/d/1dcU0J_cHolHb7EOvM2mabx0pfqff1Z4owqzyUPsfd7o/",
   // },
   {
-    label: "Cómo armar una Ludoteca en tu escuela",
+    titulo: "Cómo armar una Ludoteca en tu escuela",
     url: "https://drive.google.com/file/d/1gnQkeK2W0SrVixmaoL1R338hAbHlAKXc/",
+    img: MiniaturaHechizo,
+    alt: "Miniatura del tríptico de hechizo ludotecario.",
+    descripcion: "Pequeño recetario para armar una Ludoteca en tu escuela.",
   },
   {
-    label: "Institucional - Ludotecas, Ajedrez y Go",
+    titulo: "Institucional - Ludotecas, Ajedrez y Go",
     url: "http://www.igualdadycalidadcba.gov.ar/SIPEC-CBA/SFI/DGBE/SPDyC/ludotecas.php",
+    img: Logo,
+    alt: "Logo Ludotecas",
+    descripcion:
+      "Link directo a nuestra página dentro del sitio institucional de la Secretaría de Fortalecimiento Institucional y Educación Superior.",
   },
 ]
 
@@ -34,32 +42,8 @@ export default function LinksPortada() {
   return (
     <Stack align="stretch" className="max-w-lg" mx="auto" mt="xl">
       {links.map((link) => (
-        <HomeLink {...link} key={link.url} />
+        <CajitaLink {...link} key={link.url} />
       ))}
     </Stack>
   )
 }
-
-const HomeLink = (link: (typeof links)[number]) => (
-  <Button
-    key={link.label}
-    component={Link}
-    href={link.url}
-    variant="light"
-    color="var(--color-brand-azul)"
-    size="xl"
-    radius="md"
-    fullWidth
-    justify="space-between"
-    rightSection="→"
-    className="hover:translate-x-1 transition-transform font-barriecito mb-4"
-    styles={{
-      label: {
-        whiteSpace: "normal", // Force the inner text to wrap
-        textAlign: "left", // Keep it flush left when it breaks to line 2
-      },
-    }}
-  >
-    {link.label}
-  </Button>
-)
