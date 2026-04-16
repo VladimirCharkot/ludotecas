@@ -102,7 +102,7 @@ export default function RootLayout({
           <Flex direction="column" mih="100vh">
             <Flex direction="column" flex={1}>
               <Header />
-              <Box component="main" flex={1}>
+              <Box component="main" flex={1} className="overflow-auto">
                 {children}
               </Box>
               <Footer />

@@ -1,6 +1,6 @@
 "use client"
 
-import LinksPortada from "@/components/links-svg"
+import LinksPortada from "@/components/links"
 
 export default function Home() {
   return <LinksPortada />
