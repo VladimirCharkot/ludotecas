@@ -1,7 +1,7 @@
 ---
 titulo: Paseo de Calidades
 descripcion: Juego de caminatas teatrales donde el cuerpo explora distintas formas de moverse por el espacio.
-imagen: /images/ludoteca/paseo-de-calidades.webp
+imagen: /assets/ludoteca/paseo-de-calidades.webp
 tags: [teatro, caminata, cuerpo, expresión]
 jugadores: "6-30"
 edadMinima: 7

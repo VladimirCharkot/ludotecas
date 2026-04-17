@@ -1,7 +1,7 @@
 ---
 titulo: Baba Is You
 descripcion: Videojuego de puzzles donde las reglas del juego son objetos que podés mover y reescribir.
-imagen: /images/ludoteca/baba-is-you.webp
+imagen: /assets/ludoteca/baba-is-you.webp
 tags: [videojuego, puzzles, lógica, indie]
 jugadores: "1"
 edadMinima: 10
