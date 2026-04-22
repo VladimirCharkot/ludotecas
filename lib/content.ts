@@ -5,6 +5,7 @@ import { unified } from "unified"
 import remarkParse from "remark-parse"
 import remarkGfm from "remark-gfm"
 import remarkRehype from "remark-rehype"
+import rehypeExternalLinks from "rehype-external-links"
 import rehypeRaw from "rehype-raw"
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize"
 import rehypeStringify from "rehype-stringify"
@@ -122,6 +123,7 @@ const sanitizeSchema = {
   tagNames: [...(defaultSchema.tagNames ?? []), "iframe"],
   attributes: {
     ...defaultSchema.attributes,
+    a: [...(defaultSchema.attributes?.a ?? []), "target", "rel"],
     iframe: [
       "src",
       "width",
@@ -141,6 +143,7 @@ export async function renderMarkdown(content: string): Promise<string> {
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
+    .use(rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] })
     .use(rehypeSanitize, sanitizeSchema)
     .use(rehypeStringify)
     .process(content)

@@ -1,19 +1,14 @@
 ---
 titulo: Ajedrez
-descripcion: Juego de estrategia milenario para dos jugadores en un tablero de 64 casillas.
+descripcion: Clásico juego de estrategia milenario para dos jugadores.
 imagen: /assets/ludoteca/ajedrez.webp
 tags: [estrategia, clásico, tablero, dos jugadores]
-oculto: true
 ---
 
-## ¿De qué se trata?
-
-El ajedrez es un juego de estrategia para dos jugadores que se enfrentan en un tablero de 8×8 casillas. Cada jugador controla 16 piezas con movimientos distintos y el objetivo es dejar al rey rival sin escapatoria: el jaque mate.
-
-## ¿Cómo se juega?
-
-Cada tipo de pieza tiene su propio movimiento: el peón avanza pero captura en diagonal, la torre va en líneas rectas, el alfil en diagonales, el caballo en L, la reina combina torre y alfil, y el rey se mueve una casilla en cualquier dirección. Gana quien logra amenazar al rey rival de forma que no pueda escapar.
-
-## Por qué lo recomendamos
+Además de ser uno de los clásicos de la Ludoteca, Ajedrez es una de las líneas principales dentro del programa. Este año, como otros, se organizará desde esta línea el torneo escolar de ajedrez.
 
 Desarrolla el pensamiento estratégico, la planificación a largo plazo y la capacidad de anticipar las consecuencias de las propias decisiones. Es uno de los juegos más estudiados y enseñados del mundo, con una comunidad enorme y recursos gratuitos en línea para aprender a cualquier nivel.
+
+El ajedrez educativo es una [programa del estado nacional](https://www.argentina.gob.ar/capital-humano/educacion/programas-educativos/programa-nacional-de-ajedrez-en-las-escuelas) y una [política socioeducativa del gobierno de la provincia](https://www.igualdadycalidadcba.gov.ar/SIPEC-CBA/PolSocioeducativas/IniciativasEspecificas/AjedrezEducativo.php).
+
+Te dejamos un [imprimible con información y reglamento](https://drive.google.com/file/d/1gbwKc60us69E_vpC6v90YDRWtqEtgo9T/view?usp=sharing). ¡Que lo disfruten!
