@@ -206,8 +206,9 @@ body {
   margin-top: 1em;
 }
 
-.prose img {
-  margin: 64px auto;
+.prose img,
+.prose iframe {
+  margin: 32px auto;
 }
 
 .prose ul {
@@ -236,6 +237,7 @@ body {
   color: var(--color-brand-azul);
   text-decoration: underline;
   text-underline-offset: 2px;
+  font-weight: 600;
 }
 
 .prose a:hover {

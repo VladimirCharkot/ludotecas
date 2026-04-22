@@ -5,7 +5,8 @@ import { unified } from "unified"
 import remarkParse from "remark-parse"
 import remarkGfm from "remark-gfm"
 import remarkRehype from "remark-rehype"
-import rehypeSanitize from "rehype-sanitize"
+import rehypeRaw from "rehype-raw"
+import rehypeSanitize, { defaultSchema } from "rehype-sanitize"
 import rehypeStringify from "rehype-stringify"
 
 const CONTENT_ROOT = path.join(process.cwd(), "content")
@@ -115,12 +116,32 @@ export function queryByMeta<T extends BaseMeta = BaseMeta>(
 
 // --- Rendering ---
 
+// Le pasamos un schema personalizado a rehype-sanitize para permitir iframes con ciertos atributos (ej. para videos de YouTube)
+const sanitizeSchema = {
+  ...defaultSchema,
+  tagNames: [...(defaultSchema.tagNames ?? []), "iframe"],
+  attributes: {
+    ...defaultSchema.attributes,
+    iframe: [
+      "src",
+      "width",
+      "height",
+      "title",
+      "frameborder",
+      "allow",
+      "allowfullscreen",
+      "referrerpolicy",
+    ],
+  },
+}
+
 export async function renderMarkdown(content: string): Promise<string> {
   const result = await unified()
     .use(remarkParse)
     .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeSanitize)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeSanitize, sanitizeSchema)
     .use(rehypeStringify)
     .process(content)
 

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "assets:sync": "cp -r content/assets/ludoteca public/assets/ludoteca",
+    "build": "npm run assets:sync && next build",
     "start": "next start",
     "lint": "eslint",
     "images:webp": "node scripts/images-to-webp.mjs"
@@ -22,6 +23,7 @@
     "radix-ui": "^1.4.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "rehype-raw": "^7.0.0",
     "rehype-sanitize": "^6.0.0",
     "rehype-stringify": "^10.0.1",
     "remark-gfm": "^4.0.1",
