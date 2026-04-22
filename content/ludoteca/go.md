@@ -3,6 +3,7 @@ titulo: Go
 descripcion: Juego de estrategia de origen chino donde dos jugadores compiten por controlar territorio en un tablero.
 imagen: /assets/ludoteca/go.webp
 tags: [estrategia, clásico, tablero, dos jugadores]
+oculto: true
 ---
 
 ## ¿De qué se trata?

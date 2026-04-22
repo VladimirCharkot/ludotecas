@@ -1,6 +1,6 @@
 import Image from "next/image"
-import PngBienCbaBlanco from "@/public/assets/institucional/biencba_blanco.png"
-import PngBienCbaAzul from "@/public/assets/institucional/biencba_azul.png"
+import PngBienCbaBlanco from "@/public/assets/institucional/biencba_blanco.webp"
+import PngBienCbaAzul from "@/public/assets/institucional/biencba_azul.webp"
 import LogoProvinciaHorizontal from "@/public/assets/institucional/logolema_provincia_h.svg"
 import { cn } from "@/lib/utils"
 import Link from "next/link"

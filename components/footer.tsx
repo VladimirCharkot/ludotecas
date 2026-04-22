@@ -8,7 +8,7 @@ import {
   LogoMinisterio,
   LogoProvincia,
 } from "./reparticiones"
-import Separador from "@/public/assets/institucional/separador.png"
+import Separador from "@/public/assets/institucional/separador.webp"
 
 export default function Footer() {
   return (

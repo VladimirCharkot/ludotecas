@@ -3,7 +3,6 @@
 import type { ContentItem, JuegoMeta } from "@/lib/content"
 import {
   Badge,
-  Box,
   Card,
   Group,
   SimpleGrid,
@@ -12,7 +11,7 @@ import {
   TextInput,
   Title,
 } from "@mantine/core"
-import { Search, Tag, Users } from "lucide-react"
+import { Search, Tag } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useMemo, useState } from "react"
@@ -133,17 +132,6 @@ export default function JuegosIndex({ juegos }: Props) {
                     {juego.meta.descripcion}
                   </Text>
                 )}
-
-                <Box>
-                  <Group gap="sm" wrap="wrap">
-                    {juego.meta.fuente && (
-                      <Group gap={4}>
-                        <Users size={13} />
-                        <Text size="xs">{juego.meta.fuente}</Text>
-                      </Group>
-                    )}
-                  </Group>
-                </Box>
 
                 {juego.meta.tags && juego.meta.tags.length > 0 && (
                   <Group gap={4} wrap="nowrap">

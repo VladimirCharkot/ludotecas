@@ -22,7 +22,8 @@ export interface BaseMeta {
 }
 
 export interface JuegoMeta extends BaseMeta {
-  fuente?: string
+  fuentes?: string[]
+  oculto?: boolean
 }
 
 export interface ExperienciaMeta extends BaseMeta {

@@ -1,7 +1,6 @@
 import type { JuegoMeta } from "@/lib/content"
 import { getRenderedBySlug } from "@/lib/content"
 import { Badge, Group, Stack, Text, Title } from "@mantine/core"
-import { Clock, Users } from "lucide-react"
 import { redirect } from "next/navigation"
 
 export default async function JuegoPage({
@@ -44,28 +43,6 @@ export default async function JuegoPage({
           <Text size="lg" c="dimmed" style={{ lineHeight: 1.5 }}>
             {meta.descripcion}
           </Text>
-        )}
-
-        {(meta.jugadores || meta.duracion || meta.edadMinima) && (
-          <Group gap="lg" mt={4}>
-            {meta.jugadores && (
-              <Group gap={6}>
-                <Users size={15} />
-                <Text size="sm">{meta.jugadores} jugadores</Text>
-              </Group>
-            )}
-            {meta.duracion && (
-              <Group gap={6}>
-                <Clock size={15} />
-                <Text size="sm">{meta.duracion}</Text>
-              </Group>
-            )}
-            {meta.edadMinima && (
-              <Text size="sm" c="dimmed">
-                {meta.edadMinima}+ años
-              </Text>
-            )}
-          </Group>
         )}
 
         {meta.tags && meta.tags.length > 0 && (
