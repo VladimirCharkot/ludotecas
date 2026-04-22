@@ -74,7 +74,7 @@ export function CajitaLink({
 }) {
   return (
     <Link href={url}>
-      <Cajita classNames={{ root: "mx-auto w-lg py-4" }}>
+      <Cajita classNames={{ root: "mx-auto w-[85%] md:w-lg py-4" }}>
         <div className="flex gap-6 items-center pb-2 group cursor-pointer">
           <Image
             src={img}
