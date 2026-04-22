@@ -45,7 +45,7 @@ const links = [
 export default function LinksPortada() {
   return (
     <Stack align="stretch" className="max-w-4xl" mx="auto" mt="xl">
-      <div className="h-20 m-10">
+      <div className="m-10">
         {links.map((link) => (
           <HomeLink key={link.url} {...link} />
         ))}

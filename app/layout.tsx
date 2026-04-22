@@ -100,13 +100,11 @@ export default function RootLayout({
         <Toaster />
         <MantineProvider theme={theme}>
           <Flex direction="column" mih="100vh">
-            <Flex direction="column" flex={1}>
-              <Header />
-              <Box component="main" flex={1} className="overflow-auto">
-                {children}
-              </Box>
-              <Footer />
-            </Flex>
+            <Header />
+            <Box component="main" flex={1}>
+              {children}
+            </Box>
+            <Footer />
           </Flex>
         </MantineProvider>
       </body>
