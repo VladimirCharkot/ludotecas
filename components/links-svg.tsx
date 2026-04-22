@@ -17,14 +17,14 @@ const links: ComponentProps<typeof CajitaLink>[] = [
     alt: "Miniatura del tríptico de hechizo ludotecario.",
     descripcion: "Pequeño recetario para armar una Ludoteca en tu escuela.",
   },
-  {
-    titulo: "Ludoteca digital",
-    url: "/ludoteca",
-    img: PiezasJigsaw,
-    alt: "Piezas de rompecabezas de tres colores.",
-    descripcion:
-      "Accedé a nuestra colección de juegos para descargar, imprimir o construir.",
-  },
+  // {
+  //   titulo: "Ludoteca digital",
+  //   url: "/ludoteca",
+  //   img: PiezasJigsaw,
+  //   alt: "Piezas de rompecabezas de tres colores.",
+  //   descripcion:
+  //     "Accedé a nuestra colección de juegos para descargar, imprimir o construir.",
+  // },
   {
     titulo: "Naipes - 50 años 50 juegos",
     url: "/ludoteca/50-cartas",
