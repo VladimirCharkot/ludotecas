@@ -1,11 +1,21 @@
 "use client"
 
-import { useState, useMemo } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { TextInput, Badge, Group, Stack, Text, Title, SimpleGrid, Card, Box } from "@mantine/core"
-import { Search, Users, Clock, Tag } from "lucide-react"
 import type { ContentItem, JuegoMeta } from "@/lib/content"
+import {
+  Badge,
+  Box,
+  Card,
+  Group,
+  SimpleGrid,
+  Stack,
+  Text,
+  TextInput,
+  Title,
+} from "@mantine/core"
+import { Search, Tag, Users } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { useMemo, useState } from "react"
 
 interface Props {
   juegos: ContentItem<JuegoMeta>[]
@@ -126,28 +136,17 @@ export default function JuegosIndex({ juegos }: Props) {
 
                 <Box>
                   <Group gap="sm" wrap="wrap">
-                    {juego.meta.jugadores && (
+                    {juego.meta.fuente && (
                       <Group gap={4}>
                         <Users size={13} />
-                        <Text size="xs">{juego.meta.jugadores}</Text>
+                        <Text size="xs">{juego.meta.fuente}</Text>
                       </Group>
-                    )}
-                    {juego.meta.duracion && (
-                      <Group gap={4}>
-                        <Clock size={13} />
-                        <Text size="xs">{juego.meta.duracion}</Text>
-                      </Group>
-                    )}
-                    {juego.meta.edadMinima && (
-                      <Text size="xs" c="dimmed">
-                        {juego.meta.edadMinima}+ años
-                      </Text>
                     )}
                   </Group>
                 </Box>
 
                 {juego.meta.tags && juego.meta.tags.length > 0 && (
-                  <Group gap={4}>
+                  <Group gap={4} wrap="nowrap">
                     <Tag size={12} />
                     <Group gap={4}>
                       {juego.meta.tags.map((tag) => (

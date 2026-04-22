@@ -3,10 +3,6 @@ titulo: Ajedrez
 descripcion: Juego de estrategia milenario para dos jugadores en un tablero de 64 casillas.
 imagen: /assets/ludoteca/ajedrez.webp
 tags: [estrategia, clásico, tablero, dos jugadores]
-jugadores: "2"
-edadMinima: 7
-duracion: 20-90 min
-categoria: tablero
 ---
 
 ## ¿De qué se trata?

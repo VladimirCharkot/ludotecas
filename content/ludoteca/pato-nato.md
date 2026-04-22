@@ -3,10 +3,6 @@ titulo: Pato Ñato
 descripcion: Juego de ronda donde un jugador recorre el círculo buscando a quién perseguir.
 imagen: /assets/ludoteca/pato-nato.webp
 tags: [ronda, movimiento, persecución, clásico]
-jugadores: "6-30"
-edadMinima: 4
-duracion: 10-20 min
-categoria: ronda
 ---
 
 ## ¿De qué se trata?

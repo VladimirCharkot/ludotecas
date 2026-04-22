@@ -22,10 +22,7 @@ export interface BaseMeta {
 }
 
 export interface JuegoMeta extends BaseMeta {
-  jugadores?: string // e.g. "2-4"
-  edadMinima?: number
-  duracion?: string // e.g. "30-60 min"
-  categoria?: string
+  fuente?: string
 }
 
 export interface ExperienciaMeta extends BaseMeta {
