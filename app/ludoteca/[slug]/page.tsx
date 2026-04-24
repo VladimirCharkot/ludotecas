@@ -4,7 +4,6 @@ import { getRenderedBySlug } from "@/lib/content"
 import { ArrowLeftSquare } from "lucide-react"
 import Link from "next/link"
 import { redirect } from "next/navigation"
-import { useMemo } from "react"
 
 export default async function JuegoPage({
   params,

@@ -1,11 +1,18 @@
 import type { BaseMeta, RenderedItem } from "@/lib/content"
+import { cn } from "@/lib/utils"
 import { Badge, Group, Stack, Text, Title } from "@mantine/core"
 
-export function ArticlePage({ md }: { md: RenderedItem<BaseMeta> }) {
+export function ArticlePage({
+  md,
+  className,
+}: {
+  md: RenderedItem<BaseMeta>
+  className?: string
+}) {
   const { meta, html } = md
 
   return (
-    <article className="max-w-185 mx-auto px-6">
+    <article className={cn("max-w-185 mx-auto px-6", className)}>
       {meta.imagen && (
         <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8">
           <img

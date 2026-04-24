@@ -1,6 +1,6 @@
 ---
 titulo: Ajedrez Educativo
-imagen: /assets/ludoteca/ajedrez.webp
+imagen: https://prensa.cba.gov.ar/wp-content/uploads/2025/06/Diseno-sin-titulo-2025-06-09T104958.088.png
 ---
 
 El Ajedrez Educativo impulsa en las escuelas de los distintos niveles y modalidades del Sistema Educativo Provincial, una serie de acciones en la práctica de este juego – ciencia por parte de los y las estudiantes. Es reconocida por su potencialidad formativa, constituyendo un terreno propicio para el desarrollo de la inteligencia, el espíritu crítico, la capacidad para buscar soluciones y toma de decisiones, concentración, ejercitación de la memoria, desarrollo del razonamiento lógico matemático, el incremento de la autoestima y la posibilidad de mayor sociabilidad.

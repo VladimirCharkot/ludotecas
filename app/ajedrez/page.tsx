@@ -9,5 +9,5 @@ export default async function AjedrezPage() {
     return redirect("/")
   }
 
-  return <ArticlePage md={md} />
+  return <ArticlePage md={md} className="my-16" />
 }
