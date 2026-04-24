@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "assets:sync": "cp -r content/assets/ludoteca public/assets/ludoteca",
+    "assets:sync": "cp -r content/assets/ludoteca public/assets/",
     "build": "npm run assets:sync && next build",
     "start": "next start",
     "lint": "eslint",

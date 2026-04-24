@@ -5,9 +5,9 @@ export function ArticlePage({ md }: { md: RenderedItem<BaseMeta> }) {
   const { meta, html } = md
 
   return (
-    <article className="max-w-185 mx-auto px-6 py-10">
+    <article className="max-w-185 mx-auto px-6">
       {meta.imagen && (
-        <div className="relative w-full h-64 rounded-xl overflow-hidden mb-8">
+        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8">
           <img
             src={meta.imagen}
             alt={meta.titulo}
