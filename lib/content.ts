@@ -14,7 +14,7 @@ const CONTENT_ROOT = path.join(process.cwd(), "content")
 
 // --- Types ---
 
-type Collection = "ludoteca" | "experiencias"
+type Collection = "ludoteca" | "experiencias" | "paginas"
 
 export interface BaseMeta {
   titulo: string
@@ -143,7 +143,10 @@ export async function renderMarkdown(content: string): Promise<string> {
     .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
-    .use(rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer"] })
+    .use(rehypeExternalLinks, {
+      target: "_blank",
+      rel: ["noopener", "noreferrer"],
+    })
     .use(rehypeSanitize, sanitizeSchema)
     .use(rehypeStringify)
     .process(content)

@@ -7,6 +7,7 @@ import { CajitaLink } from "./cajita"
 import MiniaturaCartas from "@/public/assets/miniatura-cartas.webp"
 import MiniaturaHechizo from "@/public/assets/miniatura-hechizo.webp"
 import PiezasJigsaw from "@/public/assets/piezas-jigsaw.webp"
+import Peon from "@/public/assets/peon.webp"
 import Logo from "@/public/logo.png"
 
 const links: ComponentProps<typeof CajitaLink>[] = [
@@ -25,6 +26,14 @@ const links: ComponentProps<typeof CajitaLink>[] = [
   //   descripcion:
   //     "Accedé a nuestra colección de juegos para descargar, imprimir o construir.",
   // },
+  {
+    titulo: "Ajedrez",
+    url: "/ajedrez",
+    img: Peon,
+    alt: "Peón de ajedrez.",
+    descripcion:
+      "Documentos, información y recursos de la línea de Ajedrez dentro del programa.",
+  },
   {
     titulo: "Naipes - 50 años 50 juegos",
     url: "/ludoteca/50-cartas",
