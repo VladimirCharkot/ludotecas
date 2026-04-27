@@ -80,7 +80,7 @@ const HomeLink = (link: (typeof links)[number]) => (
       }}
     >
       <div className="flex gap-4 items-center justify-between">
-        <div className="absolute">
+        <div className="absolute w-32 flex justify-center">
           <Image
             className=""
             radius="md"
