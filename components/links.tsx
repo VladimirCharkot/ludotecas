@@ -5,40 +5,38 @@ import Link from "next/link"
 
 const links = [
   {
-    label: "Naipes - 50 años 50 juegos",
-    url: "https://drive.google.com/file/d/1tq13MKJxEa7uF4GJ2J0mRPnqiBtj95jl/view?usp=sharing",
-    descripcion:
-      "Conoce el mazo de naipes con propuestas lúdicas que hemos creado para la conmemoración de los 50 años del golpe cívico-militar en Argentina",
-    imagen: "/LogoCartas.png",
-  },
-  {
-    label: "Videojuegos 50 naipes",
-    url: "https://docs.google.com/document/d/1dcU0J_cHolHb7EOvM2mabx0pfqff1Z4owqzyUPsfd7o/",
-    descripcion:
-      "Conoce los videojuegos que hemos propuesto en nuestro mazo de cartas",
-    imagen: "/Videojuegos.png",
-  },
-  // {
-  //   label: "Propuestas Lúdicas",
-  //   url: "https://drive.google.com/drive/folders/1oJf1eOwoM2PaCLHnKvvYeEqo0_s6kZN8?usp=drive_link",
-  // },
-  // {
-  //   label: "Juegos Imprimibles",
-  //   url: "https://drive.google.com/drive/u/0/folders/1fXlJL3HtIiSdcIMYpyWa3UxKQCE9ZMTA",
-  // },
-  {
     label: "Cómo armar una Ludoteca en tu escuela",
     url: "https://drive.google.com/file/d/1gnQkeK2W0SrVixmaoL1R338hAbHlAKXc/",
+    descripcion: "Pequeño recetario para armar una Ludoteca en tu escuela.",
+    imagen: "/assets/miniatura-hechizo.webp",
+  },
+  {
+    label: "Ludoteca digital",
+    url: "/ludoteca",
     descripcion:
-      "Hechizo Ludotecario para que tu comunidad pueda realizar su propia Ludoteca",
-    imagen: "/LogoCartas.png",
+      "Accedé a nuestra colección de juegos para descargar, imprimir o construir.",
+    imagen: "/assets/piezas-jigsaw.webp",
+  },
+  {
+    label: "Ajedrez",
+    url: "/ajedrez",
+    descripcion:
+      "Documentos, información y recursos de la línea de Ajedrez dentro del programa.",
+    imagen: "/assets/peon.webp",
+  },
+  {
+    label: "Naipes - 50 años 50 juegos",
+    url: "/ludoteca/50-cartas",
+    descripcion:
+      "En el marco del 50 aniversario del golpe cívico-militar presentamos 50 naipes para encontrarnos jugando.",
+    imagen: "/assets/miniatura-cartas.webp",
   },
   {
     label: "Institucional - Ludotecas, Ajedrez y Go",
     url: "http://www.igualdadycalidadcba.gov.ar/SIPEC-CBA/SFI/DGBE/SPDyC/ludotecas.php",
     descripcion:
-      "Conoce el espacio institucional del Programad de Ludotecas, Ajedrez y Go",
-    imagen: "/LogoFondo.png",
+      "Link directo a nuestra página dentro del sitio institucional de la Secretaría de Fortalecimiento Institucional y Educación Superior.",
+    imagen: "/logo.png",
   },
 ]
 
