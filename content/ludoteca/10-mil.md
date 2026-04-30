@@ -2,7 +2,7 @@
 titulo: 10 mil
 descripcion: Juego de dados para cualquier edad donde el objetivo es acumular 10.000 puntos con combinaciones ganadoras.
 imagen: /assets/ludoteca/10-mil.webp
-tags: [crear, dados, familiar, cualquier edad]
+tags: [crear, dados, clásico, familiar, cualquier edad]
 ---
 
 El 10.000 es de esos juegos que no necesitan casi nada: seis dados, papel, lápiz y ganas. El objetivo es ser la primera persona en acumular 10.000 puntos lanzando combinaciones ganadoras.

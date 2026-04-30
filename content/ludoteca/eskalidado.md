@@ -2,7 +2,7 @@
 titulo: Eskalidado
 descripcion: Juego de dados para 2 a 4 jugadores donde hay que formar torres y arrebatárselas a los demás.
 imagen: /assets/ludoteca/eskalidado.webp
-tags: [crear, dados, familiar, cualquier edad]
+tags: [crear, dados, clásico, familiar, cualquier edad]
 ---
 
 Eskalidado es un juego creado por Cesar Augusto Ocampo Castro y liberado durante la pandemia para jugar en cuarentena. De a 2 o 4 personas, la idea es formar torres de dados y acumular los puntos de cada torre que completás.

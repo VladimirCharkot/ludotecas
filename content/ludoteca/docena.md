@@ -2,7 +2,7 @@
 titulo: Docena de empanadas
 descripcion: Juego de cartas para 1 a 6 jugadores donde hay que armar la docena de empanadas más sabrosa y con más puntos.
 imagen: /assets/ludoteca/docena.webp
-tags: [crear, cartas, familiar, argentino]
+tags: [crear, independiente, cartas, familiar, argentino]
 ---
 
 La discusión es eterna: ¿cuántas de carne? ¿Algunas de pollo? ¿Vale meter jamón y queso? En Docena de empanadas, cada uno arma su propia docena, y al final se comparan. Gana quien haya elegido mejor.

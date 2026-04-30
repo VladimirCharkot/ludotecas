@@ -2,7 +2,7 @@
 titulo: La gran carrera
 descripcion: Juego de roll & write para varios jugadores donde hay que competir en once carreras simultáneas dividiendo los dados a gusto.
 imagen: /assets/ludoteca/la-gran-carrera.webp
-tags: [crear, dados, familiar]
+tags: [crear, independiente, dados, familiar, argentino]
 ---
 
 Once carreras arrancando al mismo tiempo sobre la misma hoja de papel. En cada turno tirás cuatro dados y decidís cómo repartirlos en dos pares: los totales de esos pares marcan tu avance en las carreras que les corresponden. Simple como suena, y con más tensión de lo que parece.

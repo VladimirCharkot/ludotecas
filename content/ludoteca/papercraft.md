@@ -2,7 +2,7 @@
 titulo: Papercraft
 descripcion: El arte de construir figuras tridimensionales doblando, cortando y armando papel.
 imagen: /assets/ludoteca/papercraft.webp
-tags: [crear, manual, construcción, familiar, cualquier edad]
+tags: [crear, manual, clásico, construcción, familiar, cualquier edad]
 ---
 
 En el papercraft armamos figuras tridimensionales a partir de papel: se imprime una plantilla, se recorta, se dobla por las líneas y se pega. De una hoja plana aparece un objeto con volumen —un animal, un personaje, una arquitectura— construido completamente a mano.

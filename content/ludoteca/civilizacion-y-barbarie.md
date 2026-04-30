@@ -2,7 +2,8 @@
 titulo: Civilización y Barbarie
 descripcion: Juego de construcción de mazos para 2 jugadores ambientado en las Provincias Unidas del Río de la Plata del siglo XIX.
 imagen: /assets/ludoteca/civilizacion-y-barbarie.webp
-tags: [crear, cartas, dos jugadores, estrategia, argentino, historia]
+tags:
+  [crear, independiente, cartas, dos jugadores, estrategia, argentino, historia]
 ---
 
 Las Provincias Unidas acaban de sacudirse el yugo realista, pero fundar una nación es mucho más complicado que ganar una guerra. Ahora viene la parte difícil: imponer un proyecto político, conseguir apoyos, controlar recursos y llegar primero a los diez puntos de victoria antes de que el rival consolide el suyo. Pluma o espada, las dos cortan igual.

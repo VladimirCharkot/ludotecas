@@ -2,7 +2,7 @@
 titulo: Conexiones
 descripcion: Juego de losetas para 2 a 5 jugadores donde hay que unir ciudades, rutas y maravillas de la Argentina para sumar puntos.
 imagen: /assets/ludoteca/conexiones.webp
-tags: [crear, losetas, estrategia, argentino, familiar]
+tags: [crear, independiente, losetas, estrategia, argentino, familiar]
 ---
 
 La Argentina tiene una geografía enorme, diversa y llena de lugares increíbles que esperan ser descubiertos. En Conexiones, el mapa se va armando ficha a ficha sobre la mesa: rutas que se extienden, ciudades que crecen, campos que las rodean, y parques nacionales y sitios históricos que aparecen de repente y valen una fortuna.

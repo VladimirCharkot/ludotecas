@@ -2,7 +2,8 @@
 titulo: Argentina Recicla
 descripcion: Juego de losetas y movimiento para hasta 8 jugadores donde hay que recorrer la ciudad recuperando reciclables y llegar al Centro Verde.
 imagen: /assets/ludoteca/argentina-recicla.webp
-tags: [crear, losetas, familiar, cooperativo, argentino, educativo]
+tags:
+  [crear, independiente, losetas, familiar, cooperativo, argentino, educativo]
 ---
 
 En Argentina hay personas que todos los días recorren las calles con su carro recuperando materiales reciclables antes de que lleguen al relleno sanitario. Se llaman Recuperadores Urbanos, y este juego les da el protagonismo que merecen.

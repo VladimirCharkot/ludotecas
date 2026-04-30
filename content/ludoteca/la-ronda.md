@@ -2,7 +2,7 @@
 titulo: La Ronda
 descripcion: Juego cooperativo de memoria sobre las Madres de Plaza de Mayo y la última dictadura militar argentina.
 imagen: /assets/ludoteca/la-ronda.webp
-tags: [crear, cooperativo, historia, memoria, familiar]
+tags: [crear, independiente, cooperativo, historia, memoria, familiar]
 ---
 
 En 1976, un golpe de estado cívico-militar derrocó a la presidenta y el terror se instaló en la Argentina. En respuesta, un grupo de mujeres comenzó a girar en silencio alrededor de la Pirámide de Mayo buscando a sus hijos e hijas desaparecidos. Eran las Madres.

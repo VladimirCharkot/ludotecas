@@ -2,7 +2,7 @@
 titulo: Los doce pasos
 descripcion: El duelo de penales convertido en juego de tablero para dos, donde la astucia vale más que la puntería.
 imagen: /assets/ludoteca/los-12-pasos.webp
-tags: [crear, tablero, dos jugadores, estrategia, argentino]
+tags: [crear, independiente, tablero, dos jugadores, estrategia, argentino]
 ---
 
 Los doce pasos son la distancia más corta y más larga del fútbol. El momento en que todo se reduce a una sola decisión: ¿centro, izquierda, derecha... o afuera? Y el arquero, igual de solo frente a su arco, tomando exactamente la misma decisión desde el otro lado.
