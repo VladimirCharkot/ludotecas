@@ -14,4 +14,4 @@ En dobles, la dinámica cambia por completo: la carta indica a quién va dirigid
 
 Se juega al mejor de 3 o de 5 sets. El reglamento define el mínimo, pero habilita a agregar tie-break, diferencia de 2, y cualquier variante que quieran sumar.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1rrgLhZaY8JdddnfWVLG8Urclnh6vu8xT/view?usp=drive_link). ¡Que empiece el partido!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1rrgLhZaY8JdddnfWVLG8Urclnh6vu8xT/view). ¡Que empiece el partido!

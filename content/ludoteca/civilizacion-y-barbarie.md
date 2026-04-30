@@ -14,4 +14,4 @@ Los proyectos son el corazón del juego: objetivos únicos que se van completand
 
 El título es una referencia directa al texto de Sarmiento, y la tensión que plantea está en el juego desde la primera mano: ¿qué tipo de país querés construir, y a qué costo?
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1bdjHTC8pc0v9j3TNrHdaOkaMdRADp8CP/view?usp=drive_link). ¡Que la historia la escribamos en comunidad!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1bdjHTC8pc0v9j3TNrHdaOkaMdRADp8CP/view). ¡Que la historia la escribamos en comunidad!

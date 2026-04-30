@@ -13,4 +13,4 @@ Es rápido, fluido y muy fácil de explicar. Ideal para arrancar una tarde o par
 
 Fue creado en el marco de la convocatoria CREAR, que invitó a diseñar juegos para todas las edades. Y la verdad es que se nota: es un juego pensado para jugar con cualquiera, en cualquier mesa.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1l9ONyMTJZ0M0wUAwGrOVmDi45safVq-B/view?usp=drive_link). ¡Que no te falte la de jamón y queso!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1l9ONyMTJZ0M0wUAwGrOVmDi45safVq-B/view). ¡Que no te falte la de jamón y queso!

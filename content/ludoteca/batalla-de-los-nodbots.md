@@ -14,4 +14,4 @@ Gana quien capture todas las fichas del rival, quien tenga más cuando ya no hay
 
 El reglamento incluye variantes de dificultad progresiva propuestas por R. C. Bell —captura obligatoria, soplar fichas, memoria de posiciones— para quienes quieren exprimirle toda la complejidad al tablero.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1ZHAUQ2nfv5cwRk6ZNEeURmRNWo76HOTn/view?usp=drive_link). ¡A Nodbotear!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1ZHAUQ2nfv5cwRk6ZNEeURmRNWo76HOTn/view). ¡A Nodbotear!

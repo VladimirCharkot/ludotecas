@@ -13,4 +13,4 @@ Es un juego pensado para el aula pero que funciona igual de bien en cualquier me
 
 El formato invita además a adaptarlo: cambiar las reglas, sumar preguntas propias, jugar en equipos. Cada partida puede ser diferente.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1BRUTMkK_VpCQFoiCzFv20Kx_IW79s2SC/view?usp=drive_link). ¡A colorear la Argentina!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1BRUTMkK_VpCQFoiCzFv20Kx_IW79s2SC/view). ¡A colorear la Argentina!

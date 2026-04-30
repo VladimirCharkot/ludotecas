@@ -13,4 +13,4 @@ En el camino aparecen cartas con un vuelo propio: la Pachamama protege, el Cham�
 
 Gana quien acumule más puntos de victoria al final, sumando recetas completadas y las condiciones secretas de su carta de juez. Es un juego denso en tema y en decisiones, que premia tanto la planificación como saber leer al resto de la mesa.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1JtYM_xJmsspJxbwkDDO6lKjOM03pteuI/view?usp=drive_link). ¡Buen viaje y buen provecho!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1JtYM_xJmsspJxbwkDDO6lKjOM03pteuI/view). ¡Buen viaje y buen provecho!

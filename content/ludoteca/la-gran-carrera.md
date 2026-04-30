@@ -13,4 +13,4 @@ Es un _roll & write_: cada jugador tiene su propia hoja y marca con un lápiz. N
 
 Lo diseñó Sid Sackson, uno de los grandes inventores de juegos del siglo XX, responsable también de clásicos como Acquire o Can't Stop. La Gran Carrera es uno de esos juegos que se explican en un minuto y se siguen queriendo jugar después de muchas partidas.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1xuPBgS_8VAtNvVmmvALJEFGolrzxjvp8/view?usp=drive_link). ¡Que gane el mejor par!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1xuPBgS_8VAtNvVmmvALJEFGolrzxjvp8/view). ¡Que gane el mejor par!

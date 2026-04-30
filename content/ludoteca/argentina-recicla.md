@@ -14,4 +14,4 @@ Lo que hace especial a Argentina Recicla es su dimensión colectiva. Cada jugado
 
 Es un juego con vocación educativa que no resigna entretenimiento: la variedad de losetas garantiza que ninguna partida sea igual a la anterior, y la tensión entre ganar solo o ganar juntos hace que cada llegada al Centro Verde sea una decisión.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1qJLxClx4Acqlzw-2dR55TU6cbJqcz8oF/view?usp=drive_link). ¡A recuperar!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1qJLxClx4Acqlzw-2dR55TU6cbJqcz8oF/view). ¡A recuperar!

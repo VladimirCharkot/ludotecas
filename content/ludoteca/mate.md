@@ -13,4 +13,4 @@ El drama está en el **Mate Lavado**: quien lo recibe pierde todo lo acumulado e
 
 Son 18 cartas nada más. Se aprende en dos minutos, se juega en cualquier mesa, y genera exactamente las mismas discusiones que una ronda de mates de verdad.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1mTryIWzcWHgVZ8BoKVPuI4-NlVw01z4w/view?usp=drive_link). ¡Sin azúcar, por favor!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1mTryIWzcWHgVZ8BoKVPuI4-NlVw01z4w/view). ¡Sin azúcar, por favor!

@@ -13,4 +13,4 @@ Tiene dos modos: uno rápido, ideal para empezar o para partidas ágiles, y uno 
 
 Es un juego de producción nacional que combina la dinámica de los mejores juegos europeos de losetas con el orgullo de construir el propio país sobre la mesa.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1TndZgRNHROAsCeGN1lhq0Jcp2bSlB3TH/view?usp=drive_link). ¡A conectar!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1TndZgRNHROAsCeGN1lhq0Jcp2bSlB3TH/view). ¡A conectar!
