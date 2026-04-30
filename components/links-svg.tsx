@@ -13,7 +13,8 @@ import Logo from "@/public/logo.png"
 const links: ComponentProps<typeof CajitaLink>[] = [
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",
-    url: "https://drive.google.com/file/d/1gnQkeK2W0SrVixmaoL1R338hAbHlAKXc/",
+    url: "https://drive.google.com/file/d/1hLbz5FR9Bs41qC53dWN3idLqANpA1QF8/view",
+    external: true,
     img: MiniaturaHechizo,
     alt: "Miniatura del tríptico de hechizo ludotecario.",
     descripcion: "Pequeño recetario para armar una Ludoteca en tu escuela.",
@@ -45,6 +46,7 @@ const links: ComponentProps<typeof CajitaLink>[] = [
   {
     titulo: "Institucional - Ludotecas, Ajedrez y Go",
     url: "http://www.igualdadycalidadcba.gov.ar/SIPEC-CBA/SFI/DGBE/SPDyC/ludotecas.php",
+    external: true,
     img: Logo,
     alt: "Logo Ludotecas",
     descripcion:

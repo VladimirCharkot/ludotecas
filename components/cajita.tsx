@@ -64,6 +64,7 @@ export function CajitaLink({
   titulo,
   descripcion,
   url,
+  external = false,
 }: {
   img: StaticImageData
   alt: string
@@ -73,7 +74,7 @@ export function CajitaLink({
   external?: boolean
 }) {
   return (
-    <Link href={url}>
+    <Link href={url} target={external ? "_blank" : undefined}>
       <Cajita classNames={{ root: "mx-auto w-[85%] md:w-lg py-4" }}>
         <div className="flex gap-6 items-center pb-2 group cursor-pointer">
           <Image
