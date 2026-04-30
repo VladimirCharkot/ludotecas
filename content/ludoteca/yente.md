@@ -14,4 +14,4 @@ Es un juego que entrena la espacialidad, la memoria visual y el pensamiento late
 
 Es portátil, minimalista y sorprendentemente versátil. Y de paso, le devuelve visibilidad a una artista fundamental que el tiempo tuvo demasiado tiempo en la sombra.
 
-Te dejamos el [reglamento e imprimibles](https://drive.google.com/). ¡A componer!
+Te dejamos el [reglamento e imprimibles](https://drive.google.com/file/d/1vNZ6BsMn7vlIerBTcoURrUpGGC7m_Apb/view). ¡A componer!
