@@ -13,7 +13,7 @@ import Logo from "@/public/logo.png"
 const links: ComponentProps<typeof CajitaLink>[] = [
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",
-    url: "https://drive.google.com/file/d/1hLbz5FR9Bs41qC53dWN3idLqANpA1QF8/view",
+    url: "https://drive.google.com/file/d/1P7042YlGUzAZR6TygjvauxskGnXN25-t/view",
     external: true,
     img: MiniaturaHechizo,
     alt: "Miniatura del tríptico de hechizo ludotecario.",

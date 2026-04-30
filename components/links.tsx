@@ -6,7 +6,7 @@ import Link from "next/link"
 const links = [
   {
     label: "Cómo armar una Ludoteca en tu escuela",
-    url: "https://drive.google.com/file/d/1gnQkeK2W0SrVixmaoL1R338hAbHlAKXc/",
+    url: "https://drive.google.com/file/d/1P7042YlGUzAZR6TygjvauxskGnXN25-t/view",
     descripcion: "Pequeño recetario para armar una Ludoteca en tu escuela.",
     imagen: "/assets/miniatura-hechizo.webp",
   },
