@@ -299,3 +299,40 @@ body {
   background: oklch(0.97 0 0);
   font-weight: 600;
 }
+
+/* ── Badge subrayado ──────────────────────────────────────────────── */
+.badge-subrayado {
+  overflow: visible !important;
+  position: relative;
+  border: none !important;
+  background: transparent !important;
+}
+
+.badge-subrayado::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-image: url("/assets/subrayado.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.badge-subrayado[data-variant="outline"]::after {
+  filter: grayscale(100%);
+  opacity: 0.35;
+}
+
+.badge-subrayado[data-variant="filled"] {
+  color: var(--color-brand-azul);
+}
+
+.badge-subrayado[data-variant="light"] {
+  color: var(--color-brand-azul);
+}
+.badge-subrayado[data-variant="light"]::after {
+  opacity: 0.25;
+}

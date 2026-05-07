@@ -75,6 +75,11 @@ const theme = createTheme({
   headings: {
     fontFamily: "var(--font-barrio), cursive",
   },
+  components: {
+    Badge: {
+      classNames: { root: "badge-subrayado" },
+    },
+  },
 })
 
 export default function RootLayout({

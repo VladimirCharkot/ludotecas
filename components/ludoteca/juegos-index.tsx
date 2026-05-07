@@ -81,7 +81,7 @@ export default function JuegosIndex({ juegos }: Props) {
           })}
           {activeTags.length > 0 && (
             <Badge
-              variant="light"
+              variant="dot"
               color="red"
               style={{ cursor: "pointer", userSelect: "none" }}
               onClick={() => setActiveTags([])}
