@@ -16,4 +16,16 @@ Pueden imprimir y recortar para disfrutarlo.
 
 [Descargá el imprimible acá](https://drive.google.com/file/d/1tq13MKJxEa7uF4GJ2J0mRPnqiBtj95jl/)
 
-Entre las propuestas se cuentan 5 videojuegos independientes de autoría local acerca de la dictadura. Podés acceder a los links [desde acá](https://docs.google.com/document/d/1dcU0J_cHolHb7EOvM2mabx0pfqff1Z4owqzyUPsfd7o/).
+---
+
+Entre las propuestas se cuentan 5 videojuegos independientes de autoría local acerca de la dictadura, tomados de la convocatoria de la **Ex Esma Jam**, hosteada por Women in Games Argentina y la **Democracia Gamejam**, hosteada por Red de Comunidades de Desarollo de Videojuegos. ¡Los invitamos a jugarlos!
+
+- [Naná](https://martiver.itch.io/ex-esma-jam) (descargalo y descomprimilo para jugarlo)
+
+- [Un mundo sin vos](https://lildeer.itch.io/un-mundo-sin-vos)
+
+- [Sótanos de la democracia](https://zetasole.itch.io/sotanos-de-la-democracia)
+
+- [Tiempos de democracia](https://k-sf.itch.io/tiempos-de-democracia)
+
+- [El Jardín de la Memoria](https://hecatew.itch.io/jardindelamemoria)
