@@ -11,6 +11,6 @@ Es también la plataforma que usamos en las capacitaciones de introducción a la
 
 Podés acceder a la plataforma [a través de este link](https://scratch.mit.edu/).
 
-Les dejamos también un pequeño tutorial introductorio tomado de youtube y una invitación a participar de la capacitación que se viene.
+Les dejamos también [la grabación de la capacitación dada en 2025](https://youtube.com/playlist?list=PLo3We0U1ka9ROfbDYF4Msd18W_nlnqB0U&si=MIIkWu0GMGrmSZQ3) (lista de reproducción, 9 videos).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/a5DOIvjxiQ0?si=r9X9A1kAL1ClIcvV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=fn9Ia-0m8GtaOQqP&amp;list=PLo3We0U1ka9ROfbDYF4Msd18W_nlnqB0U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
