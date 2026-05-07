@@ -16,4 +16,4 @@ Pueden imprimir y recortar para disfrutarlo.
 
 [Descargá el imprimible acá](https://drive.google.com/file/d/1tq13MKJxEa7uF4GJ2J0mRPnqiBtj95jl/)
 
-Entre las propuestas se cuentan 5 videojuegos independientes. En caso de tener problemas para usar los QR, podés acceder a los links [desde acá](https://docs.google.com/document/d/1dcU0J_cHolHb7EOvM2mabx0pfqff1Z4owqzyUPsfd7o/).
+Entre las propuestas se cuentan 5 videojuegos independientes de autoría local acerca de la dictadura. Podés acceder a los links [desde acá](https://docs.google.com/document/d/1dcU0J_cHolHb7EOvM2mabx0pfqff1Z4owqzyUPsfd7o/).

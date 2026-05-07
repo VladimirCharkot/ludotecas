@@ -9,7 +9,11 @@ Las propuestas didácticas de enseñanza del ajedrez se desarrollan en diferente
 
 ## Algunos archivos y links importantes:
 
-Te dejamos a continuación el reglamento para los torneos de secundaria y primaria de este año:
+Te dejamos a continuación el documento de acompañamiento para docentes, con información sobre el programa, propuestas didácticas, y recursos:
+
+- [Acompañamiento Ajedrez](https://docs.google.com/document/d/1iK-BSMGayduVaWLZ1u4cU6amsbGZYrgq/view)
+
+El reglamento para los torneos de secundaria y primaria de este año:
 
 - [Segundo torneo provincial de ajedrez escolar 2026 - _Educación secundaria_ - Bases y reglamento](https://www.igualdadycalidadcba.gov.ar/SIPEC-CBA/SFI/DGBE/SPDyC/doc/1er.%20TORNEO%20PROVINCIAL%20DE%20AJEDREZ%20ESCOLAR%202026_primaria.docx)
 - [Primer torneo provincial de ajedrez escolar 2026 - _Educación primaria_ - Bases y reglamento](https://www.igualdadycalidadcba.gov.ar/SIPEC-CBA/SFI/DGBE/SPDyC/doc/1er.%20TORNEO%20PROVINCIAL%20DE%20AJEDREZ%20ESCOLAR%202026_primaria.docx)

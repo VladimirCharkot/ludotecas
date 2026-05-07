@@ -14,7 +14,7 @@ const CONTENT_ROOT = path.join(process.cwd(), "content")
 
 // --- Types ---
 
-type Collection = "ludoteca" | "experiencias" | "paginas"
+type Collection = "ludoteca" | "experiencias" | "articulos" | "gacetilla"
 
 export interface BaseMeta {
   titulo: string

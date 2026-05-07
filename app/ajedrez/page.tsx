@@ -3,7 +3,7 @@ import { ArticlePage } from "@/components/article-page"
 import { redirect } from "next/navigation"
 
 export default async function AjedrezPage() {
-  const md = await getRenderedBySlug("paginas", "ajedrez")
+  const md = await getRenderedBySlug("articulos", "ajedrez")
 
   if (!md) {
     return redirect("/")

@@ -9,4 +9,4 @@ JUCOPAZ es una iniciativa local que promueve juegos cooperativos para fomentar l
 
 Una iniciativa del Prof. Pablo Esteban Patta, de La Biblioteca Pedagógica Río Cuarto “Maestro Isidro Cordero”.
 
-Congratitud y entusiasmo les compartimos [este proyecto que promueve la paz a través del juego](https://drive.google.com/file/d/1ERuf_TEqKtcAtunBTmx9T6o_ZCxvk4g3/view). ¡A jugar y construir juntos un mundo mejor!
+Congratitud y entusiasmo les compartimos [este proyecto que promueve la paz a través del juego](https://drive.google.com/file/d/1ERuf_TEqKtcAtunBTmx9T6o_ZCxvk4g3/view). Y un [anexo con listado de materiales](https://docs.google.com/document/d/1R2dpYHLf9HwF7CDKxCqEjuklbO-YonV6qIBiOBK6HjU/edit). ¡A jugar y construir juntos un mundo mejor!

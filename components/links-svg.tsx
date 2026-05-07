@@ -35,14 +35,14 @@ const links: ComponentProps<typeof CajitaLink>[] = [
     descripcion:
       "Documentos, información y recursos de la línea de Ajedrez dentro del programa.",
   },
-  {
-    titulo: "Naipes - 50 años 50 juegos",
-    url: "/ludoteca/50-cartas",
-    img: MiniaturaCartas,
-    alt: "Miniatura del reverso de las cartas.",
-    descripcion:
-      "En el marco del 50 aniversario del golpe cívico-militar presentamos 50 naipes para encontrarnos jugando.",
-  },
+  // {
+  //   titulo: "Naipes - 50 años 50 juegos",
+  //   url: "/ludoteca/50-cartas",
+  //   img: MiniaturaCartas,
+  //   alt: "Miniatura del reverso de las cartas.",
+  //   descripcion:
+  //     "En el marco del 50 aniversario del golpe cívico-militar presentamos 50 naipes para encontrarnos jugando.",
+  // },
   {
     titulo: "Institucional - Ludotecas, Ajedrez y Go",
     url: "http://www.igualdadycalidadcba.gov.ar/SIPEC-CBA/SFI/DGBE/SPDyC/ludotecas.php",
