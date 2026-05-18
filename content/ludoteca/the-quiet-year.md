@@ -3,6 +3,7 @@ titulo: El año tranquilo
 descripcion: Rol comunitario de construcción de mundos.
 imagen: /assets/ludoteca/the-quiet-year.webp
 tags: [rol, comunidad]
+oculto: true
 ---
 
 **The Quiet Year**, **El año tranquilo** en español, es un juego de rol comunitario de construcción de mundo. En este juego, los jugadores colaboran para construir una comunidad y su entorno durante el transcurso de un año, enfrentando desafíos y tomando decisiones que afectan el desarrollo de la historia.
