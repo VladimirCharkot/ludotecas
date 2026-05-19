@@ -41,7 +41,7 @@ async function processDir(dir) {
       inputPath = tmpFile
     }
 
-    await sharp(inputPath).rotate().webp({ quality: 85 }).toFile(outPath)
+    await sharp(inputPath).rotate().resize({ width: 1400, withoutEnlargement: true }).webp({ quality: 75 }).toFile(outPath)
     if (tmpFile) await unlink(tmpFile)
     await unlink(fullPath)
     console.log(`✓ ${fullPath} → ${outPath}`)
