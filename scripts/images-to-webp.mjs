@@ -4,10 +4,20 @@
 
 import { readdir, unlink } from "fs/promises"
 import { join, extname, basename } from "path"
+import { execFile } from "child_process"
+import { tmpdir } from "os"
 import sharp from "sharp"
 
-const SUPPORTED = new Set([".jpg", ".jpeg", ".png", ".gif", ".tiff", ".avif"])
+const SUPPORTED = new Set([".jpg", ".jpeg", ".png", ".gif", ".tiff", ".avif", ".heic"])
 const folder = process.argv[2] ?? "public/images"
+
+function sipsToPng(src, dest) {
+  return new Promise((resolve, reject) =>
+    execFile("sips", ["-s", "format", "png", src, "--out", dest], (err) =>
+      err ? reject(err) : resolve()
+    )
+  )
+}
 
 async function processDir(dir) {
   const entries = await readdir(dir, { withFileTypes: true })
@@ -17,11 +27,22 @@ async function processDir(dir) {
       await processDir(fullPath)
       continue
     }
-    const ext = extname(entry.name).toLowerCase()
-    if (!SUPPORTED.has(ext)) continue
+    const ext = extname(entry.name)
+    const extLower = ext.toLowerCase()
+    if (!SUPPORTED.has(extLower)) continue
 
     const outPath = join(dir, basename(entry.name, ext) + ".webp")
-    await sharp(fullPath).webp({ quality: 85 }).toFile(outPath)
+
+    let inputPath = fullPath
+    let tmpFile = null
+    if (extLower === ".heic") {
+      tmpFile = join(tmpdir(), `${basename(entry.name, ext)}-${Date.now()}.png`)
+      await sipsToPng(fullPath, tmpFile)
+      inputPath = tmpFile
+    }
+
+    await sharp(inputPath).rotate().webp({ quality: 85 }).toFile(outPath)
+    if (tmpFile) await unlink(tmpFile)
     await unlink(fullPath)
     console.log(`✓ ${fullPath} → ${outPath}`)
   }
