@@ -21,11 +21,11 @@ export interface BaseMeta {
   descripcion: string
   imagen?: string
   tags?: string[]
+  oculto?: true
 }
 
 export interface JuegoMeta extends BaseMeta {
   fuentes?: string[]
-  oculto?: boolean
 }
 
 export interface ExperienciaMeta extends BaseMeta {
