@@ -38,7 +38,7 @@ Una propuesta de altísimo valor comunitario en tanto activa la conciencia crít
 
 ![Marco de clavos con tejido entramado](/assets/gacetilla/elrcas-26/entre-cuerdas.webp)
 
-En otra propuesta de local, nos invitaron a tejer superficies a mano con marcos de madera y clavos. Esto nos recordó de inmediato a los [Hiloramas](https://profmate.wordpress.com/hilo-y-papel-geometria/). Te dejamos [50 ideas](https://www.bricoydeco.com/ideas-tecnica-del-hilorama/) de hiloramas. Este material puede convertirse en la base para una buena clase de matemática sobre geometría de ángulos y curvas, pero recordá que nuestro programa no se ocupa de implementación curricular: basta con que se juegue.
+En otra propuesta de local, nos invitaron a tejer superficies a mano con marcos de madera y clavos. Esto nos recordó de inmediato a los [Hiloramas](https://profmate.wordpress.com/hilo-y-papel-geometria/). Te dejamos [50 ideas](https://www.bricoydeco.com/ideas-tecnica-del-hilorama/) de hiloramas. Este material, que puede convertirse en la base para una buena clase de matemática sobre geometría de ángulos y curvas, _no solo_ podés aplicarlo en el aula sino que _basta con jugarlo y compartir el juego y el encuentro_.
 
 Existe [una aplicación web](https://michael-crum.com/string-art-gen/) que permite producir instrucciones para generar imágenes arbitrarias con esta técnica.
 
