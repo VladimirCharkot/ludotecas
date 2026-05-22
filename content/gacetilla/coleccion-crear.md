@@ -1,6 +1,6 @@
 ---
-slug: repositorio-crear
-imagen: /assets/gacetilla/elrcas-26/elrcas-2026.webp
+slug: coleccion-crear
+imagen: /assets/gacetilla/crear-portada.webp
 titulo: Recuperamos los juegos del programa nacional Crear
 fecha: 2026-05-12
 descripcion: Te contamos un poco de la historia y devenir de este programa cuyos frutos hoy compartimos en nuestra Ludoteca digital.
