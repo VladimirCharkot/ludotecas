@@ -4,7 +4,6 @@ imagen: /assets/gacetilla/crear-portada.webp
 titulo: Recuperamos los juegos del programa nacional Crear
 fecha: 2026-05-12
 descripcion: Te contamos un poco de la historia y devenir de este programa cuyos frutos hoy compartimos en nuestra Ludoteca digital.
-oculto: true
 ---
 
 **CREAR** (originalmente "CREAR Videojuegos de Argentina", luego "CREAR Juegos en Argentina") fue una convocatoria de la Secretaría de Medios y Comunicación Pública, a través de la Subsecretaría de Contenidos Públicos, para promover y fomentar la creación de videojuegos (y más tarde también juegos de mesa) con temáticas educativas. Funcionaba en dos planos articulados: por un lado, **convocatorias periódicas** con becas de estímulo y un jurado mixto que seleccionaba proyectos a tutorear hasta su finalización; por otro, **una plataforma de distribución gratuita** —`crearjuegos.ar`— donde se publicaban los videojuegos y los juegos de mesa "print and play" producidos.

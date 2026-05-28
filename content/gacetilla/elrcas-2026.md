@@ -4,7 +4,6 @@ imagen: /assets/gacetilla/elrcas-26/elrcas-2026.webp
 titulo: Estuvimos en el Encuentro de Recreación Comunitaria en Sta Fe
 fecha: 2026-05-19
 descripcion: ¡Y te compartimos algunos dispositivos que conocimos allí para que puedas replicar en tu comunidad!
-oculto: true
 ---
 
 El pasado 14, 15 y 16 de mayo estuvimos en el Encuentro Latinoamericano de Recreación Comunitaria (ELRCAS) en Santa Fe, organizado por el colectivo [Abriendo El Juego](https://www.abriendoeljuego.ar/home/).

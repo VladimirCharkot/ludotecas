@@ -4,7 +4,6 @@ imagen: /assets/gacetilla/mi-granja/foto-1.webp
 titulo: Acompañamos la apertura de la ludoteca municipal de Mi Granja
 fecha: 2026-05-23
 descripcion: Durante el 59° aniversario de la localidad de Mi Granja se abre en su territorio una ludoteca municipal abierta y a disposición de todas las instituciones educativas
-oculto: true
 ---
 
 Entre vestuarios de folklore, gazebos y aroma a locro, el pasado sábado 23 de mayo montamos nuestra ludoteca ambulante junto a la plaza de Mi Granja. El paso de las horas nos mostró una vez más, para nuestra alegría, la capacidad de encuentro y participación que se gesta alrededor del juego. Tanto niñas y niños como adultas y adultos participaron del área lúdica dispuesta junto a la plaza (que estaba plena de sillas y mesas dispuestas para la peña), atravesando experiencias colaborativas y lúdicas.
