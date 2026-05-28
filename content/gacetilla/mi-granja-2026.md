@@ -4,7 +4,7 @@ imagen: /assets/gacetilla/mi-granja/foto-1.webp
 titulo: Acompañamos a Mi Granja en su 59° aniversario...
 fecha: 2026-05-23
 descripcion: ¡...durante el que se inauguró una ludoteca local!
-<!-- oculto: true -->
+oculto: true
 ---
 
 Entre vestuarios de folklore, gazebos y aroma a locro, el pasado sábado 23 de mayo montamos nuestros juegos junto a la plaza de Mi Granja. El paso de las horas nos mostró una vez más, para nuestra alegría, la capacidad de encuentro y participación que se gesta alrededor del juego. Tanto niñas y niños como adultas y adultos participaron del área lúdica dispuesta junto a la plaza (que estaba plena de sillas y mesas dispuestas para la peña), atravesando experiencias colaborativas y lúdicas.
