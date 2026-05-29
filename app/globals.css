@@ -300,6 +300,10 @@ body {
   font-weight: 600;
 }
 
+.prose [data-footnote-ref] {
+  padding-left: 0.3em;
+}
+
 /* ── Badge subrayado ──────────────────────────────────────────────── */
 .badge-subrayado {
   overflow: visible !important;

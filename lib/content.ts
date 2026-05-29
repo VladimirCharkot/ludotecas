@@ -9,6 +9,8 @@ import rehypeExternalLinks from "rehype-external-links"
 import rehypeRaw from "rehype-raw"
 import rehypeSanitize, { defaultSchema } from "rehype-sanitize"
 import rehypeStringify from "rehype-stringify"
+import { visit } from "unist-util-visit"
+import type { Element, Root } from "hast"
 
 const CONTENT_ROOT = path.join(process.cwd(), "content")
 
@@ -118,12 +120,14 @@ export function queryByMeta<T extends BaseMeta = BaseMeta>(
 // --- Rendering ---
 
 // Le pasamos un schema personalizado a rehype-sanitize para permitir iframes con ciertos atributos (ej. para videos de YouTube)
+// clobberPrefix: '' evita que rehype-sanitize duplique el prefijo 'user-content-' que remark-gfm ya agrega a los IDs de las notas al pie
 const sanitizeSchema = {
   ...defaultSchema,
-  tagNames: [...(defaultSchema.tagNames ?? []), "iframe"],
+  clobberPrefix: "",
+  tagNames: [...(defaultSchema.tagNames ?? []), "iframe", "section"],
   attributes: {
     ...defaultSchema.attributes,
-    a: [...(defaultSchema.attributes?.a ?? []), "target", "rel"],
+    a: [...(defaultSchema.attributes?.a ?? []), "target", "rel", "aria-describedby"],
     iframe: [
       "src",
       "width",
@@ -134,7 +138,24 @@ const sanitizeSchema = {
       "allowfullscreen",
       "referrerpolicy",
     ],
+    "*": [
+      ...(defaultSchema.attributes?.["*"] ?? []),
+      "data-footnotes",
+      "data-footnote-ref",
+      "data-footnote-backref",
+      "aria-label",
+    ],
   },
+}
+
+function rehypeRenameFootnotes() {
+  return (tree: Root) => {
+    visit(tree, "element", (node: Element) => {
+      if (node.tagName === "h2" && node.properties?.id === "footnote-label") {
+        node.children = [{ type: "text", value: "Notas" }]
+      }
+    })
+  }
 }
 
 export async function renderMarkdown(content: string): Promise<string> {
@@ -147,6 +168,7 @@ export async function renderMarkdown(content: string): Promise<string> {
       target: "_blank",
       rel: ["noopener", "noreferrer"],
     })
+    .use(rehypeRenameFootnotes)
     .use(rehypeSanitize, sanitizeSchema)
     .use(rehypeStringify)
     .process(content)
