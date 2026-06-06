@@ -127,7 +127,7 @@ const sanitizeSchema = {
   tagNames: [...(defaultSchema.tagNames ?? []), "iframe", "section"],
   attributes: {
     ...defaultSchema.attributes,
-    a: [...(defaultSchema.attributes?.a ?? []), "target", "rel", "aria-describedby"],
+    a: [...(defaultSchema.attributes?.a ?? []), "id", "target", "rel", "aria-describedby"],
     iframe: [
       "src",
       "width",
