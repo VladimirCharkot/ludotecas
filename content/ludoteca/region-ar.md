@@ -2,7 +2,7 @@
 titulo: Region-ar
 descripcion: Juego de preguntas y dados para colorear el mapa de Argentina completando sus 5 regiones.
 imagen: /assets/ludoteca/region-ar.webp
-tags: [crear, independiente, dados, familiar, argentino, educativo]
+tags: [crear, independiente, dados, familiar, argentino]
 ---
 
 El mapa empieza gris. La Patagonia, Cuyo, el NEA, el NOA y el Centro esperan ser coloreados, y la única forma de pintarlos es conocerlos. Región-ar es un juego de preguntas sobre las regiones de Argentina donde el premio por responder bien no es un punto abstracto, sino una atracción turística concreta: un glaciar, una quebrada, un carnaval, un bodegón.
