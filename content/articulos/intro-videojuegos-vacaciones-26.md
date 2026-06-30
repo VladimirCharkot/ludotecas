@@ -3,7 +3,7 @@ titulo: Introducción a la Programación de Videojuegos para estudiantes - Vacac
 imagen: /assets/gacetilla/flyer-videojuegos-vacaciones-26.png
 ---
 
-Este año estamos ofreciendo un curso de Introducción a la Programación de Videojuegos para estudiantes durante las vacaciones de invierno 2026. Este curso está diseñado para jóvenes interesados en aprender los fundamentos de la programación y el desarrollo de videojuegos, brindándoles una experiencia práctica y divertida.
+Este año estamos ofreciendo un curso de **Introducción a la Programación de Videojuegos** para estudiantes durante las vacaciones de invierno 2026. Este curso está diseñado para jóvenes interesados en aprender los fundamentos de la programación y el desarrollo de videojuegos, brindándoles una experiencia práctica y divertida.
 
 El curso consta de tres encuentros: **Lun 13/7, Mie 15/7 y Vie 17/7, de 19 a 21hs**
 
