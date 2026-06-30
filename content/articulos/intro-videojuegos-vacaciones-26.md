@@ -15,7 +15,7 @@ Durante los encuentros veremos:
 
 [p5js](https://editor.p5js.org/) es un entorno de programación que permite crear gráficos y animaciones de manera sencilla en Javascript, un lenguaje real y práctico utilizado en desarrollo web.
 
-Los encuentros están pensados en complejidad incremental. Si bien es recomendable asistir a los tres encuentros, cada uno de ellos puede ser tomado de manera independiente. Para obtener el certificado de asistencia es preciso asistir a los tres.
+Los encuentros están pensados en complejidad incremental. Si bien es recomendable asistir a los tres encuentros, cada uno de ellos puede ser tomado de manera independiente. **Para obtener el certificado de asistencia es preciso asistir a los tres.**
 
 ### [Inscribite acá para recibir certificado de asistencia](https://docs.google.com/forms/d/e/1FAIpQLScPOkeayfzHlXobnM_Xv1F4f-hIdiyr6EvckhZmlwwatTzpsA/viewform)
 
