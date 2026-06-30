@@ -13,7 +13,7 @@ import Logo from "@/public/logo.png"
 
 const links: ComponentProps<typeof CajitaLink>[] = [
   // {
-  //   titulo: "Curso Videojuegos - Vacaciones 2026",
+  //   titulo: "Curso Videojuegos - BIENcba en Vacaciones de Invierno 2026",
   //   url: "/videojuegos-invierno-26",
   //   external: true,
   //   img: VideojuegosVacaciones,
