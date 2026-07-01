@@ -19,6 +19,8 @@ Los encuentros están pensados en complejidad incremental. Si bien es recomendab
 
 ### [Inscribite acá para recibir certificado de asistencia](https://docs.google.com/forms/d/e/1FAIpQLScPOkeayfzHlXobnM_Xv1F4f-hIdiyr6EvckhZmlwwatTzpsA/viewform)
 
-### [Link a la sala de meet](https://meet.google.com/ozr-iacz-pah)
+Unos días antes te enviaremos el link de la sala de Meet para que puedas conectarte a los encuentros.
+
+En caso de que quieras verlo sin participar o certificar, estará disponible en stream por nuestro canal de YouTube.
 
 ### [Link al stream de youtube](https://youtube.com/live/LySg8Mm4qQw)

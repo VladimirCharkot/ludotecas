@@ -7,20 +7,20 @@ import { CajitaLink } from "./cajita"
 import MiniaturaCartas from "@/public/assets/miniatura-cartas.webp"
 import MiniaturaHechizo from "@/public/assets/miniatura-hechizo.webp"
 import PiezasJigsaw from "@/public/assets/piezas-jigsaw.webp"
-// import VideojuegosVacaciones from "@/public/assets/gacetilla/videojuegos-vacaciones.png"
+import VideojuegosVacaciones from "@/public/assets/gacetilla/videojuegos-vacaciones.png"
 import Peon from "@/public/assets/peon.webp"
 import Logo from "@/public/logo.png"
 
 const links: ComponentProps<typeof CajitaLink>[] = [
-  // {
-  //   titulo: "Curso Videojuegos - BIENcba en Vacaciones de Invierno 2026",
-  //   url: "/videojuegos-invierno-26",
-  //   external: true,
-  //   img: VideojuegosVacaciones,
-  //   alt: "Joystick, sol de la bandera cordobesa y copo de nieve",
-  //   descripcion:
-  //     "Estas vacaciones de invierno, te invitamos a aprender a programar videojuegos con Scratch y Javascript. ¡No te lo pierdas!",
-  // },
+  {
+    titulo: "Curso Videojuegos - BIENcba en Vacaciones de Invierno 2026",
+    url: "/videojuegos-invierno-26",
+    external: true,
+    img: VideojuegosVacaciones,
+    alt: "Joystick, sol de la bandera cordobesa y copo de nieve",
+    descripcion:
+      "Estas vacaciones de invierno, te invitamos a aprender a programar videojuegos con Scratch y Javascript. ¡No te lo pierdas!",
+  },
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",
     url: "https://drive.google.com/file/d/1P7042YlGUzAZR6TygjvauxskGnXN25-t/view",
