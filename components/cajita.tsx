@@ -76,7 +76,7 @@ export function CajitaLink({
   return (
     <Link href={url} target={external ? "_blank" : undefined}>
       <Cajita classNames={{ root: "mx-auto w-[85%] md:w-lg py-4" }}>
-        <div className="flex gap-6 items-center pb-2 group cursor-pointer">
+        <div className="grid grid-cols-[96px_1fr] content-center gap-6 items-center pb-2 group cursor-pointer">
           <Image
             src={img}
             className="w-24 h-24 object-contain transition-transform scale-120 rotate-0 group-hover:-rotate-6"
