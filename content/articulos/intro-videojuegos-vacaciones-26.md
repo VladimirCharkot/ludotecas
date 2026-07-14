@@ -23,4 +23,8 @@ Unos días antes te enviaremos el link de la sala de Meet para que puedas conect
 
 En caso de que quieras verlo sin participar o certificar, estará disponible en stream por nuestro canal de YouTube.
 
-### [Link al stream de youtube](https://youtube.com/live/LySg8Mm4qQw)
+### Links a youtube
+
+- [Clase 1](https://youtube.com/live/LySg8Mm4qQw)
+- [Clase 2](https://youtube.com/live/452n6CnAU2c)
+- [Clase 3](https://youtube.com/live/6zXSGpAW1PY)
