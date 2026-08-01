@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Módulo de Cables — Generador</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <style>
+      :root {
+        --bg: #0e1c26;
+        --bg-grid: #16303f;
+        --panel: #12242f;
+        --panel-border: #244457;
+        --ink: #eae5d8;
+        --ink-dim: #9fb2bd;
+        --copper: #e0a458;
+        --copper-dim: #8a6a3f;
+        --ok: #57b87a;
+        --bad: #d9584f;
+        --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        --disp: "Segoe UI", system-ui, -apple-system, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: linear-gradient(var(--bg-grid) 1px, transparent 1px) 0 0/28px
+            28px,
+          linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px) 0 0/28px
+            28px,
+          var(--bg);
+        color: var(--ink);
+        font-family: var(--disp);
+        min-height: 100vh;
+        padding: 28px 18px 60px;
+      }
+      .wrap {
+        max-width: 880px;
+        margin: 0 auto;
+      }
+
+      header {
+        margin-bottom: 22px;
+      }
+      .eyebrow {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        color: var(--copper);
+        text-transform: uppercase;
+      }
+      h1 {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        margin: 4px 0 4px;
+      }
+      .sub {
+        color: var(--ink-dim);
+        font-size: 14.5px;
+        max-width: 60ch;
+        line-height: 1.5;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--panel-border);
+        border-radius: 10px;
+        padding: 18px;
+        margin-bottom: 18px;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        align-items: flex-end;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .field label {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-dim);
+      }
+      select,
+      input[type="text"] {
+        background: var(--bg);
+        border: 1px solid var(--panel-border);
+        color: var(--ink);
+        padding: 8px 10px;
+        border-radius: 6px;
+        font-family: var(--mono);
+        font-size: 14px;
+      }
+      input[type="text"] {
+        width: 130px;
+        letter-spacing: 0.12em;
+      }
+      button {
+        font-family: var(--disp);
+        font-weight: 600;
+        font-size: 14px;
+        border-radius: 6px;
+        padding: 9px 16px;
+        border: 1px solid var(--panel-border);
+        background: transparent;
+        color: var(--ink);
+        cursor: pointer;
+      }
+      button.primary {
+        background: var(--copper);
+        border-color: var(--copper);
+        color: #1a1208;
+      }
+      button:hover {
+        filter: brightness(1.12);
+      }
+      button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 4px;
+        border-bottom: 1px solid var(--panel-border);
+        margin-bottom: 16px;
+      }
+      .tab {
+        font-family: var(--mono);
+        font-size: 12.5px;
+        letter-spacing: 0.05em;
+        padding: 9px 14px;
+        cursor: pointer;
+        color: var(--ink-dim);
+        border-bottom: 2px solid transparent;
+        text-transform: uppercase;
+      }
+      .tab.active {
+        color: var(--copper);
+        border-bottom-color: var(--copper);
+      }
+
+      #canvas-stage {
+        display: flex;
+        justify-content: center;
+      }
+      #canvas-holder canvas {
+        border-radius: 8px;
+        display: block;
+      }
+
+      .row-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      #banner {
+        text-align: center;
+        font-family: var(--mono);
+        font-size: 15px;
+        padding: 10px 14px;
+        border-radius: 6px;
+        margin-bottom: 14px;
+        min-height: 20px;
+      }
+      #banner.ok {
+        background: rgba(87, 184, 122, 0.15);
+        color: var(--ok);
+        border: 1px solid var(--ok);
+      }
+      #banner.bad {
+        background: rgba(217, 88, 79, 0.15);
+        color: var(--bad);
+        border: 1px solid var(--bad);
+      }
+
+      .instructivo dl {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 8px 18px;
+      }
+      .instructivo dt {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--ink-dim);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding-top: 2px;
+      }
+      .instructivo dd {
+        margin: 0;
+        font-size: 16px;
+      }
+      .cable-list {
+        list-style: none;
+        padding: 0;
+        margin: 4px 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .cable-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--mono);
+        font-size: 14px;
+      }
+      .swatch {
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        flex: none;
+      }
+      .correcto-box {
+        margin-top: 16px;
+        padding: 16px;
+        border-radius: 8px;
+        background: rgba(224, 164, 88, 0.12);
+        border: 1px solid var(--copper);
+        text-align: center;
+      }
+      .correcto-box .num {
+        font-size: 40px;
+        font-weight: 800;
+        color: var(--copper);
+        line-height: 1;
+      }
+      .correcto-box .cap {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-dim);
+        margin-top: 4px;
+      }
+      .warn {
+        margin-top: 14px;
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--bad);
+        border-top: 1px dashed var(--panel-border);
+        padding-top: 10px;
+      }
+
+      @media print {
+        body {
+          background: white !important;
+          color: black;
+          padding: 0;
+        }
+        header,
+        .panel.controls-panel,
+        .tabs,
+        #canvas-stage,
+        #banner,
+        .row-actions,
+        .no-print {
+          display: none !important;
+        }
+        .instructivo {
+          display: block !important;
+        }
+        .panel {
+          border: none;
+        }
+        .instructivo dd,
+        .cable-list li,
+        .correcto-box .num {
+          color: black !important;
+        }
+        .correcto-box {
+          background: none;
+          border: 2px solid black;
+        }
+        .warn {
+          color: black;
+          font-weight: bold;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="eyebrow">
+          Escape room / taller — desactivación de cables
+        </div>
+        <h1>Módulo de Cables</h1>
+        <p class="sub">
+          Para abrir la puerta deberán cortar el cable correcto.
+        </p>
+        <p class="sub">
+          Genera una configuración aleatoria (3 a 6 cables) y calcula el cable
+          correcto aplicando exactamente la misma planilla de reglas en las tres
+          vistas: estática, interactiva e instructivo. Nunca pueden divergir
+          porque las tres leen del mismo cálculo.
+        </p>
+      </header>
+
+      <div class="panel controls-panel no-print">
+        <div class="controls">
+          <div class="field">
+            <label for="cantidad">Cantidad de cables</label>
+            <select id="cantidad">
+              <option value="3">3</option>
+              <option value="4" selected>4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="serial">Número de serial</label>
+            <input type="text" id="serial" maxlength="6" />
+          </div>
+          <button id="btn-nuevo-serial">Nuevo serial</button>
+          <button id="btn-nuevo-modulo" class="primary">
+            Generar módulo nuevo
+          </button>
+        </div>
+      </div>
+
+      <div class="tabs no-print">
+        <div class="tab active" data-tab="estatica">Vista estática</div>
+        <div class="tab" data-tab="interactivo">Interactivo</div>
+        <div class="tab" data-tab="instructivo">Instructivo (profe)</div>
+      </div>
+
+      <div id="banner" class="no-print"></div>
+
+      <div class="panel" id="panel-canvas">
+        <div id="canvas-stage"><div id="canvas-holder"></div></div>
+        <div class="row-actions no-print" id="acciones-estatica">
+          <button id="btn-descargar">Descargar PNG</button>
+        </div>
+        <div
+          class="row-actions no-print"
+          id="acciones-interactivo"
+          style="display: none"
+        >
+          <button id="btn-reintentar">Reintentar (mismo módulo)</button>
+        </div>
+      </div>
+
+      <div
+        class="panel instructivo"
+        id="panel-instructivo"
+        style="display: none"
+      >
+        <dl>
+          <dt>Cantidad de cables</dt>
+          <dd id="ins-cantidad"></dd>
+          <dt>Número de serial</dt>
+          <dd id="ins-serial"></dd>
+          <dt>Último dígito</dt>
+          <dd id="ins-digito"></dd>
+        </dl>
+        <p
+          style="
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--ink-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin: 18px 0 6px;
+          "
+        >
+          Orden de cables (de arriba hacia abajo)
+        </p>
+        <ul class="cable-list" id="ins-lista"></ul>
+
+        <div class="correcto-box">
+          <div class="num" id="ins-correcto-num"></div>
+          <div class="cap">
+            cable a cortar — contando desde arriba, empezando en 1
+          </div>
+        </div>
+
+        <p class="warn">
+          ⚠ Esta hoja es solo para quien coordina el juego. No debe verla quien
+          corta el cable.
+        </p>
+        <div class="row-actions no-print">
+          <button id="btn-imprimir">Imprimir instructivo</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* =========================================================
+   1) MOTOR DE REGLAS — única fuente de verdad
+   Traducción directa de la planilla de "desarmado de bomba".
+   ========================================================= */
+      const COLORES = ["rojo", "blanco", "azul", "amarillo", "negro"]
+      const HEX = {
+        rojo: "#c93a30",
+        blanco: "#f0ece0",
+        azul: "#3d7fb0",
+        amarillo: "#d9b53f",
+        negro: "#2a2a2a",
+      }
+
+      function contar(colores, color) {
+        return colores.filter((c) => c === color).length
+      }
+
+      // Devuelve el índice (0-based) del cable correcto.
+      function calcularCableCorrecto(colores, ultimoDigito) {
+        const n = colores.length
+        const impar = ultimoDigito % 2 === 1
+        const ultimo = colores[n - 1]
+
+        if (n === 3) {
+          if (contar(colores, "rojo") === 0) return 1
+          if (ultimo === "blanco") return n - 1
+          if (contar(colores, "azul") > 1) return colores.lastIndexOf("azul")
+          return n - 1
+        }
+        if (n === 4) {
+          if (contar(colores, "rojo") > 1 && impar)
+            return colores.lastIndexOf("rojo")
+          if (ultimo === "amarillo" && contar(colores, "rojo") === 0) return 0
+          if (contar(colores, "azul") === 1) return 0
+          if (contar(colores, "amarillo") > 1) return n - 1
+          return 1
+        }
+        if (n === 5) {
+          if (ultimo === "negro" && impar) return 3
+          if (contar(colores, "rojo") === 1 && contar(colores, "amarillo") > 1)
+            return 0
+          if (contar(colores, "negro") === 0) return 1
+          return 0
+        }
+        if (n === 6) {
+          if (contar(colores, "amarillo") === 0 && impar) return 2
+          if (
+            contar(colores, "amarillo") === 1 &&
+            contar(colores, "blanco") > 1
+          )
+            return 3
+          if (contar(colores, "rojo") === 0) return n - 1
+          return 3
+        }
+        throw new Error("Cantidad de cables no soportada: " + n)
+      }
+
+      function colorAleatorio() {
+        return COLORES[Math.floor(Math.random() * COLORES.length)]
+      }
+
+      function generarColores(n) {
+        const arr = []
+        for (let i = 0; i < n; i++) arr.push(colorAleatorio())
+        return arr
+      }
+
+      function generarSerial() {
+        const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789"
+        let s = ""
+        for (let i = 0; i < 5; i++)
+          s += chars[Math.floor(Math.random() * chars.length)]
+        s += String(Math.floor(Math.random() * 10)) // último caracter siempre dígito
+        return s
+      }
+
+      function ultimoDigitoDe(serial) {
+        const m = serial.match(/(\d)(?!.*\d)/) // último dígito presente en el string
+        return m ? parseInt(m[1], 10) : 0
+      }
+
+      /* =========================================================
+   2) ESTADO
+   ========================================================= */
+      const estado = {
+        n: 4,
+        colores: [],
+        serial: "",
+        digito: 0,
+        correcto: 0,
+        cortes: [], // boolean por cable
+        resultado: null, // índice cortado, o null
+        modo: "estatica",
+      }
+
+      function generarModulo(n) {
+        estado.n = n
+        estado.colores = generarColores(n)
+        estado.serial = generarSerial()
+        estado.digito = ultimoDigitoDe(estado.serial)
+        estado.correcto = calcularCableCorrecto(estado.colores, estado.digito)
+        estado.cortes = new Array(n).fill(false)
+        estado.resultado = null
+        refrescarUI()
+      }
+
+      function regenerarSerial() {
+        let serial = document
+          .getElementById("serial")
+          .value.trim()
+          .toUpperCase()
+        if (!/\d/.test(serial)) {
+          serial = generarSerial()
+        }
+        estado.serial = serial
+        estado.digito = ultimoDigitoDe(serial)
+        estado.correcto = calcularCableCorrecto(estado.colores, estado.digito)
+        estado.cortes = new Array(estado.n).fill(false)
+        estado.resultado = null
+        refrescarUI()
+      }
+
+      function reintentar() {
+        estado.cortes = new Array(estado.n).fill(false)
+        estado.resultado = null
+        document.getElementById("banner").className = "no-print"
+        document.getElementById("banner").textContent = ""
+        if (sketch) sketch.redraw()
+      }
+
+      function cortarCable(i) {
+        if (estado.modo !== "interactivo") return
+        if (estado.resultado !== null) return // ya se jugó esta ronda
+        estado.cortes[i] = true
+        estado.resultado = i
+        const acierto = i === estado.correcto
+        sonar(acierto)
+        const banner = document.getElementById("banner")
+        banner.className = acierto ? "ok" : "bad"
+        banner.textContent = acierto
+          ? `✔ Correcto — cable ${i + 1} (${estado.colores[i]}) desactivado.`
+          : `✘ Incorrecto — cortaste el cable ${i + 1} (${
+              estado.colores[i]
+            }). Boom.`
+        if (sketch) sketch.redraw()
+      }
+
+      function sonar(ok) {
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)()
+          const o = ctx.createOscillator()
+          const g = ctx.createGain()
+          o.connect(g)
+          g.connect(ctx.destination)
+          o.type = "sine"
+          o.frequency.value = ok ? 880 : 140
+          g.gain.setValueAtTime(0.001, ctx.currentTime)
+          g.gain.exponentialRampToValueAtTime(0.2, ctx.currentTime + 0.02)
+          g.gain.exponentialRampToValueAtTime(
+            0.0001,
+            ctx.currentTime + (ok ? 0.35 : 0.55)
+          )
+          o.start()
+          o.stop(ctx.currentTime + (ok ? 0.4 : 0.6))
+        } catch (e) {
+          /* audio no disponible, no pasa nada */
+        }
+      }
+
+      /* =========================================================
+   3) DIBUJO (p5, instance mode, noLoop)
+   ========================================================= */
+      let sketch
+      const ANCHO = 620
+      const MARGEN_SUP = 40
+      const ALTO_FILA = 64
+
+      function altoCanvas(n) {
+        return MARGEN_SUP * 2 + ALTO_FILA * n
+      }
+
+      new p5((p) => {
+        sketch = p
+
+        p.setup = () => {
+          const c = p.createCanvas(ANCHO, altoCanvas(estado.n))
+          c.parent("canvas-holder")
+          p.noLoop()
+        }
+
+        p.draw = () => {
+          p.resizeCanvas(ANCHO, altoCanvas(estado.n))
+          p.background("#12242f")
+          p.noFill()
+          p.stroke("#244457")
+          p.rect(0, 0, ANCHO - 1, altoCanvas(estado.n) - 1)
+
+          // bloques terminales izquierdo/derecho
+          const xIzq = 90,
+            xDer = ANCHO - 90
+          p.noStroke()
+          p.fill("#1a3140")
+          p.rect(
+            xIzq - 14,
+            MARGEN_SUP - 20,
+            14,
+            altoCanvas(estado.n) - MARGEN_SUP * 2 + 40,
+            3
+          )
+          p.rect(
+            xDer,
+            MARGEN_SUP - 20,
+            14,
+            altoCanvas(estado.n) - MARGEN_SUP * 2 + 40,
+            3
+          )
+
+          for (let i = 0; i < estado.n; i++) {
+            const y = MARGEN_SUP + ALTO_FILA * i + ALTO_FILA / 2
+            const color = estado.colores[i]
+            const cortado = estado.cortes[i]
+            const esResultado = estado.resultado === i
+
+            // numero
+            p.noStroke()
+            p.fill("#9fb2bd")
+            p.textFont("monospace")
+            p.textSize(13)
+            p.textAlign(p.RIGHT, p.CENTER)
+            p.text(i + 1, xIzq - 24, y)
+
+            // pines
+            p.fill("#e0a458")
+            p.circle(xIzq, y, 7)
+            p.circle(xDer, y, 7)
+
+            p.strokeWeight(6)
+            p.strokeCap(p.ROUND)
+
+            if (!cortado) {
+              p.stroke(HEX[color])
+              p.line(xIzq, y, xDer, y)
+            } else {
+              const gap = 16
+              const midX = (xIzq + xDer) / 2
+              p.stroke(HEX[color])
+              p.line(xIzq, y, midX - gap, y)
+              p.line(midX + gap, y, xDer, y)
+              // marca de corte
+              p.stroke(
+                estado.modo === "interactivo"
+                  ? esResultado
+                    ? estado.resultado === estado.correcto
+                      ? "#57b87a"
+                      : "#d9584f"
+                    : "#666"
+                  : "#666"
+              )
+              p.strokeWeight(3)
+              p.line(midX - 4, y - 10, midX + 4, y + 10)
+              p.line(midX + 4, y - 10, midX - 4, y + 10)
+            }
+
+            // etiqueta de color
+            p.noStroke()
+            p.fill("#eae5d8")
+            p.textAlign(p.LEFT, p.CENTER)
+            p.textSize(13)
+            p.text(color, xDer + 24, y)
+
+            // area clickeable sutil en modo interactivo
+            if (estado.modo === "interactivo" && !cortado) {
+              p.noFill()
+              p.stroke(255, 255, 255, 18)
+              p.strokeWeight(1)
+              p.rect(
+                xIzq - 2,
+                y - ALTO_FILA / 2 + 4,
+                xDer - xIzq + 4,
+                ALTO_FILA - 8,
+                4
+              )
+            }
+          }
+        }
+
+        p.mousePressed = () => {
+          if (estado.modo !== "interactivo") return
+          if (estado.resultado !== null) return
+          if (
+            p.mouseX < 0 ||
+            p.mouseX > ANCHO ||
+            p.mouseY < 0 ||
+            p.mouseY > altoCanvas(estado.n)
+          )
+            return
+          const idx = Math.floor((p.mouseY - MARGEN_SUP) / ALTO_FILA)
+          if (idx >= 0 && idx < estado.n) {
+            cortarCable(idx)
+          }
+        }
+      })
+
+      /* =========================================================
+   4) UI: controles, tabs, instructivo
+   ========================================================= */
+      function refrescarUI() {
+        document.getElementById("serial").value = estado.serial
+        document.getElementById("banner").className = "no-print"
+        document.getElementById("banner").textContent = ""
+
+        // instructivo
+        document.getElementById("ins-cantidad").textContent = estado.n
+        document.getElementById("ins-serial").textContent = estado.serial
+        document.getElementById("ins-digito").textContent =
+          estado.digito + (estado.digito % 2 === 1 ? " (impar)" : " (par)")
+        const lista = document.getElementById("ins-lista")
+        lista.innerHTML = ""
+        estado.colores.forEach((c, i) => {
+          const li = document.createElement("li")
+          const sw = document.createElement("span")
+          sw.className = "swatch"
+          sw.style.background = HEX[c]
+          li.appendChild(sw)
+          const txt = document.createElement("span")
+          txt.textContent = `Cable ${i + 1} — ${c}`
+          li.appendChild(txt)
+          lista.appendChild(li)
+        })
+        document.getElementById("ins-correcto-num").textContent =
+          estado.correcto + 1
+
+        if (sketch) sketch.redraw()
+      }
+
+      document
+        .getElementById("btn-nuevo-modulo")
+        .addEventListener("click", () => {
+          const n = parseInt(document.getElementById("cantidad").value, 10)
+          generarModulo(n)
+        })
+      document
+        .getElementById("btn-nuevo-serial")
+        .addEventListener("click", regenerarSerial)
+      document
+        .getElementById("btn-reintentar")
+        .addEventListener("click", reintentar)
+      document.getElementById("btn-descargar").addEventListener("click", () => {
+        if (sketch)
+          sketch.saveCanvas(`modulo-cables-${estado.n}-${estado.serial}`, "png")
+      })
+      document
+        .getElementById("btn-imprimir")
+        .addEventListener("click", () => window.print())
+
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          document
+            .querySelectorAll(".tab")
+            .forEach((t) => t.classList.remove("active"))
+          tab.classList.add("active")
+          const which = tab.dataset.tab
+          estado.modo = which
+
+          document.getElementById("panel-canvas").style.display =
+            which === "instructivo" ? "none" : "block"
+          document.getElementById("panel-instructivo").style.display =
+            which === "instructivo" ? "block" : "none"
+          document.getElementById("acciones-estatica").style.display =
+            which === "estatica" ? "flex" : "none"
+          document.getElementById("acciones-interactivo").style.display =
+            which === "interactivo" ? "flex" : "none"
+
+          if (which === "interactivo") {
+            // empezar la ronda "limpia" al entrar a interactivo
+            estado.cortes = new Array(estado.n).fill(false)
+            estado.resultado = null
+          }
+          document.getElementById("banner").className = "no-print"
+          document.getElementById("banner").textContent = ""
+          if (sketch) sketch.redraw()
+        })
+      })
+
+      // primer módulo al cargar
+      generarModulo(4)
+    </script>
+  </body>
+</html>
