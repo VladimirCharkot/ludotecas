@@ -1,0 +1,17 @@
+// lib/google-auth.ts
+import { JWT } from "google-auth-library"
+
+function getServiceAccountCredentials() {
+  const b64 = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_B64
+  if (!b64) throw new Error("Falta GOOGLE_SERVICE_ACCOUNT_KEY_B64")
+  return JSON.parse(Buffer.from(b64, "base64").toString("utf-8"))
+}
+
+export function getSheetsAuthClient() {
+  const creds = getServiceAccountCredentials()
+  return new JWT({
+    email: creds.client_email,
+    key: creds.private_key,
+    scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
+  })
+}

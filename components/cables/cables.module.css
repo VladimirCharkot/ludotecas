@@ -1,0 +1,786 @@
+/* ============================================================
+   Módulo de Cables — tema "consola"
+   ------------------------------------------------------------
+   CSS Module en lugar de Tailwind: es un widget con paleta propia
+   y oscura, que vive dentro del layout claro del sitio. Aislarlo
+   evita pelearse con los tokens del tema global, y las reglas de
+   @media print quedan al lado de lo que imprimen.
+   ============================================================ */
+
+.consola {
+  --bg: #0e1c26;
+  --bg-grid: #16303f;
+  --panel: #12242f;
+  --panel-alt: #0f1f29;
+  --borde: #244457;
+  --ink: #eae5d8;
+  --ink-dim: #9fb2bd;
+  --cobre: #e0a458;
+  --cobre-dim: #8a6a3f;
+  --ok: #57b87a;
+  --mal: #d9584f;
+  --mono: var(--font-roboto-mono), ui-monospace, monospace;
+
+  background: linear-gradient(var(--bg-grid) 1px, transparent 1px) 0 0 / 28px
+      28px,
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px) 0 0 / 28px 28px,
+    var(--bg);
+  color: var(--ink);
+  padding: 32px 18px 56px;
+  min-height: 70vh;
+}
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.wrap.angosto {
+  max-width: 720px;
+}
+
+/* ---------- encabezado ---------- */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--cobre);
+  text-transform: uppercase;
+}
+.titulo {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 4px 0;
+  line-height: 1.15;
+}
+.subtitulo {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.parrafo {
+  color: var(--ink-dim);
+  font-size: 14.5px;
+  max-width: 62ch;
+  line-height: 1.55;
+  margin: 8px 0 0;
+}
+.parrafo strong {
+  color: var(--ink);
+}
+.parrafo a {
+  color: var(--cobre);
+}
+
+/* ---------- paneles ---------- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+.rotulo {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* ---------- controles ---------- */
+.controles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+}
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.campo label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.campo select,
+.campo input {
+  background: var(--bg);
+  border: 1px solid var(--borde);
+  color: var(--ink);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 14px;
+}
+.campo input[type="text"] {
+  width: 140px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.campo input[type="number"] {
+  width: 86px;
+}
+
+.boton {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 9px 16px;
+  border: 1px solid var(--borde);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.3;
+}
+.boton.primario {
+  background: var(--cobre);
+  border-color: var(--cobre);
+  color: #1a1208;
+}
+.boton:hover {
+  filter: brightness(1.14);
+}
+.boton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.boton.chico {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.consola :focus-visible {
+  outline: 2px solid var(--cobre);
+  outline-offset: 2px;
+}
+
+.acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.acciones.centro {
+  justify-content: center;
+}
+
+/* ---------- banner de resultado ---------- */
+.banner {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.45;
+  padding: 11px 14px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  border: 1px solid transparent;
+}
+/* Mientras no se cortó nada el banner no debe ocupar lugar. */
+.banner:empty {
+  display: none;
+}
+.banner.ok {
+  background: rgba(87, 184, 122, 0.15);
+  color: var(--ok);
+  border-color: var(--ok);
+}
+.banner.mal {
+  background: rgba(217, 88, 79, 0.15);
+  color: var(--mal);
+  border-color: var(--mal);
+}
+
+/* ============================================================
+   El tablero
+   ------------------------------------------------------------
+   Sin canvas: los cables son cajas de CSS. Escala solo, imprime
+   bien y cada cable puede ser un <button> de verdad — con foco de
+   teclado y nombre accesible, que en el canvas no existían.
+   ============================================================ */
+
+.tablero {
+  background: var(--panel-alt);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 20px 14px 10px;
+  container-type: inline-size;
+}
+
+/* --- placa del serial --- */
+.placa {
+  width: min(260px, 80%);
+  margin: 0 auto 22px;
+  background: #1a3140;
+  border-radius: 5px;
+  padding: 4px;
+  position: relative;
+}
+.placaInterior {
+  background: var(--bg);
+  border-radius: 3px;
+  padding: 6px 26px 8px;
+  text-align: center;
+}
+.placa::before,
+.placa::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #3a5768;
+  transform: translateY(-50%);
+}
+.placa::before {
+  left: 8px;
+}
+.placa::after {
+  right: 8px;
+}
+.placaRotulo {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.placaSerial {
+  display: block;
+  font-family: var(--mono);
+  font-size: clamp(17px, 4.5cqi, 22px);
+  letter-spacing: 0.1em;
+  color: var(--ink);
+}
+
+/* --- filas de cables --- */
+.cables {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 13px solid #1a3140;
+  border-right: 13px solid #1a3140;
+  border-radius: 4px;
+}
+
+.fila {
+  /* [n.º] [cable] [nombre del color] */
+  display: grid;
+  grid-template-columns: 2.2ch 1fr minmax(4.5rem, max-content);
+  align-items: center;
+  gap: 0 14px;
+  width: 100%;
+  padding: 11px 10px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+/* Cuando es jugable, la fila es un <button> */
+button.fila {
+  cursor: pointer;
+}
+button.fila:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+}
+button.fila:disabled {
+  cursor: default;
+}
+
+.numero {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-dim);
+  text-align: right;
+}
+button.fila:hover:not(:disabled) .numero {
+  color: var(--cobre);
+}
+
+.nombreColor {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+}
+
+/* --- el cable en sí --- */
+.via {
+  display: flex;
+  align-items: center;
+  min-height: 18px;
+}
+.borne {
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--cobre);
+  box-shadow: inset 0 0 0 2px var(--cobre-dim);
+}
+.hilo {
+  flex: 1;
+  height: 7px;
+  border-radius: 3px;
+  background: linear-gradient(
+    var(--brillo) 0 1.5px,
+    var(--cable) 1.5px 100%
+  );
+}
+/* Los dos extremos de un cable cortado, colgando un poco. */
+.hiloIzq {
+  composes: hilo;
+  transform: rotate(1.1deg);
+  transform-origin: left center;
+}
+.hiloDer {
+  composes: hilo;
+  transform: rotate(-1.1deg);
+  transform-origin: right center;
+}
+.marca {
+  flex: none;
+  width: 2.4rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 17px;
+  line-height: 1;
+  color: #6b7a84;
+}
+.marca.ok {
+  color: var(--ok);
+}
+.marca.mal {
+  color: var(--mal);
+}
+
+.pieTablero {
+  display: block;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #4c6472;
+  margin-top: 10px;
+}
+
+/* Abajo de ~380px el nombre del color no cabe al costado: pasa
+   arriba del cable y la fila se acomoda en dos líneas. */
+@container (max-width: 380px) {
+  .fila {
+    grid-template-columns: 2.2ch 1fr;
+    gap: 2px 10px;
+  }
+  .nombreColor {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 12px;
+  }
+  .via {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+/* ============================================================
+   Datos del módulo (hoja del profe)
+   ============================================================ */
+
+.datos {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 18px;
+  margin: 0;
+}
+.datos dt {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-top: 3px;
+}
+.datos dd {
+  margin: 0;
+  font-size: 16px;
+}
+
+.listaCables {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.listaCables li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 14px;
+}
+.listaCables li.esCorrecto {
+  color: var(--cobre);
+  font-weight: 700;
+}
+.muestra {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  flex: none;
+}
+
+.leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.leyenda li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.leyenda li.cero {
+  opacity: 0.45;
+}
+
+.respuesta {
+  padding: 16px;
+  border-radius: 8px;
+  background: rgba(224, 164, 88, 0.12);
+  border: 1px solid var(--cobre);
+  text-align: center;
+}
+.respuestaNum {
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--cobre);
+  line-height: 1;
+}
+.respuestaPie {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-top: 6px;
+}
+.respuestaColor {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.aviso {
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--mal);
+  border-top: 1px dashed var(--borde);
+  padding-top: 10px;
+  margin: 16px 0 0;
+}
+
+/* ---------- traza de reglas ---------- */
+.traza {
+  list-style: none;
+  counter-reset: paso;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.traza li {
+  counter-increment: paso;
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  background: var(--panel-alt);
+  border: 1px solid transparent;
+  color: var(--ink-dim);
+}
+.traza li::before {
+  content: counter(paso);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-align: center;
+  padding-top: 2px;
+  color: var(--ink-dim);
+}
+.traza li.aplica {
+  color: var(--ink);
+  border-color: var(--cobre);
+  background: rgba(224, 164, 88, 0.1);
+}
+.traza li.aplica::before {
+  content: "▶";
+  color: var(--cobre);
+}
+.traza li.descartada {
+  text-decoration: line-through;
+  text-decoration-color: var(--cobre-dim);
+  opacity: 0.7;
+}
+.traza li.noEvaluada {
+  opacity: 0.4;
+}
+
+/* ============================================================
+   Planilla de reglas
+   ============================================================ */
+
+.grupoReglas {
+  break-inside: avoid;
+  margin-bottom: 18px;
+}
+.grupoReglas h3 {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cobre);
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--borde);
+}
+.reglas {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  /* El preflight de Tailwind pone list-style: none en todo ol/ul, y
+     acá el número de cada regla es información: el grupo tiene que
+     aplicarlas en orden. */
+  list-style: decimal;
+}
+.reglas li {
+  font-size: 15px;
+  line-height: 1.5;
+}
+.reglas b,
+.traza b {
+  color: var(--cobre);
+  font-weight: 700;
+}
+.traza li.descartada b {
+  color: var(--cobre-dim);
+}
+
+.filtro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ============================================================
+   Enlaces generados
+   ============================================================ */
+
+.enlaces {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.enlace {
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 14px;
+  background: var(--panel-alt);
+}
+.enlaceTitulo {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+.enlacePara {
+  font-size: 13.5px;
+  color: var(--ink-dim);
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+.enlaceUrl {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--cobre);
+  word-break: break-all;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.codigoGrande {
+  font-family: var(--mono);
+  font-size: 34px;
+  letter-spacing: 0.16em;
+  color: var(--cobre);
+  font-weight: 700;
+}
+
+.lote {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.lote th,
+.lote td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--borde);
+}
+.lote th {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  font-weight: 400;
+}
+.lote td.cod {
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  color: var(--cobre);
+}
+.lote td a {
+  color: var(--ink);
+  font-size: 13px;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.pie {
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid var(--borde);
+  font-size: 13.5px;
+  color: var(--ink-dim);
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.pie a {
+  color: var(--cobre);
+}
+
+/* ============================================================
+   Impresión — la planilla y la hoja del profe se imprimen
+   ============================================================ */
+
+@media print {
+  .consola {
+    background: white !important;
+    color: black;
+    padding: 0;
+    min-height: 0;
+  }
+  .sinImprimir {
+    display: none !important;
+  }
+  .panel {
+    border: none;
+    background: none;
+    padding: 0;
+    margin-bottom: 14px;
+  }
+  .titulo {
+    font-size: 22pt;
+  }
+  .eyebrow,
+  .parrafo,
+  .parrafo strong,
+  .parrafo a,
+  .rotulo,
+  .datos dt,
+  .listaCables li,
+  .traza li,
+  .reglas li,
+  .leyenda li,
+  .respuestaPie,
+  .respuestaColor,
+  .nombreColor,
+  .numero {
+    color: black !important;
+  }
+  .grupoReglas h3 {
+    color: black !important;
+    border-bottom: 1px solid black;
+  }
+  .reglas b,
+  .traza b {
+    color: black !important;
+    text-decoration: underline;
+  }
+  .consola a {
+    color: black !important;
+    text-decoration: none;
+  }
+  .traza li {
+    background: none;
+    border: none;
+    padding: 2px 0;
+  }
+  .traza li.aplica {
+    font-weight: 700;
+  }
+  .traza li.noEvaluada {
+    display: none;
+  }
+  .respuesta {
+    background: none;
+    border: 2px solid black;
+  }
+  .respuestaNum {
+    color: black !important;
+  }
+  .aviso {
+    color: black;
+    font-weight: 700;
+    border-top: 1px dashed black;
+  }
+  .tablero {
+    background: none;
+    border: 1px solid black;
+  }
+  .cables {
+    border-left-color: #999;
+    border-right-color: #999;
+  }
+  .pie {
+    display: none;
+  }
+  /* Que los colores de los cables y las muestras salgan impresos */
+  .hilo,
+  .hiloIzq,
+  .hiloDer,
+  .muestra,
+  .borne {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

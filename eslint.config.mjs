@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Assets estáticos, no código fuente. Sin esto, eslint intenta
+    // parsear los bundles compilados de Tina en public/admin/assets
+    // y se queda sin memoria.
+    "public/**",
   ]),
 ]);
 
