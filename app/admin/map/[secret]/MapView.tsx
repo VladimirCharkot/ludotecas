@@ -2,9 +2,18 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import { Select } from "@mantine/core"
-import type { Pin, SinCoordenadas } from "./types"
-
-const CORDOBA_CAPITAL = { lat: -31.4201, lng: -64.1888 }
+import type { Pin, SinCoordenadas } from "@/lib/map-types"
+import {
+  CORDOBA_CAPITAL,
+  COLOR_ESCOLAR,
+  COLOR_NO_ESCOLAR,
+  MARKER_SIZE_BASE,
+  MARKER_SIZE_SELECTED,
+  loadGoogleMaps,
+  loadPinIconFactory,
+  pinIcon,
+  titleCase,
+} from "@/lib/map-utils"
 
 // Color por categoría de origen, no por confianza de match (eso se sacó del
 // esquema viejo auto/revision/sin_escuela). Un pin puede tener más de una
@@ -12,8 +21,6 @@ const CORDOBA_CAPITAL = { lat: -31.4201, lng: -64.1888 }
 // cuenta como pertenecer a más de una de las 4 categorías de arriba, así que
 // tiene su propio tono "ambos" en vez de caer en blanco.
 const COLOR_CINCUENTA = "#2563eb" // 50 Ludotecas (BP incluido) -> azul
-const COLOR_ESCOLAR = "#dc2626" // relevamiento, con escuela resuelta -> rojo
-const COLOR_NO_ESCOLAR = "#f97316" // relevamiento, sin escuela -> naranja
 const COLOR_C1_LUDOTECAS = "#a78bfa" // violeta claro
 const COLOR_C1_PROGRAMACION = "#6d28d9" // violeta oscuro
 const COLOR_C1_AMBOS = "#8b5cf6" // violeta medio (rara vez: ambos C1)
@@ -71,57 +78,6 @@ function pinColor(pin: Pin): string {
   return pin.escuela ? COLOR_ESCOLAR : COLOR_NO_ESCOLAR
 }
 
-// El seleccionado usa el tamaño "nítido" (32); el resto achica un poco para
-// que el highlight se note sin necesitar upscaling, que pixela el ícono.
-const MARKER_SIZE_BASE = 26
-const MARKER_SIZE_SELECTED = 32
-
-const PIN_SVG_URL = "/assets/pin-mapa.svg"
-const PIN_FILL_ID = "pin-fill"
-// public/assets/pin-mapa.svg es un pin tipo "globo" (viewBox 0 0 62 62), no
-// un punto centrado como el ícono viejo de Google -- la punta que marca la
-// ubicación real está en (32,59), no en el centro (31,31). Sin este ajuste
-// el pin queda flotando arriba a la izquierda de la coordenada real.
-const PIN_ANCHOR_X_RATIO = 32 / 62
-const PIN_ANCHOR_Y_RATIO = 59 / 62
-
-// Carga el SVG una sola vez y devuelve una función que, dado un color, arma
-// el data URL con el path #pin-fill pintado de ese color (cacheado por color
-// para no reparsear/reserializar en cada marker). Vía DOMParser en vez de
-// reemplazo de texto: más robusto que un regex contra el XML del archivo.
-async function loadPinIconFactory(): Promise<(color: string) => string> {
-  const template = await fetch(PIN_SVG_URL).then((res) => res.text())
-  const cache = new Map<string, string>()
-
-  return (color: string) => {
-    const cached = cache.get(color)
-    if (cached) return cached
-
-    const doc = new DOMParser().parseFromString(template, "image/svg+xml")
-    const fillPath = doc.getElementById(PIN_FILL_ID)
-    fillPath?.setAttribute("style", `fill:${color};`)
-    const svg = new XMLSerializer().serializeToString(doc)
-    const dataUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
-    cache.set(color, dataUrl)
-    return dataUrl
-  }
-}
-
-function pinIcon(
-  makeIconUrl: (color: string) => string,
-  color: string,
-  size: number
-): google.maps.Icon {
-  return {
-    url: makeIconUrl(color),
-    scaledSize: new google.maps.Size(size, size),
-    anchor: new google.maps.Point(
-      size * PIN_ANCHOR_X_RATIO,
-      size * PIN_ANCHOR_Y_RATIO
-    ),
-  }
-}
-
 // Campos del form que ya se muestran en un lugar dedicado del panel; el
 // resto se lista genéricamente en "Sobre la Ludoteca".
 const CAMPOS_YA_MOSTRADOS = new Set([
@@ -135,26 +91,6 @@ const CAMPOS_YA_MOSTRADOS = new Set([
   "Correo electrónico de contacto",
   "Teléfono de contacto",
 ])
-
-function titleCase(value: string): string {
-  return value
-    .toLowerCase()
-    .split(" ")
-    .map((word) => (word ? word[0].toUpperCase() + word.slice(1) : word))
-    .join(" ")
-}
-
-function loadGoogleMaps(apiKey: string): Promise<void> {
-  if (window.google?.maps) return Promise.resolve()
-  return new Promise((resolve, reject) => {
-    const script = document.createElement("script")
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`
-    script.async = true
-    script.onload = () => resolve()
-    script.onerror = () => reject(new Error("No se pudo cargar Google Maps"))
-    document.head.appendChild(script)
-  })
-}
 
 // El header de esta columna en el form incluye un salto de línea y puede
 // variar en puntuación; matcheamos por prefijo en vez de por igualdad exacta.
@@ -512,6 +448,7 @@ export function MapView({
           onChange={(value) => setSelectedId(value)}
           searchable
           clearable
+          withAlignedLabels
           nothingFoundMessage="No se encontró ninguna ludoteca"
         />
         <p className="text-xs px-2 py-1 mb-4">

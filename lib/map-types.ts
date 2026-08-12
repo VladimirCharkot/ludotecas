@@ -5,8 +5,6 @@ export interface Pin {
   departamento: string
   lat: number
   lng: number
-  // El color del pin en el mapa se deriva de fuentes/escuela en MapView, no
-  // se persiste ni se calcula acá — ver pinColor() en MapView.tsx.
   escuela: {
     nombre: string
     cue: string

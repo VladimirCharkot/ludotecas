@@ -10,16 +10,12 @@ import {
   LUDOTECAS_COLUMNS,
   LUDOTECAS_TAB,
 } from "@/lib/consolidation/master-sheet"
+import { buildPins } from "@/lib/map-pins"
 import { MapView } from "./MapView"
-import type { Pin, SinCoordenadas } from "./types"
 
 // La planilla maestra se actualiza a mano (bun run consolidate); la página
 // tolera hasta 1h de latencia, así que no necesita leerla en cada request.
 export const revalidate = 3600
-
-function tieneEscuela(estado: string): boolean {
-  return estado === "auto" || estado === "revision"
-}
 
 function parseRows(values: string[][], columns: readonly string[]): Record<string, string>[] {
   return values.map((row) => Object.fromEntries(columns.map((c, i) => [c, row[i] ?? ""])))
@@ -61,60 +57,11 @@ export default async function MapPage({
     parseRows(ludotecaValues, LUDOTECAS_COLUMNS).map((l) => [l.row_index, l])
   )
 
-  const pins: Pin[] = []
-  const sinCoordenadas: SinCoordenadas[] = []
-
-  for (const inst of instituciones) {
-    const ludoteca = inst.form_row_index ? ludotecasByRowIndex.get(inst.form_row_index) : undefined
-    const payload =
-      ludoteca?.raw_payload ? (JSON.parse(ludoteca.raw_payload) as Record<string, string>) : {}
-    const fuentes = inst.fuentes ? inst.fuentes.split(";").filter(Boolean) : []
-
-    const escuela = tieneEscuela(inst.estado) ? escuelasByCue.get(inst.match_cue) : undefined
-    if (escuela && escuela.lat && escuela.lng) {
-      pins.push({
-        id: inst.id,
-        nombre: inst.nombre,
-        localidad: inst.localidad,
-        departamento: inst.departamento,
-        lat: Number(escuela.lat),
-        lng: Number(escuela.lng),
-        escuela: {
-          nombre: escuela.nombre,
-          cue: escuela.cue,
-          domicilio: escuela.domicilio,
-          localidad: escuela.localidad,
-          departamento: escuela.departamento,
-          orientacion: escuela.orientacion || null,
-        },
-        fuentes,
-        payload,
-      })
-      continue
-    }
-
-    if (inst.lat && inst.lng) {
-      pins.push({
-        id: inst.id,
-        nombre: inst.nombre,
-        localidad: inst.localidad,
-        departamento: inst.departamento,
-        lat: Number(inst.lat),
-        lng: Number(inst.lng),
-        escuela: null,
-        fuentes,
-        payload,
-      })
-      continue
-    }
-
-    sinCoordenadas.push({
-      id: inst.id,
-      nombre: inst.nombre,
-      localidad: inst.localidad,
-      departamento: inst.departamento,
-    })
-  }
+  const { pins, sinCoordenadas } = buildPins({
+    instituciones,
+    escuelasByCue,
+    ludotecasByRowIndex,
+  })
 
   return (
     <div style={{ padding: "2rem", maxWidth: 1200, margin: "0 auto" }}>
