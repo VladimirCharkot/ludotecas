@@ -28,7 +28,7 @@ const links: ComponentProps<typeof CajitaLink>[] = [
     img: VideojuegosVacaciones,
     alt: "Joystick, sol de la bandera cordobesa y copo de nieve",
     descripcion:
-      "Estas vacaciones de invierno, te invitamos a aprender a programar videojuegos con Scratch y Javascript. ¡No te lo pierdas!",
+      "Estas vacaciones de invierno, estuvimos aprendiendo a programar videojuegos con Scratch y Javascript. ¡Accedé a las grabaciones!",
   },
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",

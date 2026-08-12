@@ -3,11 +3,9 @@ titulo: Introducción a la Programación de Videojuegos para estudiantes - BIENc
 imagen: /assets/gacetilla/flyer-videojuegos-vacaciones-26.png
 ---
 
-Este año, en el marco de BIENcba vacaciones de invierno, estamos ofreciendo un curso de **Introducción a la Programación de Videojuegos** para estudiantes. Este curso está diseñado para jóvenes interesados en aprender los fundamentos de la programación y el desarrollo de videojuegos, brindándoles una experiencia práctica y divertida.
+Este año, en el marco de BIENcba vacaciones de invierno, estuvimos ofreciendo un curso de **Introducción a la Programación de Videojuegos** para estudiantes. Este curso estuvo diseñado para jóvenes interesados en aprender los fundamentos de la programación y el desarrollo de videojuegos, brindándoles una experiencia práctica y divertida.
 
-El curso consta de tres encuentros: **Lun 13/7, Mie 15/7 y Vie 17/7, de 19 a 21hs**
-
-Durante los encuentros veremos:
+Durante los tres encuentros vimos:
 
 - **Encuentro 1**: lógica y patrones de programación en Scratch
 - **Encuentro 2**: introducción al código textual con javascript en p5js
@@ -15,16 +13,12 @@ Durante los encuentros veremos:
 
 [p5js](https://editor.p5js.org/) es un entorno de programación que permite crear gráficos y animaciones de manera sencilla en Javascript, un lenguaje real y práctico utilizado en desarrollo web.
 
-Los encuentros están pensados en complejidad incremental. Si bien es recomendable asistir a los tres encuentros, cada uno de ellos puede ser tomado de manera independiente. **Para obtener el certificado de asistencia es preciso asistir a los tres.**
+Los encuentros estuvieron pensados en complejidad incremental. Si bien es recomendable verlos en secuencia, cada uno de ellos puede ser visto de manera independiente.
 
-### [Inscribite acá para recibir certificado de asistencia](https://docs.google.com/forms/d/e/1FAIpQLScPOkeayfzHlXobnM_Xv1F4f-hIdiyr6EvckhZmlwwatTzpsA/viewform)
-
-Unos días antes te enviaremos el link de la sala de Meet para que puedas conectarte a los encuentros.
-
-En caso de que quieras verlo sin participar o certificar, estará disponible en stream por nuestro canal de YouTube.
+Te dejamos las grabaciones de las clases para que puedas revivir la experiencia y seguir aprendiendo a tu propio ritmo.
 
 ### Links a youtube
 
-- [Clase 1](https://youtube.com/live/LySg8Mm4qQw)
-- [Clase 2](https://youtube.com/live/452n6CnAU2c)
-- [Clase 3](https://youtube.com/live/6zXSGpAW1PY)
+- [Clase 1: Introducción a Scratch](https://youtube.com/live/LySg8Mm4qQw)
+- [Clase 2: Introducción a Javascript](https://youtube.com/live/452n6CnAU2c)
+- [Clase 3: Introducción a P5.js](https://youtube.com/live/6zXSGpAW1PY)
