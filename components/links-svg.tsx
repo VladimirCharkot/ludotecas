@@ -4,14 +4,23 @@ import { Stack } from "@mantine/core"
 import { ComponentProps } from "react"
 import { CajitaLink } from "./cajita"
 
+import PinMapa from "@/public/assets/pin-mapa.svg"
+import VideojuegosVacaciones from "@/public/assets/gacetilla/videojuegos-vacaciones.png"
 import MiniaturaCartas from "@/public/assets/miniatura-cartas.webp"
 import MiniaturaHechizo from "@/public/assets/miniatura-hechizo.webp"
-import PiezasJigsaw from "@/public/assets/piezas-jigsaw.webp"
-import VideojuegosVacaciones from "@/public/assets/gacetilla/videojuegos-vacaciones.png"
 import Peon from "@/public/assets/peon.webp"
+import PiezasJigsaw from "@/public/assets/piezas-jigsaw.webp"
 import Logo from "@/public/logo.png"
 
 const links: ComponentProps<typeof CajitaLink>[] = [
+  {
+    titulo: "Relevamiento de Ludotecas Escolares",
+    url: "/relevamiento",
+    img: PinMapa,
+    alt: "Flyer del relevamiento de ludotecas escolares",
+    descripcion:
+      "Completá el formulario y navegá el mapa con las ludotecas que ya se sumaron a la red.",
+  },
   {
     titulo: "Curso Videojuegos - BIENcba en Vacaciones de Invierno 2026",
     url: "/videojuegos-invierno-26",
