@@ -1,5 +1,6 @@
 import fs from "fs"
 import path from "path"
+import type { Metadata } from "next"
 import matter from "gray-matter"
 import { unified } from "unified"
 import remarkParse from "remark-parse"
@@ -174,6 +175,21 @@ export async function renderMarkdown(content: string): Promise<string> {
     .process(content)
 
   return String(result)
+}
+
+// Para generateMetadata: cada .md ya trae titulo/descripcion/imagen en el
+// frontmatter, así que la usamos también como og:title/og:description/og:image
+// en vez de dejar que la página herede la del layout raíz.
+export function metadataFromContentMeta(meta: BaseMeta): Metadata {
+  return {
+    title: meta.titulo,
+    description: meta.descripcion,
+    openGraph: {
+      title: meta.titulo,
+      description: meta.descripcion,
+      images: meta.imagen ? [{ url: meta.imagen }] : undefined,
+    },
+  }
 }
 
 export async function getRenderedBySlug<T extends BaseMeta = BaseMeta>(

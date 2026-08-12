@@ -49,6 +49,7 @@ const robotoMono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ludotecaseducacion.co"),
   title: "Ludotecas, Ajedrez y Go",
   description:
     "Programa Ludotecas, Ajedrez y Go de la Subdirección de Participación, Derechos y Comunidad del Ministerio de Educación de la Provincia de Córdoba",
@@ -56,17 +57,20 @@ export const metadata: Metadata = {
     title: "Ludotecas, Ajedrez y Go",
     description:
       "Programa Ludotecas, Ajedrez y Go de la Subdirección de Participación, Derechos y Comunidad del Ministerio de Educación de la Provincia de Córdoba",
-    url: "https://ludotecascba.vercel.app",
+    url: "https://ludotecaseducacion.co",
     siteName: "Ludotecas, Ajedrez y Go",
     images: [
       {
-        url: "https://ludotecascba.vercel.app/logo_ludotecas.svg",
-        width: 480,
-        height: 480,
+        url: "/logo.png",
+        width: 450,
+        height: 429,
       },
     ],
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 }
 

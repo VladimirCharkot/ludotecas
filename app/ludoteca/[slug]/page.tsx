@@ -1,6 +1,6 @@
 import { ArticlePage } from "@/components/article-page"
 import type { JuegoMeta } from "@/lib/content"
-import { getRenderedBySlug } from "@/lib/content"
+import { getRenderedBySlug, metadataFromContentMeta } from "@/lib/content"
 import { ArrowLeftSquare } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -14,10 +14,7 @@ export async function generateMetadata({
   const slug = (await params).slug
   const md = await getRenderedBySlug<JuegoMeta>("ludoteca", slug)
   if (!md) return {}
-  return {
-    title: md.meta.titulo,
-    description: md.meta.descripcion,
-  }
+  return metadataFromContentMeta(md.meta)
 }
 
 export default async function JuegoPage({

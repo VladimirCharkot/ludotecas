@@ -18,10 +18,23 @@ import {
 import { PublicMapView } from "./PublicMapView"
 import FlyerRelevamiento from "@/public/assets/gacetilla/flyer-relevamiento.png"
 import Image from "next/image"
+import type { Metadata } from "next"
 
 // Mismo criterio de cacheo que /admin/map: la planilla se actualiza a mano
 // (bun run consolidate), tolera hasta 1h de latencia.
 export const revalidate = 3600
+
+export const metadata: Metadata = {
+  title: "Relevamiento de Ludotecas Escolares",
+  description:
+    "Completá el formulario de relevamiento de ludotecas escolares y navegá el mapa con las respuestas que ya se sumaron a la red.",
+  openGraph: {
+    title: "Relevamiento de Ludotecas Escolares",
+    description:
+      "Completá el formulario de relevamiento de ludotecas escolares y navegá el mapa con las respuestas que ya se sumaron a la red.",
+    images: [{ url: "/assets/gacetilla/flyer-relevamiento.png" }],
+  },
+}
 
 // Pregunta de consentimiento del form -- solo se publican acá las
 // respuestas de quienes contestaron "Sí" explícitamente. Dejar la pregunta
