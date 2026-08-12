@@ -39,3 +39,11 @@ export function normalizeLocation(value: string): string {
 export function normalizeCue(value: string | number | null | undefined): string {
   return String(value ?? "").replace(/\D/g, "")
 }
+
+// Códigos estilo DGESec ("EE0410413"): a diferencia del CUE, no son solo
+// dígitos — normalizamos may/min y espacios para que ambos lados de un
+// exact_key (DGESec y Maestra) comparen igual sin depender de que cada
+// fuente lo haya tipeado con el mismo casing.
+export function normalizeCodEmpr(value: string | null | undefined): string {
+  return String(value ?? "").trim().toUpperCase()
+}

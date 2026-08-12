@@ -3,7 +3,7 @@
 // entidades (ej. ludoteca -> escuela). Ver config/consolidation.ts para las
 // instancias concretas.
 
-export type EntityType = "escuela" | "ludoteca"
+export type EntityType = "escuela" | "ludoteca" | "institucion"
 export type FieldKind = "name" | "location" | "cue" | "raw"
 
 export interface DriveRange {
@@ -106,6 +106,13 @@ export const FIELD_KINDS: Record<EntityType, Record<string, FieldKind>> = {
     nombre: "name",
     localidad: "location",
     departamento: "location",
+    cue: "cue",
+  },
+  // Sin fuentes "enrich" propias hoy — la entrada existe solo porque
+  // Record<EntityType, ...> exige las 3 keys.
+  institucion: {
+    nombre: "name",
+    localidad: "location",
     cue: "cue",
   },
 }

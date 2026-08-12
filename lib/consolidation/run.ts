@@ -5,11 +5,21 @@
 // nota en lib/google-auth.ts).
 import { geocodeAddress } from "@/lib/geocoding"
 import { resolveEntities, type ResolvableRecord } from "@/lib/matching/resolve"
-import { LUDOTECA_TO_ESCUELA, SOURCES } from "@/config/consolidation"
+import {
+  INSTITUCION_TO_ESCUELA,
+  LUDOTECA_TO_ESCUELA,
+  MAESTRA_2026,
+  MAESTRA_TAB,
+  SOURCES,
+} from "@/config/consolidation"
 import { buildEntityRows } from "./merge"
+import { buildInstitucionGroups, isWritebackEligible, unifyWithLudotecas } from "./institucion"
+import { writeResolvedCuesToMaestra } from "./maestra-writeback"
 import {
   ESCUELAS_COLUMNS,
   ESCUELAS_TAB,
+  INSTITUCIONES_COLUMNS,
+  INSTITUCIONES_TAB,
   isLocked,
   LUDOTECAS_COLUMNS,
   LUDOTECAS_TAB,
@@ -25,6 +35,9 @@ export interface ConsolidationSummary {
   revision: number
   sinMatch: number
   geocodadas: number
+  institucionesCandidatas: number
+  institucionesPersistidas: number
+  maestraCueCompletados: number
 }
 
 function masterSpreadsheetId(): string {
@@ -42,11 +55,13 @@ export async function runConsolidation(
 ): Promise<ConsolidationSummary> {
   const dryRun = options.dryRun ?? false
 
-  // 1. Universo completo (en memoria) de escuelas candidatas, y las
-  //    ludotecas del form — nunca se persiste el pool completo, solo se usa
-  //    para el matching (ver paso 5, la sub-canónica que sí se persiste).
+  // 1. Universo completo (en memoria) de escuelas candidatas, ludotecas del
+  //    form, e instituciones de Maestra — nunca se persiste el pool
+  //    completo de escuelas, solo se usa para el matching (ver paso 6, la
+  //    sub-canónica que sí se persiste).
   const escuelaRows = await buildEntityRows("escuela", SOURCES)
   const ludotecaRows = await buildEntityRows("ludoteca", SOURCES)
+  const institucionRows = await buildEntityRows("institucion", SOURCES)
 
   const escuelaRecords: ResolvableRecord[] = [...escuelaRows.entries()].map(([id, fields]) => ({
     id,
@@ -56,16 +71,44 @@ export async function runConsolidation(
     id,
     fields,
   }))
+  const institucionRecords: ResolvableRecord[] = [...institucionRows.entries()].map(
+    ([id, fields]) => ({ id, fields })
+  )
 
-  // 2. Matching ludoteca -> escuela.
-  const result = resolveEntities(ludotecaRecords, escuelaRecords, LUDOTECA_TO_ESCUELA)
+  // 2. Matching ludoteca->escuela e institucion->escuela, independientes
+  //    entre sí, contra el mismo pool de escuelas candidatas.
+  const ludotecaMatch = resolveEntities(ludotecaRecords, escuelaRecords, LUDOTECA_TO_ESCUELA)
   const matchByLudotecaId = new Map(
-    [...result.auto, ...result.revision].map((m) => [m.sourceId, m])
+    [...ludotecaMatch.auto, ...ludotecaMatch.revision].map((m) => [m.sourceId, m])
+  )
+
+  const institucionMatch = resolveEntities(institucionRecords, escuelaRecords, INSTITUCION_TO_ESCUELA)
+  const matchByInstitucionId = new Map(
+    [...institucionMatch.auto, ...institucionMatch.revision].map((m) => [m.sourceId, m])
   )
 
   const spreadsheetId = masterSpreadsheetId()
 
-  // 3. Leer la tab Ludotecas actual, para no pisar filas que un humano ya
+  // 3. Completar el CUE de Maestra cuando el match es inequívoco (métodos
+  //    TRUSTED — ver institucion.ts) y la celda original estaba vacía;
+  //    nunca pisa un valor ya escrito a mano. Se hace temprano, antes de
+  //    geocodificar (que puede tardar minutos), para minimizar la ventana
+  //    entre leer Maestra y escribirle de vuelta.
+  const cueUpdates = institucionRecords.flatMap((record) => {
+    if (record.fields.cue_raw) return []
+    const match = matchByInstitucionId.get(record.id)
+    if (!isWritebackEligible(match)) return []
+    return [{ rowIndex: record.fields.row_index, cue: match!.targetId }]
+  })
+  // Se reporta el candidato aunque sea --dry-run (así se puede previsualizar
+  // antes de escribir de verdad en una spreadsheet externa); solo la
+  // escritura en sí queda gateada por dryRun.
+  if (!dryRun && cueUpdates.length > 0) {
+    await writeResolvedCuesToMaestra(MAESTRA_2026.spreadsheet.spreadsheetId, MAESTRA_TAB, cueUpdates)
+  }
+  const maestraCueCompletados = cueUpdates.length
+
+  // 4. Leer la tab Ludotecas actual, para no pisar filas que un humano ya
   //    lockeó (estado = auto o rechazado).
   const { rows: existingLudotecas, rowCount: prevLudotecaCount } = await readTab(
     spreadsheetId,
@@ -79,7 +122,8 @@ export async function runConsolidation(
 
   const now = new Date().toISOString()
 
-  // 4. Recalcular todas las filas; las lockeadas se conservan tal cual.
+  // 5. Recalcular todas las filas de Ludotecas; las lockeadas se conservan
+  //    tal cual (sin cambios respecto de antes de agregar Maestra).
   const mergedLudotecas = [...ludotecaRows.entries()].map(([rowIndex, fields]) => {
     const prev = existingByRowIndex.get(rowIndex)
     if (prev && lockedRowIndexes.has(rowIndex)) return prev
@@ -105,15 +149,17 @@ export async function runConsolidation(
     }
   })
 
-  // 5. Sub-canónica: solo se persisten las escuelas efectivamente
-  //    referenciadas por una fila con estado auto/revision (lockeada o
-  //    recién calculada) — no el padrón completo, que fue solo el pool de
+  // 6. Sub-canónica: solo se persisten las escuelas efectivamente
+  //    referenciadas por una ludoteca o una institución con estado
+  //    auto/revision — no el padrón completo, que fue solo el pool de
   //    candidatos en memoria del paso 2.
   const referencedCues = new Set(
-    mergedLudotecas
-      .filter((r) => tieneEscuela(r.estado))
-      .map((r) => r.match_cue)
-      .filter((cue): cue is string => Boolean(cue))
+    [
+      ...mergedLudotecas.filter((r) => tieneEscuela(r.estado)).map((r) => r.match_cue),
+      ...[...matchByInstitucionId.values()]
+        .filter((m) => tieneEscuela(m.estado))
+        .map((m) => m.targetId),
+    ].filter((cue): cue is string => Boolean(cue))
   )
 
   const { rows: existingEscuelas } = await readTab(spreadsheetId, ESCUELAS_TAB, ESCUELAS_COLUMNS)
@@ -136,9 +182,53 @@ export async function runConsolidation(
     }
   })
 
+  // 7. Agrupar las filas de Maestra en instituciones únicas y unificarlas
+  //    con las ludotecas del form — estos son los pines finales del mapa.
+  //    La identidad de cada pin (`id`) no depende de a qué escuela resolvió
+  //    un match fuzzy (ver institucion.ts), así que el lockeo humano
+  //    sobrevive aunque el mejor candidato cambie entre corridas.
+  const institucionGroups = buildInstitucionGroups(institucionRecords, matchByInstitucionId)
+  const institucionPins = unifyWithLudotecas(institucionGroups, ludotecaRecords, matchByLudotecaId)
+
+  const { rows: existingInstituciones, rowCount: prevInstitucionesCount } = await readTab(
+    spreadsheetId,
+    INSTITUCIONES_TAB,
+    INSTITUCIONES_COLUMNS
+  )
+  const existingInstitucionById = new Map(existingInstituciones.map((r) => [r.id, r]))
+  const lockedInstitucionIds = new Set(
+    existingInstituciones.filter((r) => isLocked(r.estado)).map((r) => r.id)
+  )
+
+  const mergedInstituciones = institucionPins.map((pin) => {
+    const prev = existingInstitucionById.get(pin.id)
+    if (prev && lockedInstitucionIds.has(pin.id)) return prev
+
+    const estado = pin.match?.estado ?? ""
+    return {
+      id: pin.id,
+      nombre: pin.nombre,
+      localidad: pin.localidad,
+      departamento: pin.departamento,
+      fuentes: pin.fuentes.join(";"),
+      form_row_index: pin.formRowIndex,
+      match_cue: pin.match?.targetId ?? "",
+      match_metodo: pin.match?.metodo ?? "",
+      match_score: pin.match ? pin.match.score.toFixed(2) : "",
+      estado,
+      // Coordenadas propias solo aplican cuando no hay escuela resuelta
+      // (pin "sin_escuela" en el mapa, a nivel localidad) — mismo criterio
+      // que ya usa Ludotecas.
+      lat: !tieneEscuela(estado) && prev ? prev.lat : "",
+      lng: !tieneEscuela(estado) && prev ? prev.lng : "",
+      geocoded_at: !tieneEscuela(estado) && prev ? prev.geocoded_at : "",
+      updated_at: now,
+    }
+  })
+
   let geocodadas = 0
   if (!dryRun) {
-    // 6. Geocodificar (cacheado) escuelas persistidas sin coordenadas.
+    // 8. Geocodificar (cacheado) escuelas persistidas sin coordenadas.
     for (const escuela of mergedEscuelas) {
       if (escuela.lat) continue
       const address = [escuela.domicilio, escuela.localidad, escuela.departamento, "Córdoba", "Argentina"]
@@ -153,35 +243,48 @@ export async function runConsolidation(
       }
     }
 
-    // 7. Geocodificar (cacheado, a nivel localidad) ludotecas sin escuela
-    //    resuelta (incluye sin_match y rechazado — ambos se muestran como
-    //    pin "sin_escuela" en el mapa).
-    for (const ludoteca of mergedLudotecas) {
-      if (tieneEscuela(ludoteca.estado) || ludoteca.lat) continue
-      const address = [ludoteca.localidad, ludoteca.departamento, "Córdoba", "Argentina"]
+    // 9. Geocodificar (cacheado, a nivel localidad) instituciones sin
+    //    escuela resuelta (incluye sin_match y fuzzy débil — se muestran
+    //    como pin "sin_escuela" en el mapa). Departamento puede venir vacío
+    //    si el pin es solo-Maestra; geocodeAddress ya tolera partes vacías.
+    for (const institucion of mergedInstituciones) {
+      if (tieneEscuela(institucion.estado) || institucion.lat) continue
+      const address = [institucion.localidad, institucion.departamento, "Córdoba", "Argentina"]
         .filter(Boolean)
         .join(", ")
       const coords = await geocodeAddress(address)
       if (coords) {
-        ludoteca.lat = String(coords.lat)
-        ludoteca.lng = String(coords.lng)
-        ludoteca.geocoded_at = now
+        institucion.lat = String(coords.lat)
+        institucion.lng = String(coords.lng)
+        institucion.geocoded_at = now
         geocodadas++
       }
     }
 
-    // 8. Escribir ambas tabs (overwrite atómico, una sola llamada cada una).
+    // 10. Escribir los tres tabs (overwrite atómico, una sola llamada cada
+    //     uno). Ludotecas no cambia de esquema ni de lógica — sigue siendo
+    //     la fuente cruda del form.
     await writeTab(spreadsheetId, LUDOTECAS_TAB, LUDOTECAS_COLUMNS, mergedLudotecas, prevLudotecaCount)
     await writeTab(spreadsheetId, ESCUELAS_TAB, ESCUELAS_COLUMNS, mergedEscuelas, existingEscuelas.length)
+    await writeTab(
+      spreadsheetId,
+      INSTITUCIONES_TAB,
+      INSTITUCIONES_COLUMNS,
+      mergedInstituciones,
+      prevInstitucionesCount
+    )
   }
 
   return {
     ludotecas: ludotecaRecords.length,
     escuelasCandidatas: escuelaRecords.length,
     escuelasPersistidas: mergedEscuelas.length,
-    auto: result.auto.length,
-    revision: result.revision.length,
-    sinMatch: result.sinMatch.length,
+    auto: ludotecaMatch.auto.length,
+    revision: ludotecaMatch.revision.length,
+    sinMatch: ludotecaMatch.sinMatch.length,
     geocodadas,
+    institucionesCandidatas: institucionRecords.length,
+    institucionesPersistidas: mergedInstituciones.length,
+    maestraCueCompletados,
   }
 }

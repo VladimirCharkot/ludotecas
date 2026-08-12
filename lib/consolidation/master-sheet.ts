@@ -8,6 +8,7 @@ import { getSheetsWriteAuthClient } from "@/lib/google-auth"
 
 export const ESCUELAS_TAB = "Escuelas"
 export const LUDOTECAS_TAB = "Ludotecas"
+export const INSTITUCIONES_TAB = "Instituciones"
 
 export const ESCUELAS_COLUMNS = [
   "cue",
@@ -29,6 +30,28 @@ export const LUDOTECAS_COLUMNS = [
   "departamento",
   "cue",
   "raw_payload",
+  "match_cue",
+  "match_metodo",
+  "match_score",
+  "estado",
+  "lat",
+  "lng",
+  "geocoded_at",
+  "updated_at",
+] as const
+
+// Pin unificado del mapa: junta lo que aporta Maestra (fuentes) con lo que
+// aporta el form (form_row_index -> Ludotecas.row_index, para el payload de
+// respuestas). "id" es la identidad estable entre corridas (ver
+// lib/consolidation/institucion.ts) — nunca el CUE de un match fuzzy, para
+// que el lockeo de `estado` no se pierda si el mejor candidato cambia.
+export const INSTITUCIONES_COLUMNS = [
+  "id",
+  "nombre",
+  "localidad",
+  "departamento",
+  "fuentes",
+  "form_row_index",
   "match_cue",
   "match_metodo",
   "match_score",

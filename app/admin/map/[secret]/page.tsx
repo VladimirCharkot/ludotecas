@@ -5,6 +5,8 @@ import {
   columnLetter,
   ESCUELAS_COLUMNS,
   ESCUELAS_TAB,
+  INSTITUCIONES_COLUMNS,
+  INSTITUCIONES_TAB,
   LUDOTECAS_COLUMNS,
   LUDOTECAS_TAB,
 } from "@/lib/consolidation/master-sheet"
@@ -40,33 +42,43 @@ export default async function MapPage({
   const spreadsheetId = process.env.MASTER_SPREADSHEET_ID
   if (!spreadsheetId) throw new Error("Falta MASTER_SPREADSHEET_ID")
 
-  const [escuelaValues, ludotecaValues] = await Promise.all([
+  const [escuelaValues, institucionValues, ludotecaValues] = await Promise.all([
     fetchSheetRange(spreadsheetId, `${ESCUELAS_TAB}!A2:${columnLetter(ESCUELAS_COLUMNS.length)}`),
+    fetchSheetRange(
+      spreadsheetId,
+      `${INSTITUCIONES_TAB}!A2:${columnLetter(INSTITUCIONES_COLUMNS.length)}`
+    ),
     fetchSheetRange(spreadsheetId, `${LUDOTECAS_TAB}!A2:${columnLetter(LUDOTECAS_COLUMNS.length)}`),
   ])
 
   const escuelasByCue = new Map(
     parseRows(escuelaValues, ESCUELAS_COLUMNS).map((e) => [e.cue, e])
   )
-  const ludotecas = parseRows(ludotecaValues, LUDOTECAS_COLUMNS)
+  const instituciones = parseRows(institucionValues, INSTITUCIONES_COLUMNS)
+  // Las instituciones solo linkean al form por row_index — el payload en sí
+  // (todas las respuestas del form) sigue viviendo en la tab Ludotecas.
+  const ludotecasByRowIndex = new Map(
+    parseRows(ludotecaValues, LUDOTECAS_COLUMNS).map((l) => [l.row_index, l])
+  )
 
   const pins: Pin[] = []
   const sinCoordenadas: SinCoordenadas[] = []
 
-  for (const l of ludotecas) {
-    const ludotecaId = Number(l.row_index)
-    const payload = l.raw_payload ? (JSON.parse(l.raw_payload) as Record<string, string>) : {}
+  for (const inst of instituciones) {
+    const ludoteca = inst.form_row_index ? ludotecasByRowIndex.get(inst.form_row_index) : undefined
+    const payload =
+      ludoteca?.raw_payload ? (JSON.parse(ludoteca.raw_payload) as Record<string, string>) : {}
+    const fuentes = inst.fuentes ? inst.fuentes.split(";").filter(Boolean) : []
 
-    const escuela = tieneEscuela(l.estado) ? escuelasByCue.get(l.match_cue) : undefined
+    const escuela = tieneEscuela(inst.estado) ? escuelasByCue.get(inst.match_cue) : undefined
     if (escuela && escuela.lat && escuela.lng) {
       pins.push({
-        ludotecaId,
-        nombre: l.nombre,
-        localidad: l.localidad,
-        departamento: l.departamento,
+        id: inst.id,
+        nombre: inst.nombre,
+        localidad: inst.localidad,
+        departamento: inst.departamento,
         lat: Number(escuela.lat),
         lng: Number(escuela.lng),
-        color: l.estado === "auto" ? "auto" : "revision",
         escuela: {
           nombre: escuela.nombre,
           cue: escuela.cue,
@@ -75,31 +87,32 @@ export default async function MapPage({
           departamento: escuela.departamento,
           orientacion: escuela.orientacion || null,
         },
+        fuentes,
         payload,
       })
       continue
     }
 
-    if (l.lat && l.lng) {
+    if (inst.lat && inst.lng) {
       pins.push({
-        ludotecaId,
-        nombre: l.nombre,
-        localidad: l.localidad,
-        departamento: l.departamento,
-        lat: Number(l.lat),
-        lng: Number(l.lng),
-        color: "sin_escuela",
+        id: inst.id,
+        nombre: inst.nombre,
+        localidad: inst.localidad,
+        departamento: inst.departamento,
+        lat: Number(inst.lat),
+        lng: Number(inst.lng),
         escuela: null,
+        fuentes,
         payload,
       })
       continue
     }
 
     sinCoordenadas.push({
-      ludotecaId,
-      nombre: l.nombre,
-      localidad: l.localidad,
-      departamento: l.departamento,
+      id: inst.id,
+      nombre: inst.nombre,
+      localidad: inst.localidad,
+      departamento: inst.departamento,
     })
   }
 
