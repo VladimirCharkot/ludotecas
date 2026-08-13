@@ -776,4 +776,13 @@ button.fila:hover:not(:disabled) .numero {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
+
+  /* El separador institucional del Footer global no es descendiente
+     de .consola (vive afuera, en app/layout.tsx). :has() deja el
+     selector "puro" para el CSS Module (usa la clase local .consola)
+     y a la vez alcanza el <img> del footer en cualquier parte del
+     <body>, sin tocar el print de las demás páginas del sitio. */
+  body:has(.consola) img[alt="Separador"] {
+    display: none !important;
+  }
 }
