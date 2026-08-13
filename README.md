@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Variables de entorno
+
+| Variable | Para qué |
+| --- | --- |
+| `CABLES_SECRETO` | Clave del panel docente de la sala de escape (módulo de cables). Protege `/sala-de-escape/cables/panel/<clave>` y firma los enlaces de las hojas del profe. Mínimo 12 caracteres; conviene que sean seguros en una URL (letras, números, `-` y `_`). |
+
+En local va en `.env.local`; en Vercel, en las variables de entorno del
+proyecto. Si no está definida, el módulo de cables funciona igual pero las
+firmas se calculan con un valor por defecto y son adivinables: las vistas
+docentes lo avisan en pantalla. Cambiar la clave invalida las firmas ya
+repartidas, que es justamente lo que se quiere si una se filtró.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

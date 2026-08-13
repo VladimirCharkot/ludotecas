@@ -1,7 +1,10 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  // El admin de Tina es un SPA estático que se compila en public/admin.
+  async rewrites() {
+    return [{ source: "/admin", destination: "/admin/index.html" }]
+  },
+}
 
-export default nextConfig;
+export default nextConfig

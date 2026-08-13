@@ -1,7 +1,3 @@
-// lib/google-auth.ts
-// Sin "server-only": lo usan tanto rutas de Next como scripts/consolidate.ts,
-// que corre standalone con `bun run` fuera del bundler de Next (mismo motivo
-// por el que scripts/seed-escuelas.ts, ya eliminado, evitaba ese import).
 import { JWT } from "google-auth-library"
 
 function getServiceAccountCredentials() {
