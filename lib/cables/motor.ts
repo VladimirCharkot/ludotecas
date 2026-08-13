@@ -150,23 +150,29 @@ export type Regla = {
 
 const SIEMPRE = () => true
 
+/** Dos cables uno al lado del otro, del mismo color. */
+function hayAdyacentesIguales(colores: readonly Color[]): boolean {
+  return colores.some((c, i) => i > 0 && c === colores[i - 1])
+}
+
 export const REGLAS: Record<number, readonly Regla[]> = {
   3: [
     {
-      texto: "Si *no hay ningún cable rojo*, cortá el *segundo* cable.",
-      test: (c) => contar(c, "rojo") === 0,
+      texto:
+        "Si el *primer cable* y el *último cable* son *del mismo color*, cortá el *segundo* cable.",
+      test: (c) => c[0] === c[c.length - 1],
       indice: () => 1,
     },
     {
-      texto: "Si no, si el *último cable es blanco*, cortá el *último* cable.",
-      test: (c) => c[c.length - 1] === "blanco",
+      texto: "Si no, si el *segundo cable es negro*, cortá el *último* cable.",
+      test: (c) => c[1] === "negro",
       indice: (c) => c.length - 1,
     },
     {
       texto:
-        "Si no, si hay *más de un cable azul*, cortá el *último cable azul*.",
-      test: (c) => contar(c, "azul") > 1,
-      indice: (c) => c.lastIndexOf("azul"),
+        "Si no, si *hay algún cable amarillo*, cortá el *primer cable amarillo*.",
+      test: (c) => contar(c, "amarillo") > 0,
+      indice: (c) => c.indexOf("amarillo"),
     },
     {
       texto: "Si no, cortá el *último* cable.",
@@ -177,51 +183,27 @@ export const REGLAS: Record<number, readonly Regla[]> = {
   4: [
     {
       texto:
-        "Si hay *más de un cable rojo* y el *último dígito del serial es impar*, cortá el *último cable rojo*.",
-      test: (c, d) => contar(c, "rojo") > 1 && d % 2 === 1,
-      indice: (c) => c.lastIndexOf("rojo"),
+        "Si *hay dos cables adyacentes del mismo color* y el *último dígito del serial es par*, cortá el *tercer* cable.",
+      test: (c, d) => hayAdyacentesIguales(c) && d % 2 === 0,
+      indice: () => 2,
     },
     {
       texto:
-        "Si no, si el *último cable es amarillo* y *no hay cables rojos*, cortá el *primer* cable.",
-      test: (c) => c[c.length - 1] === "amarillo" && contar(c, "rojo") === 0,
-      indice: () => 0,
-    },
-    {
-      texto:
-        "Si no, si hay *exactamente un cable azul*, cortá el *primer* cable.",
-      test: (c) => contar(c, "azul") === 1,
-      indice: () => 0,
-    },
-    {
-      texto:
-        "Si no, si hay *más de un cable amarillo*, cortá el *último* cable.",
-      test: (c) => contar(c, "amarillo") > 1,
-      indice: (c) => c.length - 1,
-    },
-    {
-      texto: "Si no, cortá el *segundo* cable.",
-      test: SIEMPRE,
+        "Si no, si el *primer cable es blanco* y *no hay cables negros*, cortá el *segundo* cable.",
+      test: (c) => c[0] === "blanco" && contar(c, "negro") === 0,
       indice: () => 1,
     },
-  ],
-  5: [
     {
       texto:
-        "Si el *último cable es negro* y el *último dígito del serial es impar*, cortá el *cuarto* cable.",
-      test: (c, d) => c[c.length - 1] === "negro" && d % 2 === 1,
+        "Si no, si hay *exactamente un cable negro*, cortá ese *cable negro*.",
+      test: (c) => contar(c, "negro") === 1,
+      indice: (c) => c.lastIndexOf("negro"),
+    },
+    {
+      texto:
+        "Si no, si *hay tres o más colores distintos* entre los cuatro cables, cortá el *cuarto* cable.",
+      test: (c) => new Set(c).size >= 3,
       indice: () => 3,
-    },
-    {
-      texto:
-        "Si no, si hay *exactamente un cable rojo* y *más de un cable amarillo*, cortá el *primer* cable.",
-      test: (c) => contar(c, "rojo") === 1 && contar(c, "amarillo") > 1,
-      indice: () => 0,
-    },
-    {
-      texto: "Si no, si *no hay cables negros*, cortá el *segundo* cable.",
-      test: (c) => contar(c, "negro") === 0,
-      indice: () => 1,
     },
     {
       texto: "Si no, cortá el *primer* cable.",
@@ -229,28 +211,53 @@ export const REGLAS: Record<number, readonly Regla[]> = {
       indice: () => 0,
     },
   ],
-  6: [
+  5: [
     {
       texto:
-        "Si *no hay cables amarillos* y el *último dígito del serial es impar*, cortá el *tercer* cable.",
-      test: (c, d) => contar(c, "amarillo") === 0 && d % 2 === 1,
+        "Si el *cable del medio es rojo* y el *último dígito del serial es impar*, cortá el *cable del medio*.",
+      test: (c, d) => c[2] === "rojo" && d % 2 === 1,
       indice: () => 2,
     },
     {
       texto:
-        "Si no, si hay *exactamente un cable amarillo* y *más de un cable blanco*, cortá el *cuarto* cable.",
-      test: (c) => contar(c, "amarillo") === 1 && contar(c, "blanco") > 1,
+        "Si no, si hay *exactamente dos cables blancos*, cortá el *primer cable blanco*.",
+      test: (c) => contar(c, "blanco") === 2,
+      indice: (c) => c.indexOf("blanco"),
+    },
+    {
+      texto: "Si no, si *no hay ningún cable azul*, cortá el *cuarto* cable.",
+      test: (c) => contar(c, "azul") === 0,
       indice: () => 3,
     },
     {
-      texto: "Si no, si *no hay cables rojos*, cortá el *último* cable.",
-      test: (c) => contar(c, "rojo") === 0,
+      texto: "Si no, cortá el *último* cable.",
+      test: SIEMPRE,
       indice: (c) => c.length - 1,
     },
+  ],
+  6: [
     {
-      texto: "Si no, cortá el *cuarto* cable.",
-      test: SIEMPRE,
+      texto:
+        "Si el *primer cable* y el *segundo cable* son *del mismo color*, cortá el *tercer* cable.",
+      test: (c) => c[0] === c[1],
+      indice: () => 2,
+    },
+    {
+      texto:
+        "Si no, si hay *tres o más cables negros*, cortá el *primer cable negro*.",
+      test: (c) => contar(c, "negro") >= 3,
+      indice: (c) => c.indexOf("negro"),
+    },
+    {
+      texto:
+        "Si no, si hay *exactamente dos cables amarillos*, cortá el *cuarto* cable.",
+      test: (c) => contar(c, "amarillo") === 2,
       indice: () => 3,
+    },
+    {
+      texto: "Si no, cortá el *último* cable.",
+      test: SIEMPRE,
+      indice: (c) => c.length - 1,
     },
   ],
 }
