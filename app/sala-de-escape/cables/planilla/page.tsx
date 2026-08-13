@@ -34,7 +34,7 @@ export default async function PlanillaPage({
 
   return (
     <div className={`${styles.wrap} ${styles.angosto}`}>
-      <header>
+      <header className="mb-6">
         <div className={styles.eyebrow}>
           Sala de escape — planilla de desactivación
         </div>
@@ -42,8 +42,8 @@ export default async function PlanillaPage({
         <p className={styles.parrafo}>
           Vos tenés las reglas; tu compañero tiene el módulo. No mires su
           pantalla: preguntale cuántos cables hay, de qué color es cada uno de
-          arriba hacia abajo y qué número de serie tiene la placa. Con eso
-          buscá acá abajo qué cable hay que cortar y decíselo.
+          arriba hacia abajo y qué número de serie tiene la placa. Con eso buscá
+          acá abajo qué cable hay que cortar y decíselo.
         </p>
       </header>
 
@@ -81,7 +81,9 @@ export default async function PlanillaPage({
         </p>
         <div className={styles.filtro}>
           <Link
-            className={`${styles.boton} ${styles.chico} ${soloN ? "" : styles.primario}`}
+            className={`${styles.boton} ${styles.chico} ${
+              soloN ? "" : styles.primario
+            }`}
             href={rutas.planilla()}
           >
             todas
@@ -89,7 +91,9 @@ export default async function PlanillaPage({
           {CANTIDADES.map((cant) => (
             <Link
               key={cant}
-              className={`${styles.boton} ${styles.chico} ${soloN === cant ? styles.primario : ""}`}
+              className={`${styles.boton} ${styles.chico} ${
+                soloN === cant ? styles.primario : ""
+              }`}
               href={`${rutas.planilla()}?n=${cant}`}
             >
               {cant} cables

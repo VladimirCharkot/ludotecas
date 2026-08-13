@@ -275,7 +275,7 @@ function Lote({
               ))}
             </tbody>
           </table>
-          <p className={`${styles.parrafo} ${styles.sinImprimir}`}>
+          <p className={`${styles.parrafo} ${styles.sinImprimir} pt-2`}>
             Este lote es estable: podés recargar la página o guardar el enlace y
             te salen los mismos códigos.
           </p>

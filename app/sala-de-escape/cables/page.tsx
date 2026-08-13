@@ -54,14 +54,11 @@ export default function CablesPage() {
       <section className={styles.panel}>
         <h2 className={styles.subtitulo}>Para quien coordina</h2>
         <p className={styles.parrafo}>
-          El generador de módulos está detrás de tu clave, en{" "}
-          <code>/sala-de-escape/cables/panel/&lt;tu-clave&gt;</code>. Guardá esa
-          dirección en favoritos. Desde ahí sacás los tres enlaces de cada
-          módulo, y también un lote de códigos si tenés varios grupos.
-        </p>
-        <p className={styles.parrafo}>
-          La clave se configura en la variable de entorno{" "}
-          <code>CABLES_SECRETO</code>.
+          El generador de módulos está en{" "}
+          <code>
+            https://ludotecaseducacion.co/sala-de-escape/cables/panel/&lt;clave&gt;
+          </code>
+          .
         </p>
       </section>
     </div>
