@@ -3,10 +3,17 @@ import Link from "next/link"
 import { rutas } from "@/lib/cables/rutas"
 import styles from "@/components/cables/cables.module.css"
 
+const TITULO = "Módulo de Cables — Sala de escape"
+const DESCRIPCION =
+  "Un juego de dos: quien tiene el módulo describe los cables, quien tiene la planilla dice cuál cortar."
+
 export const metadata: Metadata = {
-  title: "Módulo de Cables — Sala de escape",
-  description:
-    "Un juego de dos: quien tiene el módulo describe los cables, quien tiene la planilla dice cuál cortar.",
+  title: TITULO,
+  description: DESCRIPCION,
+  openGraph: {
+    title: TITULO,
+    description: DESCRIPCION,
+  },
 }
 
 /**

@@ -13,9 +13,18 @@ import { claveValida } from "@/lib/cables/secreto"
 import styles from "@/components/cables/cables.module.css"
 import { cn } from "@/lib/utils"
 
+const TITULO = "Panel del profe — Módulo de Cables"
+const DESCRIPCION =
+  "Generá códigos del módulo de cables y repartí los tres enlaces entre los grupos: el desafío, la planilla de reglas y la hoja del profe."
+
 export const metadata: Metadata = {
-  title: "Panel del profe — Módulo de Cables",
+  title: TITULO,
+  description: DESCRIPCION,
   robots: { index: false, follow: false },
+  openGraph: {
+    title: TITULO,
+    description: DESCRIPCION,
+  },
 }
 
 type Props = {

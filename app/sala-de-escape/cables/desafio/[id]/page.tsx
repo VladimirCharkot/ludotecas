@@ -11,11 +11,20 @@ import styles from "@/components/cables/cables.module.css"
 
 type Params = { params: Promise<{ id: string }> }
 
+const DESCRIPCION =
+  "Describí los cables y el número de serie a tu compañero, que tiene la planilla de reglas. Ninguno ve la pantalla del otro."
+
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { id } = await params
+  const titulo = `Desafío ${normalizarId(id)} — Módulo de Cables`
   return {
-    title: `Desafío ${normalizarId(id)} — Módulo de Cables`,
+    title: titulo,
+    description: DESCRIPCION,
     robots: { index: false },
+    openGraph: {
+      title: titulo,
+      description: DESCRIPCION,
+    },
   }
 }
 

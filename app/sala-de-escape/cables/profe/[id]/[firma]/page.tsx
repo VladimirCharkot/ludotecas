@@ -13,9 +13,18 @@ import { rutas } from "@/lib/cables/rutas"
 import { firmaValida, haySecreto } from "@/lib/cables/secreto"
 import styles from "@/components/cables/cables.module.css"
 
+const TITULO = "Hoja del profe — Módulo de Cables"
+const DESCRIPCION =
+  "La respuesta del módulo y el razonamiento paso a paso, para quien coordina el juego."
+
 export const metadata: Metadata = {
-  title: "Hoja del profe — Módulo de Cables",
+  title: TITULO,
+  description: DESCRIPCION,
   robots: { index: false, follow: false },
+  openGraph: {
+    title: TITULO,
+    description: DESCRIPCION,
+  },
 }
 
 type Params = { params: Promise<{ id: string; firma: string }> }

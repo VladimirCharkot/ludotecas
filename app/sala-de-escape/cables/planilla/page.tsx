@@ -8,10 +8,17 @@ import { BotonImprimir } from "@/components/cables/boton-imprimir"
 import { CANTIDADES, rutas } from "@/lib/cables/motor"
 import styles from "@/components/cables/cables.module.css"
 
+const TITULO = "Planilla de cables — Sala de escape"
+const DESCRIPCION =
+  "Las reglas para desactivar el módulo de cables: qué cable cortar según cuántos cables hay, de qué color son y el número de serie."
+
 export const metadata: Metadata = {
-  title: "Planilla de cables — Sala de escape",
-  description:
-    "Las reglas para desactivar el módulo de cables: qué cable cortar según cuántos cables hay, de qué color son y el número de serie.",
+  title: TITULO,
+  description: DESCRIPCION,
+  openGraph: {
+    title: TITULO,
+    description: DESCRIPCION,
+  },
 }
 
 /**
