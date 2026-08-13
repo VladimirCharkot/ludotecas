@@ -64,7 +64,7 @@ export function Panel({ clave, modulo, cantidad, lote }: Props) {
             </select>
           </div>
           <button type="submit" className={styles.boton}>
-            Ir a ese código
+            Buscar código
           </button>
           <button
             type="submit"
@@ -78,8 +78,8 @@ export function Panel({ clave, modulo, cantidad, lote }: Props) {
 
         <p className={styles.parrafo}>
           Este código produce un módulo de <strong>{modulo.n} cables</strong>,
-          serie <strong>{modulo.serial}</strong>. Siempre el mismo, en
-          cualquier dispositivo.
+          serie <strong>{modulo.serial}</strong>. Siempre el mismo, en cualquier
+          dispositivo.
         </p>
       </section>
 
@@ -89,9 +89,6 @@ export function Panel({ clave, modulo, cantidad, lote }: Props) {
 
       <div className={`${styles.pie} ${styles.sinImprimir}`}>
         <Link href={rutas.planilla()}>Ver la planilla de reglas</Link>
-        <a href="/sala-de-escape/cables/index-v0.html">
-          Versión simple de un solo tablero
-        </a>
       </div>
     </>
   )
@@ -167,10 +164,6 @@ function Enlaces({ modulo }: { modulo: Modulo }) {
           </article>
         ))}
       </div>
-      <p className={styles.parrafo}>
-        Este panel es el único lugar donde hace falta tu clave. Guardalo en
-        favoritos y no lo proyectes: la clave está en la barra de direcciones.
-      </p>
     </section>
   )
 }
@@ -283,8 +276,8 @@ function Lote({
             </tbody>
           </table>
           <p className={`${styles.parrafo} ${styles.sinImprimir}`}>
-            Este lote es estable: podés recargar la página o guardar el enlace
-            y te salen los mismos códigos.
+            Este lote es estable: podés recargar la página o guardar el enlace y
+            te salen los mismos códigos.
           </p>
         </>
       )}

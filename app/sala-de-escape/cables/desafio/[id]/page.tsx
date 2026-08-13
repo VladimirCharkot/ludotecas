@@ -33,14 +33,13 @@ export default async function DesafioPage({ params }: Params) {
 
   return (
     <div className={`${styles.wrap} ${styles.angosto}`}>
-      <header>
+      <header className="mb-8">
         <div className={styles.eyebrow}>Sala de escape — módulo {id}</div>
         <h1 className={styles.titulo}>Cortá el cable correcto</h1>
         <p className={styles.parrafo}>
-          Tu compañero tiene la planilla de reglas, pero no puede ver el
-          módulo. Describile en voz alta cuántos cables hay, de qué color es
-          cada uno de arriba hacia abajo, y el número de serie. Cuando te diga
-          cuál cortar, hacé clic sobre ese cable.
+          Para saber cuál cortar, comunicate con tu compañero que tiene la
+          planilla de reglas.{" "}
+          <strong>Nadie ve la pantalla de la otra persona.</strong>
         </p>
       </header>
 

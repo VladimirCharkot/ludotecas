@@ -8,23 +8,19 @@
    ============================================================ */
 
 .consola {
-  --bg: #0e1c26;
-  --bg-grid: #16303f;
-  --panel: #12242f;
-  --panel-alt: #0f1f29;
-  --borde: #244457;
-  --ink: #eae5d8;
-  --ink-dim: #9fb2bd;
-  --cobre: #e0a458;
-  --cobre-dim: #8a6a3f;
-  --ok: #57b87a;
-  --mal: #d9584f;
+  --bg: #fef9ed;
+  --panel: #ffffff;
+  --panel-alt: #eef3f5;
+  --borde: #b9cad1;
+  --ink: #16303f;
+  --ink-dim: #4d6672;
+  --cobre: #ab487e;
+  --cobre-dim: #7a3a5c;
+  --ok: #1f7a45;
+  --mal: #b83f37;
   --mono: var(--font-roboto-mono), ui-monospace, monospace;
 
-  background: linear-gradient(var(--bg-grid) 1px, transparent 1px) 0 0 / 28px
-      28px,
-    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px) 0 0 / 28px 28px,
-    var(--bg);
+  background: transparent;
   color: var(--ink);
   padding: 32px 18px 56px;
   min-height: 70vh;
@@ -61,7 +57,7 @@
 .parrafo {
   color: var(--ink-dim);
   font-size: 14.5px;
-  max-width: 62ch;
+  /* max-width: 62ch; */
   line-height: 1.55;
   margin: 8px 0 0;
 }
@@ -143,7 +139,7 @@
 .boton.primario {
   background: var(--cobre);
   border-color: var(--cobre);
-  color: #1a1208;
+  color: #fff;
 }
 .boton:hover {
   filter: brightness(1.14);
@@ -293,7 +289,7 @@ button.fila {
   cursor: pointer;
 }
 button.fila:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(22, 48, 63, 0.06);
 }
 button.fila:disabled {
   cursor: default;
@@ -333,10 +329,7 @@ button.fila:hover:not(:disabled) .numero {
   flex: 1;
   height: 7px;
   border-radius: 3px;
-  background: linear-gradient(
-    var(--brillo) 0 1.5px,
-    var(--cable) 1.5px 100%
-  );
+  background: linear-gradient(var(--brillo) 0 1.5px, var(--cable) 1.5px 100%);
 }
 /* Los dos extremos de un cable cortado, colgando un poco. */
 .hiloIzq {
@@ -438,7 +431,7 @@ button.fila:hover:not(:disabled) .numero {
   width: 16px;
   height: 16px;
   border-radius: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(22, 48, 63, 0.3);
   flex: none;
 }
 
@@ -464,7 +457,7 @@ button.fila:hover:not(:disabled) .numero {
 .respuesta {
   padding: 16px;
   border-radius: 8px;
-  background: rgba(224, 164, 88, 0.12);
+  background: rgba(171, 72, 126, 0.1);
   border: 1px solid var(--cobre);
   text-align: center;
 }
@@ -535,7 +528,7 @@ button.fila:hover:not(:disabled) .numero {
 .traza li.aplica {
   color: var(--ink);
   border-color: var(--cobre);
-  background: rgba(224, 164, 88, 0.1);
+  background: rgba(171, 72, 126, 0.08);
 }
 .traza li.aplica::before {
   content: "▶";

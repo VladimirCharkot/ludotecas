@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function CablesPage() {
   return (
     <div className={`${styles.wrap} ${styles.angosto}`}>
-      <header>
+      <header className="mb-8">
         <div className={styles.eyebrow}>
           Sala de escape — desactivación de cables
         </div>

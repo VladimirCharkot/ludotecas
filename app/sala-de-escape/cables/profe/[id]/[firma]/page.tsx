@@ -44,7 +44,7 @@ export default async function ProfePage({ params }: Params) {
 
   return (
     <div className={styles.wrap}>
-      <header>
+      <header className="mb-8">
         <div className={styles.eyebrow}>Hoja del profe — módulo {id}</div>
         <h1 className={styles.titulo}>Respuesta y razonamiento</h1>
         <p className={styles.parrafo}>
