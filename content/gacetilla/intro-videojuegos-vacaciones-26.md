@@ -1,6 +1,9 @@
 ---
-titulo: Introducción a la Programación de Videojuegos para estudiantes - BIENcba en Vacaciones de Invierno 2026
+slug: intro-videojuegos-vacaciones-26
 imagen: /assets/gacetilla/flyer-videojuegos-vacaciones-26.png
+titulo: Introducción a la Programación de Videojuegos para estudiantes - BIENcba en Vacaciones de Invierno 2026
+fecha: 2026-07-01
+descripcion: Estas vacaciones de invierno, estuvimos aprendiendo a programar videojuegos con Scratch y Javascript. ¡Accedé a las grabaciones!
 ---
 
 Este año, en el marco de BIENcba vacaciones de invierno, estuvimos ofreciendo un curso de **Introducción a la Programación de Videojuegos** para estudiantes. Este curso estuvo diseñado para jóvenes interesados en aprender los fundamentos de la programación y el desarrollo de videojuegos, brindándoles una experiencia práctica y divertida.

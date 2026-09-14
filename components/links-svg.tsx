@@ -4,13 +4,15 @@ import { Stack } from "@mantine/core"
 import { ComponentProps } from "react"
 import { CajitaLink } from "./cajita"
 
-import PinMapa from "@/public/assets/pin-mapa.svg"
-import VideojuegosVacaciones from "@/public/assets/gacetilla/videojuegos-vacaciones.png"
+import PinMapa from "@/public/assets/pin-mapa-rojo.svg"
+import Videojuegos from "@/public/assets/pacman.webp"
+import SalaDeEscape from "@/public/assets/escape-room.webp"
 import MiniaturaCartas from "@/public/assets/miniatura-cartas.webp"
-import MiniaturaHechizo from "@/public/assets/miniatura-hechizo.webp"
+import MiniaturaHechizo from "@/public/assets/hechizo.webp"
 import Peon from "@/public/assets/peon.webp"
 import PiezasJigsaw from "@/public/assets/piezas-jigsaw.webp"
 import Logo from "@/public/logo.png"
+import LogoProvincia from "@/public/assets/institucional/logo-provincia.webp"
 
 const links: ComponentProps<typeof CajitaLink>[] = [
   {
@@ -21,19 +23,25 @@ const links: ComponentProps<typeof CajitaLink>[] = [
     descripcion:
       "Completá el formulario y navegá el mapa con las ludotecas que ya se sumaron a la red.",
   },
-  {
-    titulo: "Curso Videojuegos - BIENcba en Vacaciones de Invierno 2026",
-    url: "/videojuegos-invierno-26",
-    external: true,
-    img: VideojuegosVacaciones,
-    alt: "Joystick, sol de la bandera cordobesa y copo de nieve",
-    descripcion:
-      "Estas vacaciones de invierno, estuvimos aprendiendo a programar videojuegos con Scratch y Javascript. ¡Accedé a las grabaciones!",
-  },
+  // {
+  //   titulo: "Línea Videojuegos del Programa",
+  //   url: "/videojuegos",
+  //   img: Videojuegos,
+  //   alt: "Ícono de joystick de videojuegos.",
+  //   descripcion:
+  //     "Capacitaciones en programación y diseño de videojuegos para docentes y estudiantes, desde una perspectiva de derecho al juego.",
+  // },
+  // {
+  //   titulo: "Sala de Escape: Módulo de Cables",
+  //   url: "/sala-de-escape",
+  //   img: SalaDeEscape,
+  //   alt: "Ícono de puerta de sala de escape.",
+  //   descripcion:
+  //     "Un juego de comunicación y trabajo en equipo para el aula: desactivá el módulo cortando el cable correcto.",
+  // },
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",
-    url: "https://drive.google.com/file/d/1P7042YlGUzAZR6TygjvauxskGnXN25-t/view",
-    external: true,
+    url: "/guia-2026",
     img: MiniaturaHechizo,
     alt: "Miniatura del tríptico de hechizo ludotecario.",
     descripcion: "Pequeño recetario para armar una Ludoteca en tu escuela.",
@@ -74,7 +82,7 @@ const links: ComponentProps<typeof CajitaLink>[] = [
     titulo: "Institucional - Ludotecas, Ajedrez y Go",
     url: "http://www.igualdadycalidadcba.gov.ar/SIPEC-CBA/SFI/DGBE/SPDyC/ludotecas.php",
     external: true,
-    img: Logo,
+    img: LogoProvincia,
     alt: "Logo Ludotecas",
     descripcion:
       "Link directo a nuestra página dentro del sitio institucional de la Secretaría de Fortalecimiento Institucional y Educación Superior.",
