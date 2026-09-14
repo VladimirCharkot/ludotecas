@@ -25,11 +25,11 @@ Es _responsabilidad_ ocuparnos de hacer el encierro decorativo, no constitutivo,
 
 Podemos generar la misma tensión mecánica desde un lugar afectivo: curiosidad (una biblioteca que se sella sola al anochecer), un límite natural (el museo cierra en 60 minutos), una misión con propósito (hay que desactivar algo antes de que pase algo malo) — estructuras que producen la misma urgencia sin apelar al imaginario punitivo de merecer o no la libertad.
 
-No estamos pregonando que algo sí y algo no, esa es una tensión real entre inmersión lúdica y objetivos pedagógicos que toca atender de manera situada.
+Desde nuestra perspectiva esa es una tensión real entre inmersión lúdica y objetivos pedagógicos que es necesario tener en cuenta de manera situada.
 
-Sólo que en general _deberíamos poder respondernos_ ¿de dónde estoy sacando la urgencia que mueve el juego? y ¿quién queda fuera?
+Desde el programa invitamos a preguntarnos ¿cuál es la urgencia que mueve el juego? ¿quién queda fuera? ¿qué queda implícito en la narrativa?
 
-Y que en general, **en la escuela**, deberíamos tener cuidado con la narrativa en que encuadramos nuestras propuestas.
+**En nuestras escuela**, queremos construir narrativas en las que nuestras propuestas sostengan, nutran y cuiden la participación y el protagonismo estudiantil.
 
 ## Contanos cómo te fue
 
