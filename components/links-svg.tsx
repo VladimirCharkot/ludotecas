@@ -10,6 +10,7 @@ import SalaDeEscape from "@/public/assets/escape-room.webp"
 import MiniaturaCartas from "@/public/assets/miniatura-cartas.webp"
 import MiniaturaHechizo from "@/public/assets/hechizo.webp"
 import Peon from "@/public/assets/peon.webp"
+import Go from "@/public/assets/go-lazo.webp"
 import PiezasJigsaw from "@/public/assets/piezas-jigsaw.webp"
 import Logo from "@/public/logo.png"
 import LogoProvincia from "@/public/assets/institucional/logo-provincia.webp"
@@ -23,22 +24,22 @@ const links: ComponentProps<typeof CajitaLink>[] = [
     descripcion:
       "Completá el formulario y navegá el mapa con las ludotecas que ya se sumaron a la red.",
   },
-  // {
-  //   titulo: "Línea Videojuegos del Programa",
-  //   url: "/videojuegos",
-  //   img: Videojuegos,
-  //   alt: "Ícono de joystick de videojuegos.",
-  //   descripcion:
-  //     "Capacitaciones en programación y diseño de videojuegos para docentes y estudiantes, desde una perspectiva de derecho al juego.",
-  // },
-  // {
-  //   titulo: "Sala de Escape: Módulo de Cables",
-  //   url: "/sala-de-escape",
-  //   img: SalaDeEscape,
-  //   alt: "Ícono de puerta de sala de escape.",
-  //   descripcion:
-  //     "Un juego de comunicación y trabajo en equipo para el aula: desactivá el módulo cortando el cable correcto.",
-  // },
+  {
+    titulo: "Línea Videojuegos del Programa",
+    url: "/videojuegos",
+    img: Videojuegos,
+    alt: "Ícono de Pacman.",
+    descripcion:
+      "Capacitaciones en programación y diseño de videojuegos para docentes y estudiantes, desde una perspectiva de derecho al juego.",
+  },
+  {
+    titulo: "Sala de Escape: Módulo de Cables",
+    url: "/sala-de-escape",
+    img: SalaDeEscape,
+    alt: "Ícono de puerta de sala de escape.",
+    descripcion:
+      "Un juego de comunicación y trabajo en equipo para el aula: desactivá el módulo cortando el cable correcto.",
+  },
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",
     url: "/guia-2026",

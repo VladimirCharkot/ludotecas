@@ -3,9 +3,9 @@ titulo: Línea Videojuegos del Programa
 descripcion: Capacitaciones en programación y diseño de videojuegos para docentes y estudiantes, desde una perspectiva de derecho al juego.
 ---
 
-La línea de Videojuegos impulsa capacitaciones dirigidas a docentes y estudiantes para acercarse a la programación y el diseño de videojuegos desde una perspectiva de derecho al juego y aporta a otras líneas del proyecto como en [la selección de videojuegos para los napies por los 50 años del golpe](ludoteca/50-cartas).
+La línea de Videojuegos impulsa capacitaciones dirigidas a docentes y estudiantes para acercarse a la programación y el diseño de videojuegos desde una perspectiva de derecho al juego y aporta a otras líneas del proyecto como en [la selección de videojuegos para los naipes por los 50 años del golpe](ludoteca/50-cartas).
 
-Más que enseñar _sobre_ videojuegos, el foco está puesto en el bienestar docente y en el ejercicio de la creatividad y la lúdica: programar se propone como una forma más de jugar y de crear.
+Más que enseñar _sobre_ videojuegos, el foco está puesto en el ejercicio de la creatividad y la lúdica: programar se propone como una forma más de jugar y de crear.
 
 ## Sala de Escape: Módulo de Cables
 
@@ -13,7 +13,7 @@ Dentro de esta línea, el equipo de Ludotecas armó también una primera **sala 
 
 ## Capacitaciones
 
-Actualmente ofrecemos capacitaciones de **Introducción a la programación de videojuegos** en **Scratch**, un lenguaje de programación visual pensado para el aprendizaje, que permite crear juegos y animaciones sin necesidad de escribir código de texto. Como próximos pasos, tenemos previsto sumar el año que viene propuestas de **Python lúdico** y de **Matemática para la programación de videojuegos**.
+Actualmente ofrecemos capacitaciones de **Introducción a la programación de videojuegos** en **Scratch**, un lenguaje de programación visual pensado para el aprendizaje, que permite crear juegos y animaciones sin necesidad de escribir código de texto. Como próximos pasos, tenemos previsto sumar propuestas de **Python lúdico** y de **Matemática para la programación de videojuegos**.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/esG3J1HTyWk?si=qV1EdLYzmALsfEUX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
