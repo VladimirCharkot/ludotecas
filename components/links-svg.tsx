@@ -7,6 +7,7 @@ import { CajitaLink } from "./cajita"
 import PinMapa from "@/public/assets/pin-mapa-rojo.svg"
 import Videojuegos from "@/public/assets/pacman.webp"
 import SalaDeEscape from "@/public/assets/escape-room.webp"
+import Go from "@/public/assets/go-lazo/go-lazo-logo.webp"
 import MiniaturaCartas from "@/public/assets/miniatura-cartas.webp"
 import MiniaturaHechizo from "@/public/assets/hechizo.webp"
 import Peon from "@/public/assets/peon.webp"
@@ -24,21 +25,28 @@ const links: ComponentProps<typeof CajitaLink>[] = [
       "Completá el formulario y navegá el mapa con las ludotecas que ya se sumaron a la red.",
   },
   // {
-  //   titulo: "Línea Videojuegos del Programa",
-  //   url: "/videojuegos",
-  //   img: Videojuegos,
-  //   alt: "Ícono de joystick de videojuegos.",
-  //   descripcion:
-  //     "Capacitaciones en programación y diseño de videojuegos para docentes y estudiantes, desde una perspectiva de derecho al juego.",
+  //   titulo: "Go-lazo",
+  //   url: "/go-lazo",
+  //   img: Go,
+  //   alt: "Piedras de Go sobre el tablero.",
+  //   descripcion: "El Go escolar aterriza en Córdoba!",
   // },
-  // {
-  //   titulo: "Sala de Escape: Módulo de Cables",
-  //   url: "/sala-de-escape",
-  //   img: SalaDeEscape,
-  //   alt: "Ícono de puerta de sala de escape.",
-  //   descripcion:
-  //     "Un juego de comunicación y trabajo en equipo para el aula: desactivá el módulo cortando el cable correcto.",
-  // },
+  {
+    titulo: "Línea Videojuegos del Programa",
+    url: "/videojuegos",
+    img: Videojuegos,
+    alt: "Ícono de joystick de videojuegos.",
+    descripcion:
+      "Capacitaciones en programación y diseño de videojuegos para docentes y estudiantes, desde una perspectiva de derecho al juego.",
+  },
+  {
+    titulo: "Sala de Escape: Módulo de Cables",
+    url: "/sala-de-escape",
+    img: SalaDeEscape,
+    alt: "Ícono de puerta de sala de escape.",
+    descripcion:
+      "Un juego de comunicación y trabajo en equipo para el aula: desactivá el módulo cortando el cable correcto.",
+  },
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",
     url: "/guia-2026",
