@@ -7,6 +7,7 @@ import { CajitaLink } from "./cajita"
 import PinMapa from "@/public/assets/pin-mapa-rojo.svg"
 import Videojuegos from "@/public/assets/pacman.webp"
 import SalaDeEscape from "@/public/assets/escape-room.webp"
+import Go from "@/public/assets/go-lazo/go-lazo-logo.webp"
 import MiniaturaCartas from "@/public/assets/miniatura-cartas.webp"
 import MiniaturaHechizo from "@/public/assets/hechizo.webp"
 import Peon from "@/public/assets/peon.webp"
@@ -40,6 +41,13 @@ const links: ComponentProps<typeof CajitaLink>[] = [
     descripcion:
       "Un juego de comunicación y trabajo en equipo para el aula: desactivá el módulo cortando el cable correcto.",
   },
+  // {
+  //   titulo: "Go-lazo",
+  //   url: "/go-lazo",
+  //   img: Go,
+  //   alt: "Piedras de Go sobre el tablero.",
+  //   descripcion: "El Go escolar aterriza en Córdoba!",
+  // },
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",
     url: "/guia-2026",
