@@ -5,6 +5,7 @@ import { Select } from "@mantine/core"
 import type { PublicPin } from "@/lib/map-types"
 import {
   CORDOBA_CAPITAL,
+  COLOR_ESCOLAR,
   MARKER_SIZE_BASE,
   MARKER_SIZE_SELECTED,
   loadGoogleMaps,
@@ -15,7 +16,7 @@ import {
 
 // Sin distinción de categoría/fuente/programa en el mapa público -- todos
 // los pines llevan el mismo color.
-const PIN_COLOR = "#00457f"
+const PIN_COLOR = COLOR_ESCOLAR
 
 function DetailPanel({ pin }: { pin: PublicPin }) {
   return (
