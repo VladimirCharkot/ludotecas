@@ -13,52 +13,14 @@ import {
   titleCase,
 } from "@/lib/map-utils"
 
-// Un color por categoría; si un pin cae en más de una a la vez se pinta
-// blanco (mismo criterio que el mapa admin) en vez de elegir una al azar.
-const COLOR_CINCUENTA = "#2563eb"
-const COLOR_C1 = "#7c3aed"
-const COLOR_PIBE_PIE = "#16a34a"
-const COLOR_RELEVAMIENTO = "#dc2626"
-const COLOR_OTRAS = "#f97316"
-const COLOR_MULTI = "#ffffff"
-
-const KIND_COLOR: Record<string, string> = {
-  "50 Ludotecas": COLOR_CINCUENTA,
-  "Circular 1": COLOR_C1,
-  "PIBE/PIE": COLOR_PIBE_PIE,
-  Relevamiento: COLOR_RELEVAMIENTO,
-  Otras: COLOR_OTRAS,
-}
-
-const LEGEND: { color: string; label: string }[] = [
-  { color: COLOR_CINCUENTA, label: "50 Ludotecas" },
-  { color: COLOR_C1, label: "Circular 1" },
-  { color: COLOR_PIBE_PIE, label: "Proy. de Bienestar Educativo" },
-  { color: COLOR_RELEVAMIENTO, label: "Relevamiento abierto" },
-  { color: COLOR_OTRAS, label: "Otras" },
-  { color: COLOR_MULTI, label: "Más de una" },
-]
-
-function pinColor(pin: PublicPin): string {
-  if (pin.kinds.length > 1) return COLOR_MULTI
-  return KIND_COLOR[pin.kinds[0]] ?? COLOR_OTRAS
-}
+// Sin distinción de categoría/fuente/programa en el mapa público -- todos
+// los pines llevan el mismo color.
+const PIN_COLOR = "#00457f"
 
 function DetailPanel({ pin }: { pin: PublicPin }) {
   return (
     <div>
       <h3 className="font-barriecito text-2xl mb-4">{titleCase(pin.nombre)}</h3>
-      <div className="flex flex-wrap gap-1.5">
-        {pin.kinds.map((kind) => (
-          <span
-            key={kind}
-            className="text-xs rounded-full border px-2 py-0.5"
-            style={{ borderColor: "currentColor" }}
-          >
-            {kind}
-          </span>
-        ))}
-      </div>
     </div>
   )
 }
@@ -90,14 +52,6 @@ export function PublicMapView({
         .sort((a, b) => a.label.localeCompare(b.label)),
     [pins]
   )
-  // Solo se listan en la leyenda las categorías que efectivamente tienen
-  // algún pin hoy -- si no hay ninguna "Otras" (o cualquier otra), no hace
-  // falta tocar el código para que desaparezca de la leyenda.
-  const legend = useMemo(() => {
-    const coloresEnUso = new Set(pins.map(pinColor))
-    return LEGEND.filter(({ color }) => coloresEnUso.has(color))
-  }, [pins])
-
   useEffect(() => {
     let cancelled = false
 
@@ -128,7 +82,7 @@ export function PublicMapView({
             position: { lat: pin.lat, lng: pin.lng },
             map,
             title: pin.nombre,
-            icon: pinIcon(makeIconUrl, pinColor(pin), MARKER_SIZE_BASE),
+            icon: pinIcon(makeIconUrl, PIN_COLOR, MARKER_SIZE_BASE),
           })
           marker.addListener("click", () => setSelectedId(pin.id))
           markersRef.current.set(pin.id, marker)
@@ -160,7 +114,7 @@ export function PublicMapView({
       marker.setIcon(
         pinIcon(
           makeIconUrl,
-          pinColor(pin),
+          PIN_COLOR,
           isSelected ? MARKER_SIZE_SELECTED : MARKER_SIZE_BASE
         )
       )
@@ -187,34 +141,6 @@ export function PublicMapView({
   return (
     <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
       <div style={{ flex: "2 1 500px" }}>
-        <div
-          style={{
-            marginBottom: 8,
-            fontSize: 13,
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "0.75rem",
-          }}
-        >
-          {legend.map(({ color, label }) => (
-            <span
-              key={label}
-              style={{ display: "inline-flex", alignItems: "center", gap: 4 }}
-            >
-              <span
-                style={{
-                  display: "inline-block",
-                  width: 10,
-                  height: 10,
-                  borderRadius: "50%",
-                  backgroundColor: color,
-                  border: "1px solid #1f2937",
-                }}
-              />
-              {label}
-            </span>
-          ))}
-        </div>
         <div
           ref={mapContainerRef}
           style={{ height: "70vh", width: "100%", borderRadius: "6px" }}

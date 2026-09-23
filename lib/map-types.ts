@@ -20,14 +20,13 @@ export interface Pin {
 }
 
 // Versión del pin para el mapa público (/relevamiento): sin nada de la info
-// de la institución ni del formulario, ni aún al hacer click -- solo nombre,
-// ubicación y a qué categoría(s) pertenece.
+// de la institución ni del formulario, ni aún al hacer click, ni distinción
+// de categoría/fuente/programa -- solo nombre y ubicación.
 export interface PublicPin {
   id: string
   nombre: string
   lat: number
   lng: number
-  kinds: string[]
 }
 
 export interface SinCoordenadas {

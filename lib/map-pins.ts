@@ -3,22 +3,6 @@
 // (app/admin/map/[secret]) y el mapa público (app/relevamiento).
 import type { Pin, SinCoordenadas } from "./map-types"
 
-// Categorías públicas de un pin, derivadas de sus "fuentes" (Maestra) y de si
-// respondió el formulario de relevamiento. Un pin puede caer en más de una a
-// la vez (ej. está en Maestra por "50 Ludotecas" y también respondió el
-// form). Usada solo para el mapa público -- el admin tiene su propia
-// clasificación más granular (por color) en MapView.tsx.
-export function pinKinds(pin: Pin): string[] {
-  const kinds: string[] = []
-  if (pin.fuentes.some((f) => f.startsWith("50 Ludotecas"))) kinds.push("50 Ludotecas")
-  if (pin.fuentes.includes("C1 Ludotecas") || pin.fuentes.includes("C1 Programación"))
-    kinds.push("Circular 1")
-  if (pin.fuentes.includes("PIBE") || pin.fuentes.includes("PIE")) kinds.push("PIBE/PIE")
-  if (Object.keys(pin.payload).length > 0) kinds.push("Relevamiento")
-  if (kinds.length === 0) kinds.push("Otras")
-  return kinds
-}
-
 // Desparrama pines que terminaron con las mismas coordenadas exactas (suele
 // pasar cuando una institución sin escuela matcheada se geocodifica solo por
 // localidad+departamento -- lib/consolidation/run.ts -- y varias instituciones
