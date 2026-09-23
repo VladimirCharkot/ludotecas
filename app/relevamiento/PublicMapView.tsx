@@ -2,12 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import { Select } from "@mantine/core"
-import type { Pin } from "@/lib/map-types"
-import { CAMPO_CONTACTO, CAMPOS_SOBRE_LUDOTECA } from "@/lib/relevamiento-fields"
+import type { PublicPin } from "@/lib/map-types"
 import {
   CORDOBA_CAPITAL,
-  COLOR_ESCOLAR,
-  COLOR_NO_ESCOLAR,
   MARKER_SIZE_BASE,
   MARKER_SIZE_SELECTED,
   loadGoogleMaps,
@@ -16,66 +13,63 @@ import {
   titleCase,
 } from "@/lib/map-utils"
 
-function pinColor(pin: Pin): string {
-  return pin.escuela ? COLOR_ESCOLAR : COLOR_NO_ESCOLAR
+// Un color por categoría; si un pin cae en más de una a la vez se pinta
+// blanco (mismo criterio que el mapa admin) en vez de elegir una al azar.
+const COLOR_CINCUENTA = "#2563eb"
+const COLOR_C1 = "#7c3aed"
+const COLOR_PIBE_PIE = "#16a34a"
+const COLOR_RELEVAMIENTO = "#dc2626"
+const COLOR_OTRAS = "#f97316"
+const COLOR_MULTI = "#ffffff"
+
+const KIND_COLOR: Record<string, string> = {
+  "50 Ludotecas": COLOR_CINCUENTA,
+  "Circular 1": COLOR_C1,
+  "PIBE/PIE": COLOR_PIBE_PIE,
+  Relevamiento: COLOR_RELEVAMIENTO,
+  Otras: COLOR_OTRAS,
 }
 
-function DetailPanel({ pin }: { pin: Pin }) {
-  const contacto = pin.payload[CAMPO_CONTACTO]
-  const respuestas = CAMPOS_SOBRE_LUDOTECA.map(
-    (campo) => [campo, pin.payload[campo]] as const
-  ).filter(([, valor]) => valor)
+const LEGEND: { color: string; label: string }[] = [
+  { color: COLOR_CINCUENTA, label: "50 Ludotecas" },
+  { color: COLOR_C1, label: "Circular 1" },
+  { color: COLOR_PIBE_PIE, label: "Proy. de Bienestar Educativo" },
+  { color: COLOR_RELEVAMIENTO, label: "Relevamiento abierto" },
+  { color: COLOR_OTRAS, label: "Otras" },
+  { color: COLOR_MULTI, label: "Más de una" },
+]
 
+function pinColor(pin: PublicPin): string {
+  if (pin.kinds.length > 1) return COLOR_MULTI
+  return KIND_COLOR[pin.kinds[0]] ?? COLOR_OTRAS
+}
+
+function DetailPanel({ pin }: { pin: PublicPin }) {
   return (
     <div>
       <h3 className="font-barriecito text-2xl mb-4">{titleCase(pin.nombre)}</h3>
-
-      {pin.escuela ? (
-        <div className="mb-2 flex flex-col gap-2">
-          <p>
-            <strong>Escuela:</strong> {titleCase(pin.escuela.nombre)}
-          </p>
-          <p>
-            <strong>
-              {pin.localidad} {pin.departamento && "/"} {pin.departamento}
-            </strong>
-          </p>
-          <p>{titleCase(pin.escuela.domicilio)}</p>
-        </div>
-      ) : (
-        <p>
-          {pin.localidad} {pin.departamento && "/"} {pin.departamento}
-        </p>
-      )}
-
-      {(contacto || respuestas.length > 0) && (
-        <div className="flex flex-col gap-4 mt-6">
-          <h4 className="font-barriecito text-2xl">Sobre la Ludoteca</h4>
-          {contacto && (
-            <div>
-              <h4 className="font-semibold">Contacto</h4>
-              <p>{contacto}</p>
-            </div>
-          )}
-          <ul className="text-xs flex flex-col gap-1.5">
-            {respuestas.map(([campo, valor]) => (
-              <li key={campo}>
-                <div>
-                  <p>
-                    <strong>{campo}</strong>
-                  </p>{" "}
-                  <p>{valor}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="flex flex-wrap gap-1.5">
+        {pin.kinds.map((kind) => (
+          <span
+            key={kind}
+            className="text-xs rounded-full border px-2 py-0.5"
+            style={{ borderColor: "currentColor" }}
+          >
+            {kind}
+          </span>
+        ))}
+      </div>
     </div>
   )
 }
 
-export function PublicMapView({ apiKey, pins }: { apiKey: string; pins: Pin[] }) {
+export function PublicMapView({
+  apiKey,
+  pins,
+}: {
+  apiKey: string
+  pins: PublicPin[]
+}) {
   const mapContainerRef = useRef<HTMLDivElement>(null)
   const detailsRef = useRef<HTMLDivElement>(null)
   const mapRef = useRef<google.maps.Map | null>(null)
@@ -83,8 +77,12 @@ export function PublicMapView({ apiKey, pins }: { apiKey: string; pins: Pin[] })
   const pinIconFactoryRef = useRef<((color: string) => string) | null>(null)
   const [selectedId, setSelectedId] = useState<string | null>(null)
 
-  const pinsById = useMemo(() => new Map(pins.map((pin) => [pin.id, pin])), [pins])
-  const selectedPin = selectedId != null ? pinsById.get(selectedId) ?? null : null
+  const pinsById = useMemo(
+    () => new Map(pins.map((pin) => [pin.id, pin])),
+    [pins]
+  )
+  const selectedPin =
+    selectedId != null ? pinsById.get(selectedId) ?? null : null
   const selectOptions = useMemo(
     () =>
       pins
@@ -92,6 +90,13 @@ export function PublicMapView({ apiKey, pins }: { apiKey: string; pins: Pin[] })
         .sort((a, b) => a.label.localeCompare(b.label)),
     [pins]
   )
+  // Solo se listan en la leyenda las categorías que efectivamente tienen
+  // algún pin hoy -- si no hay ninguna "Otras" (o cualquier otra), no hace
+  // falta tocar el código para que desaparezca de la leyenda.
+  const legend = useMemo(() => {
+    const coloresEnUso = new Set(pins.map(pinColor))
+    return LEGEND.filter(({ color }) => coloresEnUso.has(color))
+  }, [pins])
 
   useEffect(() => {
     let cancelled = false
@@ -183,9 +188,51 @@ export function PublicMapView({ apiKey, pins }: { apiKey: string; pins: Pin[] })
     <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
       <div style={{ flex: "2 1 500px" }}>
         <div
+          style={{
+            marginBottom: 8,
+            fontSize: 13,
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "0.75rem",
+          }}
+        >
+          {legend.map(({ color, label }) => (
+            <span
+              key={label}
+              style={{ display: "inline-flex", alignItems: "center", gap: 4 }}
+            >
+              <span
+                style={{
+                  display: "inline-block",
+                  width: 10,
+                  height: 10,
+                  borderRadius: "50%",
+                  backgroundColor: color,
+                  border: "1px solid #1f2937",
+                }}
+              />
+              {label}
+            </span>
+          ))}
+        </div>
+        <div
           ref={mapContainerRef}
           style={{ height: "70vh", width: "100%", borderRadius: "6px" }}
         />
+        <p className="text-xs opacity-60 mt-1">
+          Algunas ubicaciones son aproximadas
+        </p>
+        <p className="text-xs opacity-60">
+          ¿Ves algo incorrecto?{" "}
+          <a
+            href="https://forms.gle/2Txcpf8HViypwL1B8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Informanos acá
+          </a>
+        </p>
       </div>
 
       <div
@@ -206,7 +253,9 @@ export function PublicMapView({ apiKey, pins }: { apiKey: string; pins: Pin[] })
           withAlignedLabels
           nothingFoundMessage="No se encontró ninguna ludoteca"
         />
-        <p className="text-xs px-2 py-1 mb-4">{selectOptions.length} ludotecas</p>
+        <p className="text-xs px-2 py-1 mb-4">
+          {selectOptions.length} ludotecas
+        </p>
 
         <div ref={detailsRef} style={{ overflowY: "auto" }}>
           {selectedPin ? (

@@ -9,12 +9,8 @@ import {
   LUDOTECAS_COLUMNS,
   LUDOTECAS_TAB,
 } from "@/lib/consolidation/master-sheet"
-import { buildPins } from "@/lib/map-pins"
-import type { Pin } from "@/lib/map-types"
-import {
-  CAMPO_CONTACTO,
-  CAMPOS_SOBRE_LUDOTECA,
-} from "@/lib/relevamiento-fields"
+import { buildPins, pinKinds } from "@/lib/map-pins"
+import type { PublicPin } from "@/lib/map-types"
 import { PublicMapView } from "./PublicMapView"
 import FlyerRelevamiento from "@/public/assets/gacetilla/flyer-relevamiento.png"
 import Image from "next/image"
@@ -36,13 +32,6 @@ export const metadata: Metadata = {
   },
 }
 
-// Pregunta de consentimiento del form -- solo se publican acá las
-// respuestas de quienes contestaron "Sí" explícitamente. Dejar la pregunta
-// en blanco o responder "Por ahora mejor no" excluye a esa ludoteca de esta
-// página (pero sigue viendo en /admin/map).
-const CONSENTIMIENTO_KEY =
-  "¿Nos das permiso de compartir eventualmente algún extracto de tus respuestas o alguna foto en nuestro sitio web (ludotecaseducacion.co) con fines pedagógicos y de comunicación institucional (difusión de experiencias, materiales y registros del proyecto)?\n\nEl Ministerio no publica imágenes donde aparezcan rostros de estudiantes sin contar con las autorizaciones correspondientes de las familias o responsables."
-
 function parseRows(
   values: string[][],
   columns: readonly string[]
@@ -50,10 +39,6 @@ function parseRows(
   return values.map((row) =>
     Object.fromEntries(columns.map((c, i) => [c, row[i] ?? ""]))
   )
-}
-
-function tienePayload(pin: Pin): boolean {
-  return Object.keys(pin.payload).length > 0
 }
 
 export default async function RelevamientoPage() {
@@ -92,23 +77,17 @@ export default async function RelevamientoPage() {
     ludotecasByRowIndex,
   })
 
-  // Solo relevamiento (respondieron el form) y con consentimiento explícito
-  // para publicar; se descartan las etiquetas de programa (Maestra) y todo
-  // el payload salvo el nombre de contacto y los 5 campos permitidos.
-  const pins: Pin[] = todosLosPines
-    .filter(
-      (pin) =>
-        tienePayload(pin) && pin.payload[CONSENTIMIENTO_KEY]?.trim() === "Sí"
-    )
-    .map((pin) => {
-      const payload: Record<string, string> = {}
-      if (pin.payload[CAMPO_CONTACTO])
-        payload[CAMPO_CONTACTO] = pin.payload[CAMPO_CONTACTO]
-      for (const campo of CAMPOS_SOBRE_LUDOTECA) {
-        if (pin.payload[campo]) payload[campo] = pin.payload[campo]
-      }
-      return { ...pin, fuentes: [], payload }
-    })
+  // Se muestran todos los pines que existen en el mapa privado, pero sin
+  // ninguna de sus respuestas ni datos de la institución/escuela -- ni aún
+  // al hacer click. Solo se expone nombre, ubicación y a qué categoría(s)
+  // pertenece (Circular 1, PIBE/PIE, Relevamiento, 50 Ludotecas, Otras).
+  const pins: PublicPin[] = todosLosPines.map((pin) => ({
+    id: pin.id,
+    nombre: pin.nombre,
+    lat: pin.lat,
+    lng: pin.lng,
+    kinds: pinKinds(pin),
+  }))
 
   return (
     <div className="mx-auto max-w-6xl my-16 px-4">
