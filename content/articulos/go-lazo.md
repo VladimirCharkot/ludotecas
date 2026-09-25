@@ -11,6 +11,15 @@ descripcion: ¡Llega el Go a las escuelas de Córdoba!
 
 En este artículo te contamos por qué es buena idea, cómo empezar y por dónde seguir.
 
+## Índice
+
+- [Por qué el Go](#por-que-el-go)
+- [Cómo empezar](#como-empezar)
+- [Los elementos](#los-elementos)
+- [Dónde aprender y jugar online](#donde-aprender-y-jugar-online)
+- [Un poco de historia](#un-poco-de-historia)
+- [Palabras de cierre](#palabras-de-cierre)
+
 ## Por qué el Go
 
 > El cazador que persigue dos liebres –respondío el maestro– no atrapa ninguna.
@@ -26,38 +35,6 @@ Esta transferencia no es solo una sensación de quienes juegan: en Corea, donde 
 Es **laudado como práctica de toma de decisiones y como ejercicio matemático**, en la misma línea que el ajedrez. **La abstracción que se entrena en el tablero se puede ver después fuera de él** en situaciones de conflicto, negociación o desarrollo estratégico.
 
 Tiene además una ventaja distintiva para el aula: el sistema de hándicap —unas piedras de ventaja al inicio para quien tiene menos experiencia, o el "komi", una compensación de puntos para quien juega en segundo lugar— permite que jugadoras y jugadores de niveles muy distintos disputen partidas parejas y disfrutables, sin que la brecha de experiencia arruine el juego. Es una cualidad rara y valiosa en un aula con ritmos de aprendizaje diversos.
-
-## Un poco de historia
-
-> Cuando quieras medir la profundidad de un arroyo, no uses ambos pies
->
-> – Proverbio del Go
-
-La cultura de **templanza y sabiduría** que rodea y acompaña al Go tiene raíces históricas. Te contamos un poco al respecto antes de meternos de lleno a la mecánica del juego.
-
-![Ilustración de adultos sorprendidos ante un niño jugando Go](/assets/go-lazo/niño.webp)
-
-### De su antigüedad
-
-**El Go es el juego de estrategia más antiguo del mundo que aún sigue practicándose.** Según cuenta la leyenda, fue inventado por el mítico emperador chino Yao —de cuyo reinado la tradición ubica hacia el siglo XXIII a.C.— **para educar** a su hijo Danzhu, díscolo y poco disciplinado, en la concentración y el buen juicio. Sea o no cierta la anécdota, hay alusiones en registros históricos consistentes con la época de Confucio que **confirman que el juego**, entonces llamado weiqi, **ya se practicaba hacia el 500 a.C.** Llegó a ocupar un lugar central en la cultura china: junto con la caligrafía, la pintura y la música, integraba las "cuatro artes" que se esperaba dominara todo erudito.
-
-### Su desarrollo en Japón
-
-El weiqi llegó a Japón antes del siglo VIII, probablemente a través del intercambio con la dinastía Tang china y con los reinos coreanos. Durante el período Heian (794-1185) se volvió un **pasatiempo predilecto de la aristocracia de la corte**. Pero fue en el período Edo (1603-1868), bajo el shogunato Tokugawa, cuando el **juego se institucionalizó**: se establecieron cuatro "casas" hereditarias dedicadas a formar jugadores de élite, con el título de Meijin (maestro) como máxima distinción en disputa. **La rivalidad entre esas casas, sostenida durante trescientos años, fue el motor que llevó la técnica y la teoría del juego a un refinamiento que todavía hoy se estudia**. Ese linaje profesional se mantiene vivo: Japón, Corea del Sur y China concentran a los jugadores de más alto nivel del mundo, y series como _Hikaru no Go_ —el manga y anime sobre un adolescente que aprende a jugar de la mano del fantasma de un maestro de la corte Heian— sembraron buena parte del interés actual por el Go entre las generaciones más jóvenes.
-
-### Su llegada a Europa
-
-Las primeras menciones europeas al Go son tempranas pero anecdóticas: en 1616 un duque alemán tradujo un párrafo sobre el juego escrito desde China por el misionero jesuita Matteo Ricci, y en 1694 el orientalista inglés Thomas Hyde lo describió con más detalle en un tratado sobre juegos asiáticos. Jugarlo en Europa, sin embargo, es una historia mucho más tardía: **recién en 1880** el ingeniero alemán Oscar Korschelt, tras estudiarlo en Japón de la mano del maestro Honinbō Shūhō, publicó el primer texto que explicaba sus reglas y su estrategia para un público occidental. A partir de ahí el interés creció despacio pero sin pausa, hasta la fundación del Campeonato Europeo de Go en 1938[^1].
-
-### En Argentina
-
-El Go llegó al país de la mano de las colectividades asiáticas, pero recién se formalizó como práctica organizada en la década de 1970. El motor fue **Hilario Fernández Long**, ingeniero y ex rector de la Universidad de Buenos Aires (1965-1966): escribió una _Introducción al Go_ y un _Manual de Go_, los primeros textos en castellano sobre el juego, e impulsó en 1971 la fundación de la **Asociación Argentina del Juego de Go**. Once años después, en 1982, la asociación figuró entre los veintinueve miembros fundadores de la Federación Internacional de Go. Gran parte del crecimiento posterior tiene nombre propio: **Fernando Aguilar**, el mejor jugador del país (7° dan), es también una **referencia como pedagogo** — enseña Go por internet desde 1998, ha escrito varios libros[^6] y resume así su enfoque: "el estudio debe ser placentero, no solo para ganar sino por el placer de aprender"[^5]. Desde entonces el juego fue ganando terreno de a poco pero sin pausa: hoy la asociación sostiene el Torneo Argentino de Go y cursos abiertos, y en 2024 un equipo juvenil argentino viajó a China a representar al país en un mundial de Go[^4].
-
-### AlphaGo
-
-Nos dedicamos esta sección un tanto en resonancia con la línea de videojuegos del programa: **AlphaGo**, el programa de DeepMind que en 2016 venció 4 a 1 al surcoreano Lee Sedol, uno de los mejores jugadores del mundo, marcó **un antes y un después para la inteligencia artificial de juegos**. A diferencia del ajedrez, donde Deep Blue ya ganaba en 1997 explorando por fuerza bruta buena parte del árbol de jugadas posibles, en Go esa cantidad de jugadas es tan enorme que ninguna búsqueda exhaustiva es viable. La apuesta de AlphaGo fue entrenar una red neuronal para que aprendiera algo parecido a la intuición de un jugador fuerte —qué movidas "se sienten bien"— y usar esa intuición para podar drásticamente la búsqueda. Que funcionara, y que lo hiciera contra el mejor jugador del mundo, demostró que el aprendizaje profundo —probado desde 2012 reconociendo gatos en fotos con AlexNet— también podía sostener algo parecido al juicio estratégico de largo alcance: el salto de "las IAs reconocen gatos" a "las IAs tienen algo parecido al criterio". La portada de este artículo es una alusión a ese momento.
-
-![Tablero con piedras y partida en marcha](/assets/go-lazo/tablero-en-accion.webp)
 
 ## Cómo empezar
 
@@ -158,6 +135,38 @@ Te dejamos algunos recursos web para que puedas experimentar ya mismo.
 - [senseis.xmp.net](senseis.xmp.net) - Un reservorio colaborativo muy curado de materiales de aprendizaje y debates en torno al Go, con guías de referencia, tutoriales de varios niveles, proverbios de táctica y estrategia –[de allí](https://senseis.xmp.net/?GoProverbs) salieron los que usamos en esta página–, problemas y ejercicios, y más.
 - Entrevista a Fernando Aguilar en TVP - Se suele invocar al Go como dispositivo pedagógico de amplio espectro para escenarios de estrategia. Si te interesa esta dimensión, te invitamos también a ver esta entrevista de TVP con Fernando Aguilar, el referente de pedagogía del Go en Argentina, donde conversa un poco sobre las reglas y el papel del Go en relación a la diplomacia, los negocios y la geopolítica.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2H1bzKi_HGo?si=TR-VqUCjbKAd7ucG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Un poco de historia
+
+> Cuando quieras medir la profundidad de un arroyo, no uses ambos pies
+>
+> – Proverbio del Go
+
+La cultura de **templanza y sabiduría** que rodea y acompaña al Go tiene raíces históricas. Te contamos un poco al respecto antes de meternos de lleno a la mecánica del juego.
+
+![Ilustración de adultos sorprendidos ante un niño jugando Go](/assets/go-lazo/niño.webp)
+
+### De su antigüedad
+
+**El Go es el juego de estrategia más antiguo del mundo que aún sigue practicándose.** Según cuenta la leyenda, fue inventado por el mítico emperador chino Yao —de cuyo reinado la tradición ubica hacia el siglo XXIII a.C.— **para educar** a su hijo Danzhu, díscolo y poco disciplinado, en la concentración y el buen juicio. Sea o no cierta la anécdota, hay alusiones en registros históricos consistentes con la época de Confucio que **confirman que el juego**, entonces llamado weiqi, **ya se practicaba hacia el 500 a.C.** Llegó a ocupar un lugar central en la cultura china: junto con la caligrafía, la pintura y la música, integraba las "cuatro artes" que se esperaba dominara todo erudito.
+
+### Su desarrollo en Japón
+
+El weiqi llegó a Japón antes del siglo VIII, probablemente a través del intercambio con la dinastía Tang china y con los reinos coreanos. Durante el período Heian (794-1185) se volvió un **pasatiempo predilecto de la aristocracia de la corte**. Pero fue en el período Edo (1603-1868), bajo el shogunato Tokugawa, cuando el **juego se institucionalizó**: se establecieron cuatro "casas" hereditarias dedicadas a formar jugadores de élite, con el título de Meijin (maestro) como máxima distinción en disputa. **La rivalidad entre esas casas, sostenida durante trescientos años, fue el motor que llevó la técnica y la teoría del juego a un refinamiento que todavía hoy se estudia**. Ese linaje profesional se mantiene vivo: Japón, Corea del Sur y China concentran a los jugadores de más alto nivel del mundo, y series como _Hikaru no Go_ —el manga y anime sobre un adolescente que aprende a jugar de la mano del fantasma de un maestro de la corte Heian— sembraron buena parte del interés actual por el Go entre las generaciones más jóvenes.
+
+### Su llegada a Europa
+
+Las primeras menciones europeas al Go son tempranas pero anecdóticas: en 1616 un duque alemán tradujo un párrafo sobre el juego escrito desde China por el misionero jesuita Matteo Ricci, y en 1694 el orientalista inglés Thomas Hyde lo describió con más detalle en un tratado sobre juegos asiáticos. Jugarlo en Europa, sin embargo, es una historia mucho más tardía: **recién en 1880** el ingeniero alemán Oscar Korschelt, tras estudiarlo en Japón de la mano del maestro Honinbō Shūhō, publicó el primer texto que explicaba sus reglas y su estrategia para un público occidental. A partir de ahí el interés creció despacio pero sin pausa, hasta la fundación del Campeonato Europeo de Go en 1938[^1].
+
+### En Argentina
+
+El Go llegó al país de la mano de las colectividades asiáticas, pero recién se formalizó como práctica organizada en la década de 1970. El motor fue **Hilario Fernández Long**, ingeniero y ex rector de la Universidad de Buenos Aires (1965-1966): escribió una _Introducción al Go_ y un _Manual de Go_, los primeros textos en castellano sobre el juego, e impulsó en 1971 la fundación de la **Asociación Argentina del Juego de Go**. Once años después, en 1982, la asociación figuró entre los veintinueve miembros fundadores de la Federación Internacional de Go. Gran parte del crecimiento posterior tiene nombre propio: **Fernando Aguilar**, el mejor jugador del país (7° dan), es también una **referencia como pedagogo** — enseña Go por internet desde 1998, ha escrito varios libros[^6] y resume así su enfoque: "el estudio debe ser placentero, no solo para ganar sino por el placer de aprender"[^5]. Desde entonces el juego fue ganando terreno de a poco pero sin pausa: hoy la asociación sostiene el Torneo Argentino de Go y cursos abiertos, y en 2024 un equipo juvenil argentino viajó a China a representar al país en un mundial de Go[^4].
+
+### AlphaGo
+
+Nos dedicamos esta sección un tanto en resonancia con la línea de videojuegos del programa: **AlphaGo**, el programa de DeepMind que en 2016 venció 4 a 1 al surcoreano Lee Sedol, uno de los mejores jugadores del mundo, marcó **un antes y un después para la inteligencia artificial de juegos**. A diferencia del ajedrez, donde Deep Blue ya ganaba en 1997 explorando por fuerza bruta buena parte del árbol de jugadas posibles, en Go esa cantidad de jugadas es tan enorme que ninguna búsqueda exhaustiva es viable. La apuesta de AlphaGo fue entrenar una red neuronal para que aprendiera algo parecido a la intuición de un jugador fuerte —qué movidas "se sienten bien"— y usar esa intuición para podar drásticamente la búsqueda. Que funcionara, y que lo hiciera contra el mejor jugador del mundo, demostró que el aprendizaje profundo —probado desde 2012 reconociendo gatos en fotos con AlexNet— también podía sostener algo parecido al juicio estratégico de largo alcance: el salto de "las IAs reconocen gatos" a "las IAs tienen algo parecido al criterio". La portada de este artículo es una alusión a ese momento.
+
+![Tablero con piedras y partida en marcha](/assets/go-lazo/tablero-en-accion.webp)
 
 ## Palabras de cierre
 

@@ -149,6 +149,44 @@ const sanitizeSchema = {
   },
 }
 
+function slugify(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "") // quita tildes: los hrefs del TOC salen url-encodeados y no siempre matchean un id con tildes sin encodear
+    .toLowerCase()
+    .trim()
+    .replace(/[^\p{L}\p{N}\s-]/gu, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+}
+
+function headingText(node: Element): string {
+  let text = ""
+  visit(node, "text", (child) => {
+    text += child.value
+  })
+  return text
+}
+
+// Le da un id (slug) a cada h2/h3 para poder linkearlos desde una tabla de
+// contenidos dentro del propio markdown, ej. [Cómo empezar](#cómo-empezar).
+function rehypeHeadingIds() {
+  return (tree: Root) => {
+    const seen = new Map<string, number>()
+    visit(tree, "element", (node: Element) => {
+      if (node.tagName !== "h2" && node.tagName !== "h3") return
+      if (node.properties?.id) return // ej. el h2#footnote-label de las notas al pie
+
+      const base = slugify(headingText(node))
+      if (!base) return
+
+      const count = seen.get(base) ?? 0
+      seen.set(base, count + 1)
+      node.properties = { ...node.properties, id: count === 0 ? base : `${base}-${count}` }
+    })
+  }
+}
+
 function rehypeRenameFootnotes() {
   return (tree: Root) => {
     visit(tree, "element", (node: Element) => {
@@ -169,6 +207,7 @@ export async function renderMarkdown(content: string): Promise<string> {
       target: "_blank",
       rel: ["noopener", "noreferrer"],
     })
+    .use(rehypeHeadingIds)
     .use(rehypeRenameFootnotes)
     .use(rehypeSanitize, sanitizeSchema)
     .use(rehypeStringify)
