@@ -68,7 +68,7 @@ En la siguiente imágen pueden verse 4 casos de piedras en atari. Si blanco jueg
 
 ![Diagrama con escenarios de captura](/assets/go-lazo/capturas.webp)
 
-**No se puede jugar una piedra que quede sin libertades, salvo que esa jugada capture piedras rivales**. A esta regla se le llama "regla del suicidio".
+**No se puede jugar una piedra que quede sin libertades, salvo que esa jugada capture piedras rivales**. A esta regla se la llama "regla de autocaptura".
 
 Al final gana quien controla más territorio —espacio vacío rodeado— sumado a las piedras capturadas. Con eso alcanza para sentarse a jugar; el resto se aprende jugando.
 
@@ -89,15 +89,15 @@ De esas pocas reglas se desprenden, casi como consecuencia lógica, un puñado d
 
 ### Vida y muerte
 
-La primera, y la más importante, es la **vida y muerte**. Sale directo de **la regla del suicidio: no se puede jugar una piedra que quede sin ninguna libertad, salvo que esa jugada capture piedras rivales**. Por lo tanto, si una cadena forma un "ojo", es decir un espacio vacío "interno" que rodea completamente, el adversario no podrá jugar en esa intersección a menos que sea la última libertad de la cadena que la rodea.
+La primera, y la más importante, es la **vida y muerte**. Sale directo de **la regla de autocaptura: no se puede jugar una piedra que quede sin ninguna libertad, salvo que esa jugada capture piedras rivales**. Por lo tanto, si una cadena forma un "ojo", es decir un espacio vacío "interno" que rodea completamente, el adversario no podrá jugar en esa intersección a menos que sea la última libertad de la cadena que la rodea.
 
-La siguiente imagen vemos una cadena negra, rodeada y con un solo ojo, una única libertad interna. Normalmente blanco no podría jugar ahí por la regla del suicidio: no se puede jugar donde no tenemos libertades. Pero por ser la última libertad de negro, blanco puede jugar y capturar toda la cadena negra.
+La siguiente imagen vemos una cadena negra, rodeada y con un solo ojo, una única libertad interna. Normalmente blanco no podría jugar ahí por la regla de autocaptura: no se puede jugar donde no tenemos libertades. Pero por ser la última libertad de negro, blanco puede jugar y capturar toda la cadena negra.
 
 ![Cadena con un ojo (muerta)](/assets/go-lazo/un-ojo.webp)
 
-Pensemos entonces un grupo con dos "ojos" —dos espacios vacíos, separados entre sí, y completamente rodeados por ese grupo—: para capturarlo, el rival tendría que ocupar los dos ojos, pero apenas intente jugar en el primero se topa con una jugada suicida (esa piedra quedaría sin libertades y no captura nada, porque el segundo ojo le sigue dando aire al grupo), así que la regla se lo impide. Como nunca puede rellenar los dos ojos a la vez, un grupo con dos ojos separados es imposible de capturar: está vivo para siempre. Es la única certeza absoluta de todo el juego, y buena parte de la partida —ataques, invasiones, sacrificios— gira alrededor de construir esa vida o impedir que el rival la consiga.
+Pensemos entonces un grupo con dos "ojos" —dos espacios vacíos, separados entre sí, y completamente rodeados por ese grupo—: para capturarlo, el rival tendría que ocupar los dos ojos, pero apenas intente jugar en el primero se topa con una autocaptura (esa piedra quedaría sin libertades y no captura nada, porque el segundo ojo le sigue dando aire al grupo), así que la regla se lo impide. Como nunca puede rellenar los dos ojos a la vez, un grupo con dos ojos separados es imposible de capturar: está vivo para siempre. Es la única certeza absoluta de todo el juego, y buena parte de la partida —ataques, invasiones, sacrificios— gira alrededor de construir esa vida o impedir que el rival la consiga.
 
-En esta imágen vemos una cadena blanca con **dos ojos**. Esta cadena es inmortal, **incapturable**. Sin importar qué haga negro, nunca podrá jugar en ninguno de los dos puntos vacíos, **por la regla del suicidio**.
+En esta imágen vemos una cadena blanca con **dos ojos**. Esta cadena es inmortal, **incapturable**. Sin importar qué haga negro, nunca podrá jugar en ninguno de los dos puntos vacíos, **por la regla de autocaptura**.
 
 ![Cadena viva](/assets/go-lazo/viva.webp)
 
