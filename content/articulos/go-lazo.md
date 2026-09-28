@@ -70,9 +70,11 @@ En la siguiente imágen pueden verse 4 casos de piedras en atari. Si blanco jueg
 
 **No se puede jugar una piedra que quede sin libertades, salvo que esa jugada capture piedras rivales**. A esta regla se la llama "regla de autocaptura".
 
+Tampoco se puede repetir una posición anterior del tablero: hay situaciones —llamadas **"ko"**— donde ambos jugadores podrían capturarse mutuamente una y otra vez sin fin, y esta regla lo evita.
+
 Al final gana quien controla más territorio —espacio vacío rodeado— sumado a las piedras capturadas. Con eso alcanza para sentarse a jugar; el resto se aprende jugando.
 
-La partida termina cuando los dos jugadores pasan, no viendo nada más que hacer.
+**La partida termina cuando los dos jugadores pasan**, no viendo nada más que hacer.
 
 ### Atari Go
 
@@ -111,7 +113,7 @@ Por otro lado, en la derecha, tenemos un grupo blanco que no puede formar dos oj
 
 Te dejamos de tarea investigar qué son los **ojos falsos** 😉
 
-Para terminar una partida y hacer el conteo final hace falta que ambos jugadores se pongan de acuerdo en qué grupos están vivos y cuáles están muertos: es un paso obligado del juego, no un detalle menor. Por eso este concepto marca el cierre de la iniciación al juego.
+**Para terminar una partida y hacer el conteo final hace falta que ambos jugadores se pongan de acuerdo en qué grupos están vivos y cuáles están muertos: es un paso obligado del juego, no un detalle menor. Por eso este concepto marca el cierre de la iniciación al juego.**
 
 ### El final
 
@@ -142,7 +144,7 @@ Te dejamos algunos recursos web para que puedas experimentar ya mismo.
 >
 > – Proverbio del Go
 
-La cultura de **templanza y sabiduría** que rodea y acompaña al Go tiene raíces históricas. Te contamos un poco al respecto antes de meternos de lleno a la mecánica del juego.
+La cultura de **templanza y sabiduría** que rodea y acompaña al Go tiene raíces históricas. Te contamos un poco al respecto para complementar el estudio de la mecánica del juego.
 
 ![Ilustración de adultos sorprendidos ante un niño jugando Go](/assets/go-lazo/niño.webp)
 
