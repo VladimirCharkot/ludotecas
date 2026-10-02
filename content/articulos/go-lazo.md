@@ -9,6 +9,8 @@ descripcion: ¡Llega el Go a las escuelas de Córdoba!
 
 **El Go es un juego milenario**, originado en China y desarrollado luego en Japón, que consiste en controlar territorio **rodeándolo sin ser rodeado** por el rival. Es un viejo conocido en los estudios analíticos de juegos de tablero por la sencillez de sus reglas y su profundidad estratégica. En 2016, el juego fue el escenario de prueba de las nuevas generaciones de inteligencia artificial, marcando una entrada notable de ambos campos –el Go en particular y la IA en general– en la opinión pública.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i3ZR8zf4fIw?si=-23YM6CC11Jdi5PM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 En este artículo te contamos por qué es buena idea, cómo empezar y por dónde seguir.
 
 ## Índice
