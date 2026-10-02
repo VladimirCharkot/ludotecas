@@ -62,7 +62,7 @@ No hace falta nada más para jugar.
 
 Las reglas fundamentales son pocas.
 
-**Se juega en las intersecciones** de las líneas, no en los casilleros, **alternando turnos —empieza negro—** y también se puede pasar. **Las piedras no se mueven una vez colocadas**.
+**Se juega en las intersecciones** de las líneas, no en los casilleros, **alternando turnos —empieza negro—** y también se puede pasar. **Las piedras no se mueven una vez colocadas**. **Empieza jugando negro**
 
 Una piedra o grupo de piedras conectadas se captura y se retira del tablero cuando es rodeada por completo, es decir cuando pierde su última "libertad" (los espacios vacíos que la rodean); cuando le queda una sola libertad decimos que está en "atari", a un paso de caer.
 
@@ -74,7 +74,7 @@ En la siguiente imágen pueden verse 4 casos de piedras en atari. Si blanco jueg
 
 Tampoco se puede repetir una posición anterior del tablero: hay situaciones —llamadas **"ko"**— donde ambos jugadores podrían capturarse mutuamente una y otra vez sin fin, y esta regla lo evita.
 
-Al final gana quien controla más territorio —espacio vacío rodeado— sumado a las piedras capturadas. Con eso alcanza para sentarse a jugar; el resto se aprende jugando.
+Al final gana quien controla más territorio —espacio vacío rodeado— sumado a las piedras capturadas (o restandolas al puntaje del rival, el resultado es el mismo). Con eso alcanza para sentarse a jugar; el resto se aprende jugando.
 
 **La partida termina cuando los dos jugadores pasan**, no viendo nada más que hacer.
 
@@ -119,7 +119,7 @@ Te dejamos de tarea investigar qué son los **ojos falsos** 😉
 
 ### El final
 
-Una partida termina cuando se alcanza la estabilidad: no hay jaque mate ni tablero lleno, sino que ambos jugadores, viendo que ya no queda ninguna jugada que mejore su posición, pasan el turno uno después del otro —**dos pases consecutivos cierran la partida**. Recién ahí se retiran del tablero las cadenas que quedaron "muertas": son las mismas cadenas que, de seguir jugando, capturarlas sería sólo cuestión de tiempo y de un ejercicio mecánico sin sorpresas. Por eso de leer bien la vida y la muerte depende saber cuándo ya no queda nada más para jugar, y qué cadenas se retiran del tablero sin necesidad de demostrarlo jugada por jugada.
+Una partida termina cuando se alcanza la estabilidad: no hay jaque mate ni tablero lleno, sino que ambos jugadores, viendo que ya no queda ninguna jugada que mejore su posición, pasan el turno uno después del otro —**dos pases consecutivos cierran la partida**. Recién ahí se retiran del tablero las cadenas que quedaron "muertas": son las mismas cadenas que, de seguir jugando, capturarlas sería sólo cuestión de tiempo y de un ejercicio mecánico sin sorpresas. Por eso **de leer bien la vida y la muerte depende saber cuándo ya no queda nada más para jugar, y qué cadenas se retiran del tablero sin necesidad de demostrarlo jugada por jugada.**
 
 Las capturas –ya sean piedras muertas del adversario en el territorio propio o capturadas durante la partida– se devuelven al territorio de ese color. **El puntaje de cada quien es la cantidad de espacios vacíos libres dentro de su territorio**. Y se le dan 5 puntos y medio adicionales a blanco (para compensar el hecho de que comienza jugando negro).
 
