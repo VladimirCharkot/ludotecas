@@ -5,7 +5,7 @@ descripcion: ¡Llega el Go a las escuelas de Córdoba!
 
 ![Ilustración de público explotando de entusiasmo durante el desafío de Lee Sedol y AlphaGo](/assets/go-lazo/go-lazo-portada.webp)
 
-¡Con mucha alegría y entusiasmo innauguramos este 2026 **la línea de Go** dentro del programa!
+¡Con mucha alegría y entusiasmo inauguramos este 2026 **la línea de Go** dentro del programa!
 
 **El Go es un juego milenario**, originado en China y desarrollado luego en Japón, que consiste en controlar territorio **rodeándolo sin ser rodeado** por el rival. Es un viejo conocido en los estudios analíticos de juegos de tablero por la sencillez de sus reglas y su profundidad estratégica. En 2016, el juego fue el escenario de prueba de las nuevas generaciones de inteligencia artificial, marcando una entrada notable de ambos campos –el Go en particular y la IA en general– en la opinión pública.
 
@@ -134,7 +134,7 @@ La mejor manera de arrancar, de todos modos, es jugando. Y ahí el universo digi
 Te dejamos algunos recursos web para que puedas experimentar ya mismo.
 
 - [go.org.ar](https://go.org.ar/) - Web de la Asociación Argentina de Go. Ofrecen recursos de aprendizaje, actividades, clases, índices de clubes locales y más. Tienen una sección de [primeros pasos](https://go.org.ar/index.php/primeros-pasos).
-- [ludidactas.com](https://ludidactas.com/) - Aplicación web específicamente para docentes, que permite crear una sala donde tus estudiantes pueden jugar al Go online sin registrarse ni exponerse.
+- [ludidactas.com](https://ludidactas.com/) - Aplicación web específicamente para docentes, que permite crear una sala donde tus estudiantes -y vos- pueden jugar al Go online sin registrarse ni exponerse y practicar con una guía de más de 3000 ejercicios.
 - [online-go.com](https://online-go.com/) - Aplicación web masiva, abierta e internacional, bien conocida, con muchísimos recursos de aprendizaje y trabajo de curaduría aportados por la comunidad, aunque mayormente en inglés. Para jugar online hay que registrarse y las partidas tienen chats. Puede ser muy abrumador para alguien que está empezando y expuesto para la escuela. Es donde se va a perfeccionarse y participar de rankings internacionales.
 - [senseis.xmp.net](senseis.xmp.net) - Un reservorio colaborativo muy curado de materiales de aprendizaje y debates en torno al Go, con guías de referencia, tutoriales de varios niveles, proverbios de táctica y estrategia –[de allí](https://senseis.xmp.net/?GoProverbs) salieron los que usamos en esta página–, problemas y ejercicios, y más.
 - Entrevista a Fernando Aguilar en TVP - Se suele invocar al Go como dispositivo pedagógico de amplio espectro para escenarios de estrategia. Si te interesa esta dimensión, te invitamos también a ver esta entrevista de TVP con Fernando Aguilar, el referente de pedagogía del Go en Argentina, donde conversa un poco sobre las reglas y el papel del Go en relación a la diplomacia, los negocios y la geopolítica.
@@ -184,7 +184,7 @@ Por ahora esta es la acción propuesta desde el programa: **prepararnos jugando 
 
 Si te surge alguna duda en el camino, o querés contarnos cómo te fue llevándolo al aula, escribinos a ludotecaseducacion.cba@gmail.com. Mirá que vamos a estar esperando tu mail.
 
-Gracias por llegar hasta, ¡te esperamos para jugar alguna partida!
+Gracias por llegar hasta acá, ¡te esperamos para jugar alguna partida!
 
 [^1]: [British Go Association - A Brief History of Go](https://www.britgo.org/intro/history)
 [^2]: [Kim et al. (2014), "Baduk (the Game of Go) Improved Cognitive Function and Brain Activity in Children with Attention Deficit Hyperactivity Disorder"](https://pmc.ncbi.nlm.nih.gov/articles/PMC4023088/) y [Iizuka et al. (2018), "Pilot Randomized Controlled Trial of the GO Game Intervention on Cognitive Function"](https://journals.sagepub.com/doi/10.1177/1533317517753362)
