@@ -44,7 +44,7 @@ Tiene además una ventaja distintiva para el aula: el sistema de hándicap —un
 >
 > – Proverbio del Go
 
-Te proponemos empezar a jugar y agarrarle un poco la mano antes de llevarlo al aula. Acá te contamos cómo empezar:
+Te proponemos empezar a jugar y agarrarle un poco la mano antes de llevarlo al aula. Te invitamos a sumergirte directamente en una [guía de ejercicios](https://ludidactas.com/go/dojo) para acompañar la lectura de las reglas. Acá te las contamos:
 
 ### Cómo hacer un tablero
 
@@ -134,7 +134,7 @@ La mejor manera de arrancar, de todos modos, es jugando. Y ahí el universo digi
 Te dejamos algunos recursos web para que puedas experimentar ya mismo.
 
 - [go.org.ar](https://go.org.ar/) - Web de la Asociación Argentina de Go. Ofrecen recursos de aprendizaje, actividades, clases, índices de clubes locales y más. Tienen una sección de [primeros pasos](https://go.org.ar/index.php/primeros-pasos).
-- [ludidactas.com](https://ludidactas.com/) - Aplicación web específicamente para docentes, que permite crear una sala donde tus estudiantes -y vos- pueden jugar al Go online sin registrarse ni exponerse y practicar con una guía de más de 3000 ejercicios.
+- [ludidactas.com](https://ludidactas.com/) - Aplicación web específicamente para docentes, que permite crear una sala donde tus estudiantes -y vos- pueden jugar al Go online sin registrarse ni exponerse y practicar con una guía de más de 3000 ejercicios. Te recomendamos [la guía de ejercicios](https://ludidactas.com/go/dojo) como primer recurso.
 - [online-go.com](https://online-go.com/) - Aplicación web masiva, abierta e internacional, bien conocida, con muchísimos recursos de aprendizaje y trabajo de curaduría aportados por la comunidad, aunque mayormente en inglés. Para jugar online hay que registrarse y las partidas tienen chats. Puede ser muy abrumador para alguien que está empezando y expuesto para la escuela. Es donde se va a perfeccionarse y participar de rankings internacionales.
 - [senseis.xmp.net](senseis.xmp.net) - Un reservorio colaborativo muy curado de materiales de aprendizaje y debates en torno al Go, con guías de referencia, tutoriales de varios niveles, proverbios de táctica y estrategia –[de allí](https://senseis.xmp.net/?GoProverbs) salieron los que usamos en esta página–, problemas y ejercicios, y más.
 - Entrevista a Fernando Aguilar en TVP - Se suele invocar al Go como dispositivo pedagógico de amplio espectro para escenarios de estrategia. Si te interesa esta dimensión, te invitamos también a ver esta entrevista de TVP con Fernando Aguilar, el referente de pedagogía del Go en Argentina, donde conversa un poco sobre las reglas y el papel del Go en relación a la diplomacia, los negocios y la geopolítica.
