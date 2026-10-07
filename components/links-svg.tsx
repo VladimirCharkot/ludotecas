@@ -40,13 +40,13 @@ const links: ComponentProps<typeof CajitaLink>[] = [
     descripcion:
       "Un juego de comunicación y trabajo en equipo para el aula: desactivá el módulo cortando el cable correcto.",
   },
-  // {
-  //   titulo: "Go-lazo",
-  //   url: "/go-lazo",
-  //   img: Go,
-  //   alt: "Piedras de Go sobre el tablero.",
-  //   descripcion: "El Go escolar aterriza en Córdoba!",
-  // },
+  {
+    titulo: "Go-lazo",
+    url: "/go-lazo",
+    img: Go,
+    alt: "Piedras de Go sobre el tablero.",
+    descripcion: "El Go escolar aterriza en Córdoba!",
+  },
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",
     url: "/guia-2026",
