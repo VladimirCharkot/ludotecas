@@ -45,7 +45,8 @@ const links: ComponentProps<typeof CajitaLink>[] = [
     url: "/go-lazo",
     img: Go,
     alt: "Piedras de Go sobre el tablero.",
-    descripcion: "El Go escolar aterriza en Córdoba!",
+    descripcion:
+      "El Go escolar aterriza en Córdoba! Te invitamos a conocer este juego de estrategia milenario y llevarlo a las aulas y ludotecas.",
   },
   {
     titulo: "Cómo armar una Ludoteca en tu escuela",
