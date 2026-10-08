@@ -22,6 +22,14 @@ En este artículo te contamos por qué es buena idea, cómo empezar y por dónde
 - [Un poco de historia](#un-poco-de-historia)
 - [Palabras de cierre](#palabras-de-cierre)
 
+### Links rápidos
+
+- **[Dojo de Go de Ludidactas](https://ludidactas.com/go/dojo)** - Ejercicios para aprender y practicar. ¡Empezá por acá!
+- [Ludidactas](https://ludidactas.com/) - Salas para jugar online con tus estudiantes, sin registro.
+- [go.org.ar](https://go.org.ar/) - Asociación Argentina de Go ([primeros pasos](https://go.org.ar/index.php/primeros-pasos)).
+- [online-go.com](https://online-go.com/) - Plataforma internacional para jugar y perfeccionarse.
+- [senseis.xmp.net](https://senseis.xmp.net/) - Biblioteca colaborativa de materiales y proverbios.
+
 ## Por qué el Go
 
 > El cazador que persigue dos liebres –respondío el maestro– no atrapa ninguna.
