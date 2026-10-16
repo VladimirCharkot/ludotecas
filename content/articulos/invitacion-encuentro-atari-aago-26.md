@@ -29,7 +29,7 @@ Cada partida ganada suma una victoria al equipo de quien la juega, y el total de
 - **Tablero:** 9×9.
 - **Turnos:** empieza negro, se juega alternando y no se puede pasar.
 - **Gana** quien capture 3 piedras rivales, o si el rival abandona, se queda sin tiempo o no tiene ninguna jugada legal.
-- **Suicidio:** está prohibido, salvo que la jugada capture. Rige la regla del ko.
+- **Autocaptura:** está prohibido, salvo que la jugada capture. Rige la regla del ko.
 
 Si querés repasar antes del encuentro, tenés [una explicación en nuestro artículo de Go](/go-lazo#atari-go), [ejercicios para practicar en el Dojo](https://ludidactas.com/go/dojo) y un [tablero para jugar partidas de Atari Go](https://ludidactas.com/go/tablero).
 
