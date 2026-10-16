@@ -37,8 +37,4 @@ Si querés repasar antes del encuentro, tenés [una explicación en nuestro art�
 
 El encuentro se rige por el reglamento general de torneos de la AAGo; si hubiera diferencias, prevalecen las reglas específicas de este evento. La coordinación está a cargo de **Gonzalo Pereira**, quien hace cumplir las reglas, resuelve las disputas y decide sobre lo que no esté previsto.
 
-## Sobre la AAGo
-
-La Asociación Argentina del Juego de Go se encuentra en el Club Argentino de Ajedrez (Paraguay 1858, 1.º piso, CABA). Los jueves de 17:00 a 21:00 h hay encuentros presenciales y venta de equipamiento y libros, y de 17:00 a 18:00 h clases para principiantes. Más información en [go.org.ar](https://go.org.ar/).
-
 ¡Los esperamos para jugar! Si te surge alguna duda, escribinos a ludotecaseducacion.cba@gmail.com.
