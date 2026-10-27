@@ -11,6 +11,7 @@ import {
   TextInput,
   Title,
 } from "@mantine/core"
+import Fuse from "fuse.js"
 import { Search, Tag } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -30,21 +31,30 @@ export default function JuegosIndex({ juegos }: Props) {
     return Array.from(set).sort()
   }, [juegos])
 
-  const filtered = useMemo(() => {
-    const q = query.toLowerCase().trim()
-    return juegos.filter((j) => {
-      const matchText =
-        !q ||
-        j.meta.titulo.toLowerCase().includes(q) ||
-        j.meta.descripcion?.toLowerCase().includes(q)
+  const fuse = useMemo(
+    () =>
+      new Fuse(juegos, {
+        keys: [
+          { name: "meta.titulo", weight: 3 },
+          { name: "meta.tags", weight: 1.5 },
+          { name: "meta.descripcion", weight: 1 },
+        ],
+        threshold: 0.3,
+        ignoreLocation: true,
+        ignoreDiacritics: true,
+      }),
+    [juegos]
+  )
 
-      const matchTags =
+  const filtered = useMemo(() => {
+    const q = query.trim()
+    const results = q ? fuse.search(q).map((r) => r.item) : juegos
+    return results.filter(
+      (j) =>
         activeTags.length === 0 ||
         activeTags.every((t) => j.meta.tags?.includes(t))
-
-      return matchText && matchTags
-    })
-  }, [juegos, query, activeTags])
+    )
+  }, [fuse, juegos, query, activeTags])
 
   function toggleTag(tag: string) {
     setActiveTags((prev) =>
