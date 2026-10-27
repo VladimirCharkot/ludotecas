@@ -7,7 +7,7 @@ tags: [estrategia, tablero, dos jugadores, abstracto, crear]
 
 Colmena (conocido internacionalmente como Hive) es un juego abstracto para dos personas que no necesita tablero: las fichas mismas forman el terreno, y la colmena va creciendo y cambiando de forma a medida que se juega.
 
-Cada jugador tiene su propio ejército de insectos (abeja reina, hormigas, escarabajos, saltamontes, arañas y algunos más). El objetivo es **rodear la Abeja Reina rival** por completo: quien lo logre primero gana.
+Cada jugador tiene su propio enjambre de insectos (abeja reina, hormigas, escarabajos, saltamontes, arañas y algunos más). El objetivo es **rodear la Abeja Reina rival** por completo: quien lo logre primero gana.
 
 Tiene algo de dos juegos clásicos. Como en el **Go**, se gana encerrando y rodeando al rival, y la lucha es por el espacio. Como en el **ajedrez**, cada pieza tiene su propia manera de moverse, y entender cómo se complementan es la clave de la estrategia.
 
