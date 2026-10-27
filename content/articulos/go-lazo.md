@@ -25,7 +25,7 @@ En este artículo te contamos por qué es buena idea, cómo empezar y por dónde
 ### Links rápidos
 
 - **[Dojo de Go de Ludidactas](https://ludidactas.com/go/dojo)** - Ejercicios para aprender y practicar. ¡Empezá por acá!
-- **[Tablero de Go en Ludidactas](https://ludidactas.com/go/dojo)** - Un tablero para jugar con familiares y amigos. ¡Tiene también Atari Go!
+- **[Tablero de Go en Ludidactas](https://ludidactas.com/go/tablero)** - Un tablero para jugar con familiares y amigos. ¡Tiene también Atari Go!
 - [Salas online Ludidactas](https://ludidactas.com/salas) - Salas para jugar online con tus estudiantes y permitirles jugar entre ellos sin que tengan que registrarse.
 - [go.org.ar](https://go.org.ar/) - Asociación Argentina de Go ([primeros pasos](https://go.org.ar/index.php/primeros-pasos)).
 - [online-go.com](https://online-go.com/) - Plataforma internacional para jugar y perfeccionarse.
