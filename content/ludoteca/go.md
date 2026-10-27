@@ -9,7 +9,7 @@ Go es uno de los juegos de estrategia más antiguos del mundo, originado en Chin
 
 Cobró gran popularidad recientemente gracias a los avances en inteligencia artificial que lo usaron como plataforma para comprobar el progreso del desarrollo de las nuevas técnicas de entrenamiento. En 2016, el programa AlphaGo derrotó al campeón mundial Lee Sedol, marcando un hito en la historia de la inteligencia artificial.
 
-Les dejamos el link a la [página de material escolar de la Asociación Argentina del Juego de Go](https://www.go.org.ar/contenido/material/137-go-escolar), donde pueden encontrar reglamentos, tutoriales, partidas comentadas y ejercicios para aprender a jugar.
+Les dejamos el link a nuestra página [Go-lazo](/go-lazo), donde pueden encontrar reglamentos, tutoriales, partidas comentadas y ejercicios para aprender a jugar.
 
 ## ¿Cómo se juega?
 
