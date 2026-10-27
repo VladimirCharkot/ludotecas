@@ -13,4 +13,12 @@ Tiene algo de dos juegos clásicos. Como en el **Go**, se gana encerrando y rode
 
 Además hay una regla que le da mucho carácter: la colmena tiene que estar siempre conectada, así que a veces mover una pieza es imposible porque rompería el conjunto.
 
-Te dejamos el [imprimible con las fichas](https://drive.google.com/file/d/1b7h4x5KRwyFabbf2oKvBRJ1wFIV_Qabt/view) y las [reglas para imprimir](https://drive.google.com/file/d/1JJpWea6hOCRhOMERL7KYApAZ2PgXXgm7/view). ¡A armar la colmena!
+Te dejamos el [imprimible con las fichas](https://drive.google.com/file/d/1b7h4x5KRwyFabbf2oKvBRJ1wFIV_Qabt/view) y las [reglas para imprimir](https://drive.google.com/file/d/1JJpWea6hOCRhOMERL7KYApAZ2PgXXgm7/view).
+
+Nosotros las imprimimos y luego las pegamos con silicona líquida (tipo UHU) sobre cartón o goma eva para que sean más manipulables. También se pueden conseguir en impresión 3D con mayor peso, más cómodas de manipular.
+
+![Fichas de Colmena en cartón](/assets/ludoteca/colmena_carton.webp)
+
+![Fichas de Colmena en goma eva](/assets/ludoteca/colmena_gomaeva.webp)
+
+¡A armar la colmena!

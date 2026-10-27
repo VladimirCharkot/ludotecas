@@ -59,13 +59,19 @@ Te proponemos empezar a jugar y agarrarle un poco la mano antes de llevarlo al a
 
 El tablero y las fichas son muy sencillos de fabricar en casa. Podemos dibujar el tablero en una hoja, una placa de madera o pintarlo sobre un lienzo o trozo de tela; en tela funciona muy bien para guardar enrollado. Pueden reutilizarse fichas de TEG o algún otro juego, o armarlas en cerámica o porcelana fría, son simples fichas chatas circulares blancas y negras.
 
+A nosotros en porcelana fría nos anduvieron bárbaro, porque se puede teñir la masa entera con un poco de óleos blanco y negro (mitad y mitad) para no tener que pintalas una por una.
+
+![Fichas de porcelana fría secando](/assets/go-lazo/fichas_porcelana_fria.webp)
+
 El tablero de competición tiene una grilla de 19x19 líneas, pero para el aula recomendamos arrancar con tableros más chicos —9x9 y 13x13— que acortan las partidas y hacen mucho más llevadero el aprendizaje de las primeras nociones. Típicamente los juegos llevan fichas suficientes para cubrir todo el tablero, mitad de cada color, y una ficha extra de color negro, que arranca la partida. En números: 181 negras / 180 blancas para 19x19, 85 negras / 84 blancas para 13x13, 41 negras / 40 blancas para 9x9).
+
+![Tableros de 9, 13 y 19 líneas](/assets/go-lazo/tableros.webp)
 
 ¡Atenti a dibujar la cantidad de **líneas** correctas! Nos suele pasar que al dibujar un tablero contamos los espacios, y terminamos dibujando una línea de más.
 
 No hace falta nada más para jugar.
 
-![Tableros de 9, 13 y 19 líneas](/assets/go-lazo/tableros.webp)
+![Tablero casero en acción](/assets/go-lazo/tablero_casero.webp)
 
 ### Las reglas
 
