@@ -2,6 +2,60 @@
 // "Escuelas" y "Ludotecas" ya leídas — comparten esta lógica el mapa admin
 // (app/admin/map/[secret]) y el mapa público (app/relevamiento).
 import type { Pin, SinCoordenadas } from "./map-types"
+import { COLOR_ESCOLAR, COLOR_NO_ESCOLAR } from "./map-utils"
+
+// Color por categoría de origen, no por confianza de match (eso se sacó del
+// esquema viejo auto/revision/sin_escuela). Un pin puede tener más de una
+// fuente de Maestra a la vez (ej. "C1 Ludotecas;C1 Programación") — eso NO
+// cuenta como pertenecer a más de una de las 4 categorías de arriba, así que
+// tiene su propio tono "ambos" en vez de caer en blanco.
+export const COLOR_CINCUENTA = "#2563eb" // 50 Ludotecas (BP incluido) -> azul
+export const COLOR_C1_LUDOTECAS = "#a78bfa" // violeta claro
+export const COLOR_C1_PROGRAMACION = "#6d28d9" // violeta oscuro
+export const COLOR_C1_AMBOS = "#8b5cf6" // violeta medio (rara vez: ambos C1)
+export const COLOR_PIBE = "#4ade80" // verde claro
+export const COLOR_PIE = "#15803d" // verde oscuro
+export const COLOR_PIBE_PIE_AMBOS = "#22c55e" // verde medio (rara vez: ambos PIBE y PIE)
+export const COLOR_MULTI = "#ffffff" // pertenece a más de una de las 4 categorías
+
+// Se infiere de que haya payload del form -- no hace falta un campo nuevo en
+// Pin. Mismo criterio que ya usaba DetailPanel para mostrar "Sobre la
+// Ludoteca", reusado acá para el color y para el tag "Relevamiento".
+export function tieneFormulario(pin: Pin): boolean {
+  return Object.keys(pin.payload).length > 0
+}
+
+// Las 4 categorías que pidió el usuario para colorear pines. "fuentes" viene
+// de Maestra (puede tener varias a la vez).
+export function pinColor(pin: Pin): string {
+  const tiene50 = pin.fuentes.some((f) => f.startsWith("50 Ludotecas"))
+  const tieneC1Ludotecas = pin.fuentes.includes("C1 Ludotecas")
+  const tieneC1Programacion = pin.fuentes.includes("C1 Programación")
+  const tieneC1 = tieneC1Ludotecas || tieneC1Programacion
+  const tienePibe = pin.fuentes.includes("PIBE")
+  const tienePie = pin.fuentes.includes("PIE")
+  const tienePibePie = tienePibe || tienePie
+
+  const categorias = [
+    tiene50,
+    tieneC1,
+    tienePibePie,
+    tieneFormulario(pin),
+  ].filter(Boolean).length
+  if (categorias > 1) return COLOR_MULTI
+
+  if (tiene50) return COLOR_CINCUENTA
+  if (tieneC1) {
+    if (tieneC1Ludotecas && tieneC1Programacion) return COLOR_C1_AMBOS
+    return tieneC1Ludotecas ? COLOR_C1_LUDOTECAS : COLOR_C1_PROGRAMACION
+  }
+  if (tienePibePie) {
+    if (tienePibe && tienePie) return COLOR_PIBE_PIE_AMBOS
+    return tienePibe ? COLOR_PIBE : COLOR_PIE
+  }
+  return pin.escuela ? COLOR_ESCOLAR : COLOR_NO_ESCOLAR
+}
+
 
 // Desparrama pines que terminaron con las mismas coordenadas exactas (suele
 // pasar cuando una institución sin escuela matcheada se geocodifica solo por

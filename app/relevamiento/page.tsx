@@ -9,7 +9,7 @@ import {
   LUDOTECAS_COLUMNS,
   LUDOTECAS_TAB,
 } from "@/lib/consolidation/master-sheet"
-import { buildPins } from "@/lib/map-pins"
+import { buildPins, pinColor } from "@/lib/map-pins"
 import type { PublicPin } from "@/lib/map-types"
 import { PublicMapView } from "./PublicMapView"
 import FlyerRelevamiento from "@/public/assets/gacetilla/flyer-relevamiento.png"
@@ -31,18 +31,6 @@ export const metadata: Metadata = {
     images: [{ url: "/assets/gacetilla/flyer-relevamiento.png" }],
   },
 }
-
-// Instituciones que llegan por estos programas de Maestra no se muestran en
-// el mapa público (aunque sí siguen en /admin/map). "fuentes" puede traer
-// varias a la vez separadas por ";" -- alcanza con que incluya una excluida.
-const FUENTES_EXCLUIDAS_DEL_MAPA_PUBLICO = [
-  "PIBE",
-  "PIE",
-  // Circular 1 -- en evaluación. Si se confirma que sí forman parte de la
-  // red, borrar estas dos líneas para que vuelvan a aparecer.
-  "C1 Ludotecas",
-  "C1 Programación",
-]
 
 function parseRows(
   values: string[][],
@@ -89,20 +77,17 @@ export default async function RelevamientoPage() {
     ludotecasByRowIndex,
   })
 
-  // Se muestran todos los pines del mapa privado salvo los excluidos arriba,
-  // pero sin ninguna de sus respuestas, datos de la institución/escuela, ni
-  // distinción de categoría/fuente/programa -- ni aún al hacer click. Solo
-  // se expone nombre y ubicación.
-  const pins: PublicPin[] = todosLosPines
-    .filter(
-      (pin) => !pin.fuentes.some((f) => FUENTES_EXCLUIDAS_DEL_MAPA_PUBLICO.includes(f))
-    )
-    .map((pin) => ({
-      id: pin.id,
-      nombre: pin.nombre,
-      lat: pin.lat,
-      lng: pin.lng,
-    }))
+  // Se muestran todos los pines, coloreados por categoría igual que en
+  // /admin/map pero sin leyenda: el color se resuelve acá en el server y al
+  // cliente solo llegan nombre, ubicación y color -- nada de fuentes ni
+  // respuestas, ni aún al hacer click.
+  const pins: PublicPin[] = todosLosPines.map((pin) => ({
+    id: pin.id,
+    nombre: pin.nombre,
+    lat: pin.lat,
+    lng: pin.lng,
+    color: pinColor(pin),
+  }))
 
   return (
     <div className="mx-auto max-w-6xl my-16 px-4">

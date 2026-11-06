@@ -21,12 +21,14 @@ export interface Pin {
 
 // Versión del pin para el mapa público (/relevamiento): sin nada de la info
 // de la institución ni del formulario, ni aún al hacer click, ni distinción
-// de categoría/fuente/programa -- solo nombre y ubicación.
+// de categoría/fuente/programa (sin leyenda) -- solo nombre, ubicación y el
+// color ya resuelto en el server.
 export interface PublicPin {
   id: string
   nombre: string
   lat: number
   lng: number
+  color: string
 }
 
 export interface SinCoordenadas {
