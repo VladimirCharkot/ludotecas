@@ -13,7 +13,7 @@ La red de ludotecas escolares que se viene formando en toda la provincia se junt
 - **Dónde:** Plaza Cielo Tierra, Blvr. Chacabuco 1300, ciudad de Córdoba.
 - **Quiénes:** docentes y equipos de escuelas de toda la provincia, con o sin ludoteca armada.
 - **Puntaje docente:** el encuentro otorga puntaje.
-- **Inscripción:** en [igualdadycalidadcba.gov.ar](https://www.igualdadycalidadcba.gov.ar/).
+- **Inscripción:** en la [página de inscripciones de igualdadycalidadcba.gov.ar](https://www.igualdadycalidadcba.gov.ar/SIPEC-CBA/RedProvincial/Capacitacion/cursos-me.php).
 
 ## Qué vamos a hacer
 
