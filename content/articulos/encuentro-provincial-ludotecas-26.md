@@ -25,9 +25,9 @@ La red de ludotecas escolares que se viene formando en toda la provincia se junt
 
 En ambos momentos van a estar presentes distintas líneas de trabajo de las ludotecas:
 
-- juegos de mesa;
+- [juegos de mesa](/ludoteca);
 - juegos corporales;
-- ajedrez y [Go](/go-lazo);
+- [ajedrez](/ajedrez) y [Go](/go-lazo);
 - [videojuegos](/videojuegos).
 
 Si ya tenés una ludoteca en tu escuela, venís a contarnos y a llevarte ideas. Si todavía no la tenés, venís a ver cómo se arma y a jugar.
