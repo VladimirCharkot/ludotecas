@@ -4,6 +4,7 @@ import { Stack } from "@mantine/core"
 import { ComponentProps } from "react"
 import { CajitaLink } from "./cajita"
 
+import Encuentro from "@/public/assets/cielo-tierra.png"
 import PinMapa from "@/public/assets/pin-mapa-rojo.svg"
 import Videojuegos from "@/public/assets/pacman.webp"
 import SalaDeEscape from "@/public/assets/escape-room.webp"
@@ -16,6 +17,14 @@ import Logo from "@/public/logo.png"
 import LogoProvincia from "@/public/assets/institucional/logo-provincia.webp"
 
 const links: ComponentProps<typeof CajitaLink>[] = [
+  {
+    titulo: "1.º Encuentro Provincial de Ludotecas Escolares",
+    url: "/encuentro-26",
+    img: Encuentro,
+    alt: "Trazos de resaltador y subrayado.",
+    descripcion:
+      "Jueves 26 de noviembre, de 10 a 16 h, en Plaza Cielo Tierra. Una jornada para compartir experiencias y jugar. Otorga puntaje docente.",
+  },
   {
     titulo: "Relevamiento de Ludotecas Escolares",
     url: "/relevamiento",
